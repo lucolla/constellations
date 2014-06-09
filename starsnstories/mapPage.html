@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style type="text/css">
+        html {height:100%}
+        body {height:100%;margin:0;padding:0}
+        #googleMap {height:100%}
+    </style>
+
+<!-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC9rd3yzQZfbq_T4vGl_KpeqzqvmtaeuuE&sensor=true"></script>
+-->
+    <script>
+        function loadScript()
+        {
+            var script = document.createElement("script");
+            script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false&callback=initialize"; document.body.appendChild(script);
+        }
+
+        window.onload = loadScript;
+    </script>
+<script src="mapPageScripts.js">
+</script>
+
+</head>
+
+<body>
+<div id="googleMap" style="width:500px;height:380px;"></div>
+
+<input id='button' type="button" value="Press">
+
+<script>
+    var button = document.getElementById('button');
+    function showsky(){
+        //alert("hi");
+        ge.getOptions().setMapType(ge.MAP_TYPE_SKY);
+    }
+    button.addEventListener(
+            'click'
+            ,showsky
+    );
+
+</script>
+
+<a href="http://www.ynet.co.il"><img src="starfield.jpg"></a>
+
+<p> AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM </p>
+
+</body>
+</html>
+
+
+
+

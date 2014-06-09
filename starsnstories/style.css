@@ -1,0 +1,91 @@
+
+
+
+p{ color:red;}
+
+
+body{
+    color:navy;
+    font-size:30px;
+    text-transform: capitalize;
+    background-image: url(starfield.jpg);
+    background-repeat: repeat ;
+}
+
+h2{color: fuchsia;
+background-color: #ccc;
+font-weight: bold;
+    font-size:1.5em;
+margin: 50px;
+    padding: 40px;
+margin-right:300px;
+border-style: ridge;
+border-width:5px}
+
+a {
+    -webkit-transition: all 2s cubic-bezier(0.42,0.0,0.58,1.0) 0;
+    -moz-transition: all 2s cubic-bezier(0.42,0.0,0.58,1.0) 0;
+    -ms-transition: all 2s cubic-bezier(0.42,0.0,0.58,1.0) 0;
+    -o-transition: all 2s cubic-bezier(0.42,0.0,0.58,1.0) 0;
+    transition: all 2s cubic-bezier(0.42,0.0,0.58,1.0) 0;
+    font-weight: bold;
+    }
+
+a.linear1 {
+    -webkit-transition: 2s ;
+    -moz-transition: 2s ;
+    -ms-transition: 2s ;
+    -o-transition: 2s ;
+    transition: 2s ;
+    font-weight: bold;
+
+
+}
+
+a:hover{background-color: lightseagreen}
+
+figure{font-size:14px}
+
+dl {font-size: 10px}
+
+
+
+#start{
+    background-color: navy;
+    font-size: 30px}
+
+
+p.intro{
+    font: 14px/1.5 "Times New Roman", times, serif;
+    padding: 30px 10px;
+    border: 1px black solid;
+    border-width: 1px 5px 5px 1px;
+    border-color: red green blue yellow;
+    margin: 10px 50px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+
+    background-color: black;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-image: url(starfield.jpg);
+    
+}
+
+#buttonTwo{
+    background-color: fuchsia;
+    font-size: 35;
+}
+
+#map{
+background-color: navy;
+
+}
+
+#buttonTwo{background-color: gray}
