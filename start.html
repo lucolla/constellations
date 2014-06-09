@@ -28,7 +28,7 @@
  <script type="text/javascript" src="OpacityControl\OpacityControl.js"></script>
  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=TRUE"></script> 
  <script type="text/javascript"src="InfoWindows.js"></script>
- <script type="text/javascript"src="CoordDisplay.js"></script>
+ <script type="text/javascript"src="ConstellationsDb.js"></script>
  <script type="text/javascript"> 
     var mapTypes = {};
 
@@ -160,19 +160,20 @@
 
     };
 
-
+    /*
 	//Add a Ground Layer
 	var imageBounds = new google.maps.LatLngBounds(
       new google.maps.LatLng(0,translateRAtoLng(6)),
       new google.maps.LatLng(30, translateRAtoLng(3)));
 	var overlay;
+    */
+	
+	//Add a Ground Layer Cancer
 
-	//Add a Ground Layer Cassiopeia
 	var imageBoundsCancer = new google.maps.LatLngBounds(
       new google.maps.LatLng(0, translateRAtoLng(10)),
       new google.maps.LatLng(40, translateRAtoLng(7)));
 	var overlayCancer;
-
 
     var imageBoundsCassiopeia = new google.maps.LatLngBounds(
            new google.maps.LatLng(40, translateRAtoLng(3)),
@@ -180,9 +181,9 @@
 
     var overlayCassiopeia;
 	
-	
+	/*
 	//Add a marker on sky map
-	var infoTaurus = '<div id="content">'+
+	//var infoTaurus = '<div id="content">'+
 	  '<div id="siteNotice">'+
 	  '</div>'+
 	  '<h1 id="firstHeading" class="firstHeading">Taurus Constellation</h1>'+
@@ -198,6 +199,7 @@
 	  '(last visited June 22, 2009).</p>'+
 	  '</div>'+
 	  '</div>';
+	*/
 	
 	var infoCassiopeia = '<div id="content">'+
 	  '<div id="siteNotice">'+
@@ -249,18 +251,34 @@
       // start with the sky map type
       map.setMapTypeId('sky');
 	  
-	  //Add overlay Taurus 
-	  overlay = new google.maps.GroundOverlay('./Constellations/taurus_trans1.png', imageBounds);
-      overlay.setMap(map);	 
-	  //historicalOverlay.setOpacity(0.9);
-	  var initialOpacity = 1;
-      //overlay.setOpacity(initialOpacity); 
-      //overlay.show();	
-      // Add opacity control and set initial value
-	  //createOpacityControl(map, overlay, initialOpacity);
-	  addInfoImage(imageBounds, map,  infoTaurus);
+	  //Add constellation overlay 
+			  var key = 'Taurus';
+			  var bottomX = constellation[key].leftBottomCornerX;
+			  var bottomY = constellation[key].leftBottomCornerY;
+			  var topX = constellation[key].rightTopCornerX;
+			  var topY = constellation[key].rightTopCornerY;  
+			  var imageBounds = new google.maps.LatLngBounds(
+				  new google.maps.LatLng(bottomX,translateRAtoLng(bottomY)),
+				  new google.maps.LatLng(topX, translateRAtoLng(topY))
+			  );  
+			  var overlay = new google.maps.GroundOverlay('./Constellations/'+ key + '.png', imageBounds);
+			  overlay.setMap(map);
+			  //Info box
+			  var infoHeading = constellation[key].infoHeading;
+			  var infoContent = constellation[key].infoContent;
+			  var infoWikiLink = constellation[key].infoWikiLink;
+			  var infoBox = '<div id="content">'+
+				  '<div id="siteNotice">'+
+				  '</div>'+
+				  '<h1 id="firstHeading" class="firstHeading">'+infoHeading+'</h1>'+
+				  '<div id="bodyContent">'+
+				  '<p><b>'+infoHeading+'</b>,'+infoContent+'</p>'+
+				  '<p>Attribution: '+key+', <a href="'+infoWikiLink+'">'+infoWikiLink+'</a> '+'.</p>'+
+				  '</div>'+
+				  '</div>';
+			  addInfoImage(imageBounds, map,  infoBox);
 	 
-     //Add overlay Cassiopeia 
+     //Add overlay Cncer 
         overlayCancer = new google.maps.GroundOverlay('./Constellations/cancer1.png', imageBoundsCancer);
         overlayCancer.setMap(map);
 	  //historicalOverlay.setOpacity(0.9);
@@ -281,13 +299,14 @@
 	  
 	  
 	  //add kml layer
-	  //var ctaLayer = new google.maps.KmlLayer({ url: 'http://gmaps-samples.googlecode.com/svn/trunk/ggeoxml/cta.kml'  });
+	  /*
+	  var ctaLayer = new google.maps.KmlLayer({ url: 'http://gmaps-samples.googlecode.com/svn/trunk/ggeoxml/cta.kml'  });
 	  var kmlLayer = new google.maps.KmlLayer({ url: 'file://C:\Users\meri\Desktop\MiriamGreekSky\KML-Samples\CrabNebula.kml'  });
       var kmlLatlng = new google.maps.LatLng(-96.366783, 22.014467);
-	  addInfoMarker('info2', kmlLatlng, map,  infoTaurus);
+	  addInfoMarker('info2', kmlLatlng, map,  infoCassiopeia);
 	  
 	  ctaLayer.setMap(map);
-	  
+	  */
     }
  
   </script> 
@@ -299,7 +318,6 @@
 <div id="map_canvas">map div</div>
 <div id="phoneLayer"><img src="./Constellations/phoneLayer.png" width="1920" height="1080"/></div>
 </div>
-<script type="text/javascript"src="CoordDisplay.js"></script>
 
 </body> 
 </html>
