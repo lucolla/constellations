@@ -12,23 +12,25 @@
           position: relative;
       }
       #map_canvas,
+      #smartphoneContainer,
       #phoneLayer {
           height: 100%;
           width: 100%;
           position: absolute;
           top:0;
           left:0;}
+
+      #smartphoneContainer,
       #phoneLayer{
           z-index:10;
           pointer-events: none;
       }
     </style>
  
- <script type="text/javascript" src="OpacityControl\ExtDraggableObject.js"></script>
- <script type="text/javascript" src="OpacityControl\OpacityControl.js"></script>
+ <!--<script type="text/javascript" src="OpacityControl\ExtDraggableObject.js"></script>-->
+ <!--<script type="text/javascript" src="OpacityControl\OpacityControl.js"></script>-->
  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=TRUE"></script> 
- <script type="text/javascript"src="InfoWindows.js"></script>
- <script type="text/javascript"src="CoordDisplay.js"></script>
+ <script type="text/javascript" src="InfoWindows.js"></script>
  <script type="text/javascript"> 
     var mapTypes = {};
 
@@ -296,10 +298,13 @@
 <!--input type="button" onclick="sayHello()" value="About" /-->
 
 <div id="container">
-<div id="map_canvas">map div</div>
-<div id="phoneLayer"><img src="./Constellations/phoneLayer.png" width="1920" height="1080"/></div>
+    <div id="map_canvas">map div</div>
+    <div id="smartphoneContainer">
+        <div id="phoneLayer"><img src="./Constellations/phoneLayer.png" width="1920" height="1080"/></div>
+    </div>
 </div>
-<script type="text/javascript"src="CoordDisplay.js"></script>
+<script type="text/javascript" src="CoordDisplay.js"></script>
+
 
 </body> 
 </html>
