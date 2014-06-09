@@ -160,64 +160,7 @@
 
     };
 
-    /*
-	//Add a Ground Layer
-	var imageBounds = new google.maps.LatLngBounds(
-      new google.maps.LatLng(0,translateRAtoLng(6)),
-      new google.maps.LatLng(30, translateRAtoLng(3)));
-	var overlay;
-    */
-	
-	//Add a Ground Layer Cancer
-
-	var imageBoundsCancer = new google.maps.LatLngBounds(
-      new google.maps.LatLng(0, translateRAtoLng(10)),
-      new google.maps.LatLng(40, translateRAtoLng(7)));
-	var overlayCancer;
-
-    var imageBoundsCassiopeia = new google.maps.LatLngBounds(
-           new google.maps.LatLng(40, translateRAtoLng(3)),
-           new google.maps.LatLng(70, translateRAtoLng(21)));
-
-    var overlayCassiopeia;
-	
-	/*
-	//Add a marker on sky map
-	//var infoTaurus = '<div id="content">'+
-	  '<div id="siteNotice">'+
-	  '</div>'+
-	  '<h1 id="firstHeading" class="firstHeading">Taurus Constellation</h1>'+
-	  '<div id="bodyContent">'+
-	  '<p><b>Taurus Constellation</b>,Taurus is one of the constellations of the zodiac,'+
-	  'which means it is crossed by the plane of the ecliptic. Its name is a Latin word meaning "bull", and'+
-	  'its astrological symbol is a stylized bull\'s head: Taurus.svg (Unicode ♉). Taurus is a large and prominent'+
-	  'constellation in the northern hemisphere\'s winter sky. It is one of the oldest constellations, dating back to'+
-	  'at least the Early Bronze Age when it marked the location of the Sun during the spring equinox. Taurus came to'+
-	  'symbolize the bull in the mythologies of Ancient Babylon, Egypt and Greece.</p>'+
-	  '<p>Attribution: Taurus, <a href="http://en.wikipedia.org/wiki/Taurus_(constellation)">'+
-	  'http://en.wikipedia.org/wiki/Taurus_(constellation)</a> '+
-	  '(last visited June 22, 2009).</p>'+
-	  '</div>'+
-	  '</div>';
-	*/
-	
-	var infoCassiopeia = '<div id="content">'+
-	  '<div id="siteNotice">'+
-	  '</div>'+
-	  '<h1 id="firstHeading" class="firstHeading">Cassiopeia Constellation</h1>'+
-	  '<div id="bodyContent">'+
-	  '<p><b>Cassiopeia Constellation</b>,Taurus is one of the constellations of the zodiac,'+
-	  'which means it is crossed by the plane of the ecliptic. Its name is a Latin word meaning "bull", and'+
-	  'its astrological symbol is a stylized bull\'s head: Taurus.svg (Unicode ♉). Taurus is a large and prominent'+
-	  'constellation in the northern hemisphere\'s winter sky. It is one of the oldest constellations, dating back to'+
-	  'at least the Early Bronze Age when it marked the location of the Sun during the spring equinox. Taurus came to'+
-	  'symbolize the bull in the mythologies of Ancient Babylon, Egypt and Greece.</p>'+
-	  '<p>Attribution: Taurus, <a href="http://en.wikipedia.org/wiki/Taurus_(constellation)">'+
-	  'http://en.wikipedia.org/wiki/Taurus_(constellation)</a> '+
-	  '(last visited June 22, 2009).</p>'+
-	  '</div>'+
-	  '</div>';
-	  
+     
     function initialize() {
  
       // push all mapType keys in to a mapTypeId array to set in the mapTypeControlOptions
@@ -252,7 +195,7 @@
       map.setMapTypeId('sky');
 	  
 	  //Add constellation overlay 
-			  var key = 'Taurus';
+	  for (key in constellation) {
 			  var bottomX = constellation[key].leftBottomCornerX;
 			  var bottomY = constellation[key].leftBottomCornerY;
 			  var topX = constellation[key].rightTopCornerX;
@@ -277,37 +220,9 @@
 				  '</div>'+
 				  '</div>';
 			  addInfoImage(imageBounds, map,  infoBox);
+	 }
 	 
-     //Add overlay Cncer 
-        overlayCancer = new google.maps.GroundOverlay('./Constellations/cancer1.png', imageBoundsCancer);
-        overlayCancer.setMap(map);
-	  //historicalOverlay.setOpacity(0.9);
-	  var initialOpacity = 1;
-      //overlay.setOpacity(initialOpacity); 
-      //overlay.show();	
-      // Add opacity control and set initial value
-	  //createOpacityControl(map, overlayCassiopeia, initialOpacity);
-	  addInfoImage(imageBoundsCassiopeia, map,  infoCassiopeia);
-
-
-        overlayCassiopeia = new google.maps.GroundOverlay('./Constellations/Cassiopea_Trans_40-3_70-21.gif', imageBoundsCassiopeia);
-        overlayCassiopeia.setMap(map);
-	 
-	  //add info marker
-	  //var myLatlng = new google.maps.LatLng(15, 10);
-	  //addInfoMarker('infoTaurus', myLatlng, map,  infoTaurus);
-	  
-	  
-	  //add kml layer
-	  /*
-	  var ctaLayer = new google.maps.KmlLayer({ url: 'http://gmaps-samples.googlecode.com/svn/trunk/ggeoxml/cta.kml'  });
-	  var kmlLayer = new google.maps.KmlLayer({ url: 'file://C:\Users\meri\Desktop\MiriamGreekSky\KML-Samples\CrabNebula.kml'  });
-      var kmlLatlng = new google.maps.LatLng(-96.366783, 22.014467);
-	  addInfoMarker('info2', kmlLatlng, map,  infoCassiopeia);
-	  
-	  ctaLayer.setMap(map);
-	  */
-    }
+	}
  
   </script> 
 </head> 
