@@ -1,3 +1,6 @@
+ var constants = {
+   infoWindowWidth: 300
+};
  function addInfoMarker(titleString, myLatlng, map, contentString) {
 		  var infowindow = new google.maps.InfoWindow({
 			  content: contentString
@@ -14,7 +17,8 @@
 		  var infowindow = new google.maps.InfoWindow();
 		  var infowindowOptions = {
 		   content: contentString,
-		   position: imageBounds.getCenter()
+		   position: imageBounds.getCenter(),
+		   maxWidth: constants.infoWindowWidth
 		  }
 		  infowindow.setOptions(infowindowOptions);
 		  
