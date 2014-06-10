@@ -14,7 +14,7 @@
 			'at least the Early Bronze Age when it marked the location of the Sun during the spring equinox. Taurus came to'+
 			'symbolize the bull in the mythologies of Ancient Babylon, Egypt and Greece.</p>',
 	   infoWikiLink: 'http://en.wikipedia.org/wiki/Taurus_(constellation)'
-	   }
+	   };
 	  
 	  
 	  
@@ -32,7 +32,7 @@
 			'at least the Early Bronze Age when it marked the location of the Sun during the spring equinox. Cancer came to'+
 			'symbolize the bull in the mythologies of Ancient Babylon, Egypt and Greece.</p>',
 	   infoWikiLink: 'http://en.wikipedia.org/wiki/Cancer_(constellation)'
-	   }
+	   };
 
 	   	  // Cassiopeia
 	constellation['Cassiopeia'] = {
@@ -48,7 +48,7 @@
 			'at least the Early Bronze Age when it marked the location of the Sun during the spring equinox. Cassiopeia came to'+
 			'symbolize the bull in the mythologies of Ancient Babylon, Egypt and Greece.</p>',
 	   infoWikiLink: 'http://en.wikipedia.org/wiki/Cassiopeia_(constellation)'
-	   }
+	   };
 	   
 	   	  // Cepheus
 	constellation['Cepheus'] = {
@@ -64,7 +64,7 @@
 			'at least the Early Bronze Age when it marked the location of the Sun during the spring equinox. Cepheus came to'+
 			'symbolize the bull in the mythologies of Ancient Babylon, Egypt and Greece.</p>',
 	   infoWikiLink: 'http://en.wikipedia.org/wiki/Cepheus_(constellation)'
-	   }   
+	   }  ;
 
 	   	  // Girafe
 	constellation['Girafe'] = {
@@ -80,7 +80,7 @@
 			'at least the Early Bronze Age when it marked the location of the Sun during the spring equinox. Girafe came to'+
 			'symbolize the bull in the mythologies of Ancient Babylon, Egypt and Greece.</p>',
 	   infoWikiLink: 'http://en.wikipedia.org/wiki/Girafe_(constellation)'
-	   }   
+	   }  ;
 	   
 	   	  // Pisces
 	constellation['Pisces'] = {
@@ -96,7 +96,7 @@
 			'at least the Early Bronze Age when it marked the location of the Sun during the spring equinox. Pisces came to'+
 			'symbolize the bull in the mythologies of Ancient Babylon, Egypt and Greece.</p>',
 	   infoWikiLink: 'http://en.wikipedia.org/wiki/Pisces_(constellation)'
-	   }   
+	   } ;
 
 	   	  // UrsaMajor
 	constellation['UrsaMajor'] = {
@@ -112,7 +112,7 @@
 			'at least the Early Bronze Age when it marked the location of the Sun during the spring equinox. UrsaMajor came to'+
 			'symbolize the bull in the mythologies of Ancient Babylon, Egypt and Greece.</p>',
 	   infoWikiLink: 'http://en.wikipedia.org/wiki/UrsaMajor_(constellation)'
-	   }   	   
+	   }   ;
 	   
 	   	  // Leo
 	constellation['Leo'] = {
@@ -128,7 +128,7 @@
 			'at least the Early Bronze Age when it marked the location of the Sun during the spring equinox. Leo came to'+
 			'symbolize the bull in the mythologies of Ancient Babylon, Egypt and Greece.</p>',
 	   infoWikiLink: 'http://en.wikipedia.org/wiki/Leo_(constellation)'
-	   }   
+	   }   ;
 	   
 	   	  // Hydra
 	constellation['Hydra'] = {
@@ -144,7 +144,7 @@
 			'at least the Early Bronze Age when it marked the location of the Sun during the spring equinox. Hydra came to'+
 			'symbolize the bull in the mythologies of Ancient Babylon, Egypt and Greece.</p>',
 	   infoWikiLink: 'http://en.wikipedia.org/wiki/Hydra_(constellation)'
-	   }   	   
+	   } ;
 	   
 	   	  // CanisMajor
 	constellation['CanisMajor'] = {
@@ -160,5 +160,5 @@
 			'at least the Early Bronze Age when it marked the location of the Sun during the spring equinox. CanisMajor came to'+
 			'symbolize the bull in the mythologies of Ancient Babylon, Egypt and Greece.</p>',
 	   infoWikiLink: 'http://en.wikipedia.org/wiki/CanisMajor_(constellation)'
-	   }   	   
+	   };
 	   

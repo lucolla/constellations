@@ -48,6 +48,8 @@
  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=TRUE"></script> 
  <script type="text/javascript" src="InfoWindows.js"></script>
  <script type="text/javascript" src="jquery-1.11.1.js"></script>
+ <script type="text/javascript" src="CoordDisplay.js"></script>
+  <script type="text/javascript" src="ConstellationsDb.js"></script>
  <script type="text/javascript"> 
     var mapTypes = {};
 
@@ -126,7 +128,7 @@
       tileSize: new google.maps.Size(256, 256),
       isPng: false,
       maxZoom: 13,
-      minZoom: 3,
+      minZoom: 0,
       radius: 57.2957763671875,
       name: 'Sky',
       credit: 'Image Credit: SDSS, DSS Consortium, NASA/ESA/STScI'
@@ -295,9 +297,14 @@
                     '</div>';
             addInfoImage(imageBounds, map, infoBox);
         }
+
+
+
+
     }
     // If the window is resized then the form of the smartphone layer is changed
     $(window).bind('resize',handleDiffRatio);
+
     function handleDiffRatio(){
         var windowWidth = $(window).width();
         var windowHeight = $(window).height();
@@ -321,7 +328,7 @@
 <!--input type="button" onclick="sayHello()" value="About" /-->
 
 <div id="container">
-    <div id="map_canvas">map div</div>
+    <div id="map_canvas"></div>
     <div id="smartphoneContainer">
         <div id="frameLayer">
             <div id="UpperPartPhoneLayer"><img id="UpperPartPhoneLayerImg" src="./Pictures/IPhoneLayer/BlackUpperIPhoneLayerPart.gif"/></div>
@@ -332,7 +339,7 @@
     </div>
 </div>
 
-
+<script type="text/javascript">handleDiffRatio();</script>
 
 </body> 
 </html>
