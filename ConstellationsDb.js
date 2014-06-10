@@ -49,7 +49,10 @@
 			'symbolize the bull in the mythologies of Ancient Babylon, Egypt and Greece.</p>',
 	   infoWikiLink: 'http://en.wikipedia.org/wiki/Cassiopeia_(constellation)'
 	   };
-	   
+
+
+
+/*
 	   	  // Cepheus
 	constellation['Cepheus'] = {
 	   leftBottomCornerX:  60,
@@ -66,12 +69,13 @@
 	   infoWikiLink: 'http://en.wikipedia.org/wiki/Cepheus_(constellation)'
 	   }  ;
 
+*/
 	   	  // Girafe
 	constellation['Girafe'] = {
 	   leftBottomCornerX:  40,
-	   leftBottomCornerY:  4,
+	   leftBottomCornerY:  10,
 	   rightTopCornerX:    60,
-	   rightTopCornerY:    2,
+	   rightTopCornerY:    1,
 	   infoHeading: 'Girafe Constellation',
 	   infoContent: 'Girafe is one of the constellations of the zodiac,'+
 			'which means it is crossed by the plane of the ecliptic. Its name is a Latin word meaning "bull", and'+
@@ -84,10 +88,10 @@
 	   
 	   	  // Pisces
 	constellation['Pisces'] = {
-	   leftBottomCornerX:  0,
-	   leftBottomCornerY:  2,
-	   rightTopCornerX:    0,
-	   rightTopCornerY:    23,
+	   leftBottomCornerX:  -8,
+	   leftBottomCornerY:  2.5,
+	   rightTopCornerX:    40,
+	   rightTopCornerY:    22,
 	   infoHeading: 'Pisces Constellation',
 	   infoContent: 'Pisces is one of the constellations of the zodiac,'+
 			'which means it is crossed by the plane of the ecliptic. Its name is a Latin word meaning "bull", and'+
@@ -100,10 +104,10 @@
 
 	   	  // UrsaMajor
 	constellation['UrsaMajor'] = {
-	   leftBottomCornerX:  -10,
-	   leftBottomCornerY:  2,
-	   rightTopCornerX:    0,
-	   rightTopCornerY:    1,
+	   leftBottomCornerX:  20,
+	   leftBottomCornerY:  13,
+	   rightTopCornerX:    60,
+	   rightTopCornerY:    6,
 	   infoHeading: 'UrsaMajor Constellation',
 	   infoContent: 'UrsaMajor is one of the constellations of the zodiac,'+
 			'which means it is crossed by the plane of the ecliptic. Its name is a Latin word meaning "bull", and'+
@@ -116,10 +120,10 @@
 	   
 	   	  // Leo
 	constellation['Leo'] = {
-	   leftBottomCornerX:  30,
-	   leftBottomCornerY:  1,
+	   leftBottomCornerX:  0,
+	   leftBottomCornerY:  4,
 	   rightTopCornerX:    40,
-	   rightTopCornerY:    0,
+	   rightTopCornerY:    1,
 	   infoHeading: 'Leo Constellation',
 	   infoContent: 'Leo is one of the constellations of the zodiac,'+
 			'which means it is crossed by the plane of the ecliptic. Its name is a Latin word meaning "bull", and'+
@@ -129,7 +133,7 @@
 			'symbolize the bull in the mythologies of Ancient Babylon, Egypt and Greece.</p>',
 	   infoWikiLink: 'http://en.wikipedia.org/wiki/Leo_(constellation)'
 	   }   ;
-	   
+/*
 	   	  // Hydra
 	constellation['Hydra'] = {
 	   leftBottomCornerX:  30,
@@ -145,13 +149,16 @@
 			'symbolize the bull in the mythologies of Ancient Babylon, Egypt and Greece.</p>',
 	   infoWikiLink: 'http://en.wikipedia.org/wiki/Hydra_(constellation)'
 	   } ;
-	   
+
+
+*/
+
 	   	  // CanisMajor
 	constellation['CanisMajor'] = {
-	   leftBottomCornerX:  30,
-	   leftBottomCornerY:  3,
-	   rightTopCornerX:    40,
-	   rightTopCornerY:    2,
+	   leftBottomCornerX:  -40,
+	   leftBottomCornerY:  8,
+	   rightTopCornerX:    -10,
+	   rightTopCornerY:    6,
 	   infoHeading: 'CanisMajor Constellation',
 	   infoContent: 'CanisMajor is one of the constellations of the zodiac,'+
 			'which means it is crossed by the plane of the ecliptic. Its name is a Latin word meaning "bull", and'+
