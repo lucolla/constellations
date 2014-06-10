@@ -31,7 +31,7 @@ CoordDisplay.prototype.initialize = function() {
         'readonly="true" class="fakeDivDown">' +
         '&nbsp;&nbsp;<input type="text" id="skystartitle" ' +
         'value="" readonly="true" class="fakeDivDownB">';
-    // TODO(cmhubertchen): This is doing nothing in Chrome.
+    // (cmhubertchen): This is doing nothing in Chrome.
     // google.maps.event.addListener(map, "mouseout", eraseInfo);
     google.maps.event.addListener(map, "mouseover", displayInfo);
     google.maps.event.addListener(map, "mousemove", displayInfo);
