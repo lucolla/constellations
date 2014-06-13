@@ -27,7 +27,7 @@
 		  var rectangleOptions = {
 			  map: map,
 			  bounds: imageBounds,
-              visible: false
+              visible: true
 			};
 		  rectangle.setOptions(rectangleOptions);
 	
