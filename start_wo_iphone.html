@@ -30,13 +30,13 @@
           position: absolute;
           margin: auto;
       }
-      #UpperPartPhoneLayer{
+      #UpperPartBlackFrameLayer {
           position: absolute;
           top: 0 ;
           right: 0;
           opacity:0.8;
       }
-      #LowerPartPhoneLayer{
+      #LowerPartBlackFrameLayer {
           position: absolute;
           bottom: 0;
           right:0;
@@ -256,12 +256,12 @@
         var windowHeight = $(window).height();
 
         if (windowHeight > windowWidth){
-            $("#UpperPartPhoneLayerImg").show();
-            $("#LowerPartPhoneLayerImg").show();
+            $("#UpperPartBlackFrameLayerImg").show();
+            $("#LowerPartBlackFrameLayerImg").show();
             $("#phoneLayerImg").attr("src","./Pictures/IPhoneLayer/phoneLayerPortrait.png");
         }else{
-            $("#UpperPartPhoneLayerImg").hide();
-            $("#LowerPartPhoneLayerImg").hide();
+            $("#UpperPartBlackFrameLayerImg").hide();
+            $("#LowerPartBlackFrameLayerImg").hide();
             $("#phoneLayerImg").attr("src","./Pictures/IPhoneLayer/phoneLayerLandscape.png");
         }
     };
@@ -277,8 +277,8 @@
     <div id="map_canvas"></div>
     <div id="smartphoneContainer">
         <div id="frameLayer">
-            <div id="UpperPartPhoneLayer"><img id="UpperPartPhoneLayerImg" src="./Pictures/IPhoneLayer/BlackUpperIPhoneLayerPart.gif"/></div>
-            <div id="LowerPartPhoneLayer"><img id="LowerPartPhoneLayerImg" src="./Pictures/IPhoneLayer/blackbottom.png"/></div>
+            <div id="UpperPartBlackFrameLayer"><img id="UpperPartPhoneLayerImg" src="./Pictures/IPhoneLayer/BlackUpperIPhoneLayerPart.gif"/></div>
+            <div id="LowerPartBlackFrameLayer"><img id="LowerPartPhoneLayerImg" src="./Pictures/IPhoneLayer/blackbottom.png"/></div>
         </div>
         <div id="phoneLayer"><img id="phoneLayerImg" src="./Pictures/IPhoneLayer/phoneLayerPortrait.png" /></div>
 

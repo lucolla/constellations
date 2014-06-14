@@ -43,14 +43,29 @@ function showSky() {
     }, 1000);  // Start the zoom-in after one second.
 
 
-    ge.getLayerRoot().enableLayerById(ge.Constellations, false);
+    //ge.getLayerRoot().enableLayerById(ge.Constellations, false);
+    //ge.getFeatures().getFirstChild()
 }
 
 function doNumber(){
 
+
+    var link = ge.createLink('');
+    var href = './short_tour.kml'
+    link.setHref(href);
+
+    var networkLink = ge.createNetworkLink('');
+    networkLink.set(link, true, true); // Sets the link, refreshVisibility, and flyToView
+
+    ge.getFeatures().appendChild(networkLink);
+    /*
     var features = ge.getFeatures();
     while (features.getFirstChild())
         features.removeChild(features.getFirstChild());
+        */
 
 }
+
+
+
 

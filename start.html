@@ -5,14 +5,13 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <style type="text/css">
       html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
+      body { height: 100%; margin: 0; padding: 0 ; zoom: 100%}
       #container {
           width:100%;
           height: 100%;
           position: relative;
       }
       #map_canvas,
-      #smartphoneContainer,
       #phoneLayer,
       #frameLayer
       {
@@ -22,25 +21,42 @@
           top:0;
           left:0;}
 
-      #smartphoneContainer{
-          z-index:10;
+      #frameLayer{
+          z-index:2;
           pointer-events: none;
       }
+
       #phoneLayer{
-          position: absolute;
-          margin: auto;
+          z-index:3;
+          pointer-events: none;
       }
-      #UpperPartPhoneLayer{
+
+      #UpperPartBlackFrameLayer {
           position: absolute;
           top: 0 ;
           right: 0;
           opacity:0.8;
       }
-      #LowerPartPhoneLayer{
+      #LowerPartBlackFrameLayer {
           position: absolute;
           bottom: 0;
           right:0;
       }
+
+     #leftPhoneLayer    {height: 100%; position: absolute; top: 0 ; float: right;}
+     #midPhoneLayer     {height: 100%; position: absolute;  top: 0; float: right;}
+     #rightPhoneLayer   {height: 100%; position: absolute; top: 0 ; float: right;}
+
+        #midPhoneLayerUp    {position: absolute; top: 0 ; }
+        #midPhoneLayerMid   {position: absolute; }
+        #midPhoneLayerDown  {position: absolute; bottom: 0 ;}
+
+        #midPhoneLayerMidLeft           {position: absolute; left: 0 ; }
+        #midPhoneLayerMidScrollContainer{position: absolute;  }
+        #midPhoneLayerMidRight          {position: absolute; right: 0 ; }
+
+
+
     </style>
  
  <!--<script type="text/javascript" src="OpacityControl\ExtDraggableObject.js"></script>-->
@@ -256,12 +272,12 @@
         var windowHeight = $(window).height();
 
         if (windowHeight > windowWidth){
-            $("#UpperPartPhoneLayerImg").show();
-            $("#LowerPartPhoneLayerImg").show();
+            $("#UpperPartBlackFrameLayerImg").show();
+            $("#LowerPartBlackFrameLayerImg").show();
             $("#phoneLayerImg").attr("src","./Pictures/IPhoneLayer/phoneLayerPortrait.png");
         }else{
-            $("#UpperPartPhoneLayerImg").hide();
-            $("#LowerPartPhoneLayerImg").hide();
+            $("#UpperPartBlackFrameLayerImg").hide();
+            $("#LowerPartBlackFrameLayerImg").hide();
             $("#phoneLayerImg").attr("src","./Pictures/IPhoneLayer/phoneLayerLandscape.png");
         }
     };
@@ -274,18 +290,33 @@
 <!--input type="button" onclick="sayHello()" value="About" /-->
 
 <div id="container">
+
     <div id="map_canvas"></div>
-    <div id="smartphoneContainer">
-        <div id="frameLayer">
-            <div id="UpperPartPhoneLayer"><img id="UpperPartPhoneLayerImg" src="./Pictures/IPhoneLayer/BlackUpperIPhoneLayerPart.gif"/></div>
-            <div id="LowerPartPhoneLayer"><img id="LowerPartPhoneLayerImg" src="./Pictures/IPhoneLayer/blackbottom.png"/></div>
+
+    <div id="frameLayer">
+        <div id="UpperPartBlackFrameLayer"><img id="UpperPartBlackFrameLayerImg" src="./Pictures/blackFrameLayer/blackFrameLayer_Upper.png"/></div>
+        <div id="LowerPartBlackFrameLayer"><img id="LowerPartBlackFrameLayerImg" src="./Pictures/blackFrameLayer/blackFrameLayer_Lower.png"/></div>
+    </div>
+
+    <div id="phoneLayer">
+        <div id="leftPhoneLayer"><img  src="./Pictures/iphoneLayer/leftPhoneLayer.png"/></div>
+        <div id="midPhoneLayer">
+            <div id="midPhoneLayerUp"><img  src="./Pictures/iphoneLayer/midPhoneLayerUp.png"/></div>
+            <div id="midPhoneLayerMid">
+                <div id="midPhoneLayerMidRight"><img  src="./Pictures/iphoneLayer/midPhoneLayerMidRight.png"/></div>
+                <div id="midPhoneLayerMidScrollContainer"><img id="scrollContainer" src="./Pictures/iphoneLayer/transparentScrollContainer.png"/></div>
+                <div id="midPhoneLayerMidLeft"><img  src="./Pictures/iphoneLayer/midPhoneLayerMidLeft.png"/></div>
+            </div>
+            <div id="midPhoneLayerDown"><img  src="./Pictures/iphoneLayer/midPhoneLayerDown.png"/></div>
         </div>
-        <div id="phoneLayer"><img id="phoneLayerImg" src="./Pictures/IPhoneLayer/phoneLayerPortrait.png" /></div>
+        <div id="rightPhoneLayer"><img  src="./Pictures/iphoneLayer/rightPhoneLayer.png"/></div>
 
     </div>
+
+
 </div>
 
-<script type="text/javascript">handleDiffRatio();</script>
+<!--<script type="text/javascript">handleDiffRatio();</script>-->
 
 </body> 
 </html>
