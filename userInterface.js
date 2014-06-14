@@ -32,8 +32,8 @@ function defineRectangleForScrolling(obj){
     var offset = obj.offset();
     var top = offset.top;
     var left = offset.left;
-    var pheight = obj.parrent().height();
-    var pwidth = obj.parrent().width();
+    var pheight = obj.parent().height();
+    var pwidth = obj.parent().width();
     var height = obj.height();
     var width = obj.width();
 
@@ -41,7 +41,7 @@ function defineRectangleForScrolling(obj){
     //alert( [left,top - (height - pheight)  ,left + width,top + pheight ]);
     //return [left,top - (height - pheight) ,left + width,top + pheight ];
     //return [left,top - (height - pheight)  ,left + width,top + pheight ];
-    return [200,400,200,1080];
+    return [left,top - (height - pheight)  ,left + width,top  ];
 
 }
 
@@ -57,12 +57,21 @@ function toggleTaurusScroll(){
         //scrollContainer.attr("height","621px");
         $("#midPhoneLayerMidScrollContainer").css("overflow","hidden");//"auto"
         $("#phoneLayer").css("pointer-events","auto");
-        scrollContainer.draggable({axis:"y",containment : [200,-500,6000,200]});//axis:"y",,containment:defineRectangleForScrolling(scrollContainer)
+
+        var offset = scrollContainer.offset();
+        var top = offset.top;
+        var left = offset.left;
+        var pheight = scrollContainer.parent().height();
+        var pwidth = scrollContainer.parent().width();
+        var height = scrollContainer.height();
+        var width = scrollContainer.width();
+        alert([height,width]);
+
+        scrollContainer.draggable({axis:"y",containment : [left,top - (height - pheight)  ,left + width,top  ]});//axis:"y",,containment:defineRectangleForScrolling(scrollContainer)
 
 
     } else {
         scrollContainer.attr("src","./Pictures/iphoneLayer/transparentScrollContainer.png");
-
         scrollContainer.css("top","0px");
         scrollContainer.css("left","0px");
         $("#phoneLayer").css("pointer-events","none")
