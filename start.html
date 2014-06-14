@@ -288,11 +288,14 @@
     };
 
 function toggleTaurusScroll(){
-    var scrollcontainer = $("#scrollContainer");
-    if( scrollcontainer.attr("src").indexOf("Scroll") != -1 ) {
-        scrollcontainer.attr("src","./Pictures/Scrolls/taurusScroll.jpg");
+    var scrollContainer = $("#scrollContainer");
+    if( scrollContainer.attr("src").indexOf("transparent") != -1 ) {
+        scrollContainer.attr("src","./Pictures/Scrolls/taurusScroll.jpg");
+        scrollContainer.attr("width","400px");
+        scrollContainer.attr("height","621px");
+
     } else {
-        scrollcontainer.attr("src","./Pictures/iphoneLayer/transparentScrollContainer.png");
+        scrollContainer.attr("src","./Pictures/iphoneLayer/transparentScrollContainer.png");
     }
 }
 
