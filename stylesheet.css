@@ -1,0 +1,70 @@
+
+
+
+/*<style type="text/css">*/
+/* Line above for use inside the <head> in an html file*/
+html { height: 100% }
+body { height: 100%; margin: 0; padding: 0 ; zoom: 100%; background: black;overflow: hidden;}
+#container {
+    width:1920px;
+    height: 1080px;
+    position: relative;
+
+}
+
+#map_canvas,
+#phoneLayer,
+#frameLayer
+{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top:0;
+    right:0;
+    z-index:1;}
+
+#frameLayer{
+    z-index:20;
+    pointer-events: none;
+}
+
+#phoneLayer{
+    z-index:30;
+    pointer-events: none;
+}
+
+#UpperPartBlackFrameLayer {
+    position: absolute;
+    top: 0 ;
+    right: 0;
+    width: 1920px ; height: 824px;
+    opacity:0.8;
+}
+#LowerPartBlackFrameLayer {
+    position: absolute;
+    bottom: 0;
+    right:0;
+    width: 1920px ; height: 256px;
+}
+
+#leftPhoneLayer    {width: 739px ; height: 1080px ; position: absolute; top: 0 ;left:0 ;}
+#midPhoneLayer     {width: 459px ; height: 1080px ; position: absolute; top: 0 ; left: 739px }
+#rightPhoneLayer   {width: 722px ; height: 1080px ; position: absolute; top: 0 ; right:0}
+
+#midPhoneLayerUp    {width: 459px ; height: 203px ; position: absolute; top: 0 ; }
+#midPhoneLayerMid   {width: 459px ; height: 621px ; position: absolute; top: 203px }
+#midPhoneLayerDown  {width: 459px ; height: 256px ; position: absolute; bottom: 0 ;}
+
+#midPhoneLayerMidLeft           {width: 30px ; height: 621px ; position: absolute; top: 0 ; left:0;}
+#midPhoneLayerMidScrollTransparent{width: 400px ; height: 621px ; position: absolute; top: 0 ; left:30px }
+#midPhoneLayerMidScrollContainer{width: 400px ; height: 621px ; position: absolute; top: 0 ; left:30px }
+#midPhoneLayerMidRight          {width: 29px ; height: 621px ; position: absolute; top: 0 ; right:0}
+
+
+.selector{}
+
+
+/*overflow:auto;  for scrollcontainer for auto scrolling*/
+
+
+/*</style>*/

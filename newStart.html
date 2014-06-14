@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Stars N Stories</title>
+    <!DOCTYPE HTML>
+    <html>
+    <head>
+
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <script type="text/javascript" src="jquery-1.11.1.js"></script>
+        <script type="text/javascript" src="./js/jquery-ui-1.10.4.custom.js"></script>
+
+        <!--<script type="text/javascript" src="OpacityControl\ExtDraggableObject.js"></script>-->
+        <!--<script type="text/javascript" src="OpacityControl\OpacityControl.js"></script>-->
+<!--
+
+      Loads google maps API&ndash
+      ============================
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=TRUE"></script>
+        <script type="text/javascript" src="loadSkyEngine.js"></script>
+-->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=TRUE"></script>
+        <script type="text/javascript" src="loadSkyEngine.js"></script>
+
+<!--
+
+        Loads google Earth API
+        ======================
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript" src="./googleEarthLoader.js"></script>
+-->
+
+
+
+        <script type="text/javascript" src="userInterface.js"></script>
+        <script type="text/javascript" src="InfoWindows.js"></script>
+
+        <script type="text/javascript" src="CoordDisplay.js"></script>
+        <script type="text/javascript" src="ConstellationsDb.js"></script>
+
+</head>
+    <body onload="initialize()">
+
+    <div id="container">
+
+        <div id="map_canvas"></div>
+
+        <div id="frameLayer">
+            <div id="UpperPartBlackFrameLayer"><img id="UpperPartBlackFrameLayerImg" src="./Pictures/blackFrameLayer/blackFrameLayer_Upper.png"/></div>
+            <div id="LowerPartBlackFrameLayer"><img id="LowerPartBlackFrameLayerImg" src="./Pictures/blackFrameLayer/blackFrameLayer_Lower.png"/></div>
+        </div>
+
+        <div id="phoneLayer">
+            <div id="leftPhoneLayer"><img  src="./Pictures/iphoneLayer/leftPhoneLayer.png"/></div>
+            <div id="midPhoneLayer">
+                <div id="midPhoneLayerUp"><img  src="./Pictures/iphoneLayer/midPhoneLayerUp.png"/></div>
+                <div id="midPhoneLayerMid">
+                    <div id="midPhoneLayerMidRight"><img  src="./Pictures/iphoneLayer/midPhoneLayerMidRight.png"/></div>
+                    <div id="midPhoneLayerMidScrollTransparent"><img src="./Pictures/iphoneLayer/transparentScrollContainer.png"/></div>
+                    <div id="midPhoneLayerMidScrollContainer"><img id="scrollContainer" src="./Pictures/iphoneLayer/transparentScrollContainer.png"/></div>
+                    <div id="midPhoneLayerMidLeft"><img  src="./Pictures/iphoneLayer/midPhoneLayerMidLeft.png"/></div>
+                </div>
+                <div id="midPhoneLayerDown"><img  src="./Pictures/iphoneLayer/midPhoneLayerDown.png"/></div>
+            </div>
+            <div id="rightPhoneLayer"><img  src="./Pictures/iphoneLayer/rightPhoneLayer.png"/></div>
+
+        </div>
+
+
+    </div>
+    <input type="button" onclick="toggleTaurusScroll()" style="position: absolute;  top:0; left:0; z-index: 50;">
+
+    </body>
+</html>
