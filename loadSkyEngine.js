@@ -79,7 +79,7 @@ mapTypes['sky'] = {
     tileSize: new google.maps.Size(256, 256),
     isPng: false,
     maxZoom: 13,
-    minZoom: 0,
+    minZoom: 2,
     radius: 57.2957763671875,
     name: 'Sky',
     credit: 'Image Credit: SDSS, DSS Consortium, NASA/ESA/STScI'
@@ -101,9 +101,9 @@ function getHorizontallyRepeatingTileUrl(coord, zoom, urlfunc) {
     }
 
     // repeat across x-axis
-    if (x < 0 || x >= tileRange) {
-        x = (x % tileRange + tileRange) % tileRange;
-    }
+    if (x < 2 || x >= tileRange * 2 - 2) {
+        return null;// Stop repeat on the x-axis
+    }else{x = (x % tileRange + tileRange) % tileRange;}
 
     return urlfunc({x:x,y:y}, zoom)
 }

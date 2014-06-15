@@ -4,7 +4,12 @@
 /*<style type="text/css">*/
 /* Line above for use inside the <head> in an html file*/
 html { height: 100% }
-body { height: 100%; margin: 0; padding: 0 ; zoom: 100%; background: black;overflow: hidden;}
+body { height: 100%;
+    margin: 0; padding: 0 ;
+    zoom: 100%;
+    background: black;
+    background-image: url('./Pictures/Background/blueBackground.jpg');
+    overflow: hidden;}
 #container {
     width:1920px;
     height: 1080px;
@@ -38,7 +43,7 @@ body { height: 100%; margin: 0; padding: 0 ; zoom: 100%; background: black;overf
     top: 0 ;
     right: 0;
     width: 1920px ; height: 824px;
-    opacity:0.8;
+    opacity:0.5;
 }
 #LowerPartBlackFrameLayer {
     position: absolute;

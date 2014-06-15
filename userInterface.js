@@ -46,6 +46,13 @@ function defineRectangleForScrolling(obj){
 }
 
 
+$(function(){
+    $("#mapCanvasImg").draggable({scroll: true});//,scrollSensitivity:100, scrollSpeed:100
+}
+);//{scroll: true,scrollSensitivity:100, scrollSpeed:100}  {containment:[-1000,-1000,2500,2500]}})
+
+
+
 function toggleTaurusScroll(){
     var scrollContainer = $("#scrollContainer");
     if( scrollContainer.attr("src").indexOf("transparent") != -1 ) {
@@ -65,7 +72,7 @@ function toggleTaurusScroll(){
         var pwidth = scrollContainer.parent().width();
         var height = scrollContainer.height();
         var width = scrollContainer.width();
-        alert([height,width]);
+        alert([left,top - (height - pheight)  ,left + width,top  ]);
 
         scrollContainer.draggable({axis:"y",containment : [left,top - (height - pheight)  ,left + width,top  ]});//axis:"y",,containment:defineRectangleForScrolling(scrollContainer)
 
