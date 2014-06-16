@@ -46,28 +46,42 @@
 </head>
     <body onload="initialize()">
 
-    <div id="container">
+    <div id="container" >
 
-        <div id="map_canvas"><div id="mapCanvasImg"><img  src="./Pictures/Background/mapMiriam.jpg"></div></div>
+        <div id="map_canvas"><div id="mapCanvasImg">
+            <img  id="mapBase"          class="mapImages" src="./Pictures/Background/blueBackground.jpg"  >
+            <img  id="mapLines"         class="mapImages" src="./Pictures/Background/somePNG.png">
+            <img  id="mapStars"         class="mapImages" src="./Pictures/Background/somePNG.png">
+            <img  id="mapIllustrations" class="mapImages" src="./Pictures/Background/somePNG.jpg">
 
-        <div id="frameLayer">
+        </div></div>
+
+        <div id="frameLayer" class="clickMe">
             <div id="UpperPartBlackFrameLayer"><img id="UpperPartBlackFrameLayerImg" src="./Pictures/blackFrameLayer/blackFrameLayer_Upper.png"/></div>
             <div id="LowerPartBlackFrameLayer"><img id="LowerPartBlackFrameLayerImg" src="./Pictures/blackFrameLayer/blackFrameLayer_Lower.png"/></div>
         </div>
 
-        <div id="phoneLayer">
-            <div id="leftPhoneLayer"><img  src="./Pictures/iphoneLayer/leftPhoneLayer.png"/></div>
+        <div id="phoneLayer"   >
+            <div id="leftPhoneLayer" class="clickMe" ><img  src="./Pictures/iphoneLayer/leftPhoneLayer.png"/></div>
             <div id="midPhoneLayer">
-                <div id="midPhoneLayerUp"><img  src="./Pictures/iphoneLayer/midPhoneLayerUp.png"/></div>
+                <div id="midPhoneLayerUp" class="clickMe"><img  src="./Pictures/iphoneLayer/midPhoneLayerUp.png"/></div>
                 <div id="midPhoneLayerMid">
-                    <div id="midPhoneLayerMidRight"><img  src="./Pictures/iphoneLayer/midPhoneLayerMidRight.png"/></div>
-                    <div id="midPhoneLayerMidScrollTransparent"><img src="./Pictures/iphoneLayer/transparentScrollContainer.png"/></div>
+                    <div id="midPhoneLayerMidRight" class="clickMe"><img  src="./Pictures/iphoneLayer/midPhoneLayerMidRight.png"/></div>
+                    <div id="midPhoneLayerMidScrollTransparent" ><img src="./Pictures/iphoneLayer/transparentScrollContainer.png"/></div>
+                    <div id="menu">
+                        <img id="menuLeftButtonThird"  class="menuLeftButtons" src="./Pictures/manymanyicons/drawingsDark.png" onClick="menuButtonPressedDown('illustrationsButton')">
+                        <img id="menuLeftButtonSecond"  class="menuLeftButtons" src="./Pictures/manymanyicons/linesDark.png" onClick="menuButtonPressedDown('linesButton')">
+                        <img id="menuLeftButtonFirst" class="menuLeftButtons" src="./Pictures/manymanyicons/starsDark.png" onClick="menuButtonPressedDown('starsButton')">
+
+                        <img id="menuMiddleButton"  class="menuButtons" src="./Pictures/manymanyicons/compassDark.png">
+                        <img id="menuRightButton"  class="menuButtons" src="./Pictures/manymanyicons/searchDark.png">
+                    </div>
                     <div id="midPhoneLayerMidScrollContainer"><img id="scrollContainer" src="./Pictures/iphoneLayer/transparentScrollContainer.png"/></div>
-                    <div id="midPhoneLayerMidLeft"><img  src="./Pictures/iphoneLayer/midPhoneLayerMidLeft.png"/></div>
+                    <div id="midPhoneLayerMidLeft" class="clickMe"><img  src="./Pictures/iphoneLayer/midPhoneLayerMidLeft.png"/></div>
                 </div>
-                <div id="midPhoneLayerDown"><img  src="./Pictures/iphoneLayer/midPhoneLayerDown.png"/></div>
+                <div id="midPhoneLayerDown" class="clickMe"><img  src="./Pictures/iphoneLayer/midPhoneLayerDown.png"/></div>
             </div>
-            <div id="rightPhoneLayer"><img  src="./Pictures/iphoneLayer/rightPhoneLayer.png"/></div>
+            <div id="rightPhoneLayer" class="clickMe" ><img  src="./Pictures/iphoneLayer/rightPhoneLayer.png"/></div>
 
         </div>
 

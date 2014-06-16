@@ -4,6 +4,29 @@
 
 
 
+function initialize(){
+
+    var mapBaseVar = $("#mapBase");
+    mapBaseVar.attr("src","./Pictures/Background/printedSky.png");
+    $("#mapIllustrations").attr("src","./Pictures/Background/consttellationsIllustrations.png");
+    $("#mapLines").attr("src","./Pictures/Background/constellationsLines.png");
+    $("#mapStars").attr("src","./Pictures/Background/constellationStars.png");
+
+    $(".mapImages").css("visibility","visible");
+    mapBaseVar.css("opacity","1");
+    mapBaseVar = null;
+
+
+    /*alert('Initializing!');*/
+    /*
+    <img  id="mapBase"          class="mapImages" src="./Pictures/Background/printedSky.png" >
+        <img  id="mapLines"         class="mapImages" src="./Pictures/Background/constellationsLines.png">
+            <img  id="mapStars"         class="mapImages" src="./Pictures/Background/constellationStars.png">
+                <img  id="mapIllustrations" class="mapImages" src="./Pictures/Background/consttellationsIllustrations.png">
+    */
+
+}
+
 // If the window is resized then the form of the smartphone layer is changed
 $(window).bind('resize',handleDiffRatio);
 
@@ -21,10 +44,6 @@ function handleDiffRatio(){
         $("#phoneLayerImg").attr("src","./Pictures/IPhoneLayer/phoneLayerLandscape.png");
     }
 };
-
-
-//$(".selector").draggable("enable");
-//$(".selector").draggable({axis:"y" }); //; appendTo:scrollContainer
 
 function defineRectangleForScrolling(obj){
 // alert("hi"+obj.css("width"));
@@ -51,6 +70,56 @@ $(function(){
 }
 );//{scroll: true,scrollSensitivity:100, scrollSpeed:100}  {containment:[-1000,-1000,2500,2500]}})
 
+var ContextMenu = 'stars' ; //['stars','scroll','stories']
+
+var starsOn = false;
+var linesOn = false;
+var illustrationsOn = false;
+
+var leftButtonsOpen = false;
+
+
+
+function menuButtonPressedDown(pressedButton){
+    switch (ContextMenu){
+        case 'stars':
+            switch (pressedButton){
+                case 'starsButton':
+                    if (leftButtonsOpen){
+                        leftButtonsOpen = !leftButtonsOpen;
+
+                        if(starsOn){$("#mapStars").css("opacity","0");
+                        }else{$("#mapStars").css("opacity","1");}
+                        starsOn=!starsOn;
+
+                        $("#menuLeftButtonSecond").css("top","0px");
+                        $("#menuLeftButtonThird").css("top","0px");
+                    }else {
+                        leftButtonsOpen = !leftButtonsOpen;
+                        $("#menuLeftButtonSecond").css("top", "60px");
+                        $("#menuLeftButtonThird").css("top", "120px");
+                    }
+                    break;
+                case 'illustrationsButton':
+                    if(illustrationsOn){$("#mapIllustrations").css("opacity","0");
+                    }else{$("#mapIllustrations").css("opacity","1");}
+                    illustrationsOn=!illustrationsOn;
+                    break;
+                case 'linesButton':
+                    if(linesOn){$("#mapLines").css("opacity","0");
+                    }else{$("#mapLines").css("opacity","1");}
+                    linesOn=!linesOn;
+                    break;
+            }
+            break;
+        case 'scroll':
+            alert('scroll stae');
+            break;
+        case 'stories':
+            alert('stories stae');
+            break;
+    }
+}
 
 
 function toggleTaurusScroll(){
