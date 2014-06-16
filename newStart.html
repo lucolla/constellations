@@ -57,11 +57,28 @@
         </div></div>
 
         <div id="frameLayer" class="clickMe">
-            <div id="UpperPartBlackFrameLayer"><img id="UpperPartBlackFrameLayerImg" src="./Pictures/blackFrameLayer/blackFrameLayer_Upper.png"/></div>
-            <div id="LowerPartBlackFrameLayer"><img id="LowerPartBlackFrameLayerImg" src="./Pictures/blackFrameLayer/blackFrameLayer_Lower.png"/></div>
+            <div id="UpperPartBlackFrameLayer"><img id="UpperPartBlackFrameLayerImg" src="./Pictures/IphoneLayer2/blackFrameLayer_upper.png"/></div>
+            <div id="LowerPartBlackFrameLayer"><img id="LowerPartBlackFrameLayerImg" src="./Pictures/IphoneLayer2/blackFrameLayer_Lower.png"/></div>
         </div>
 
         <div id="phoneLayer"   >
+            <div id="iphoneFrame" class="clickMe"><img src="./Pictures/IphoneLayer2/iphoneFrame.png"></div>
+            <div id="iphoneContentTransparent" class="clickMe"><img src="./Pictures/IphoneLayer2/iphoneContentTransperent.png"></div>
+            <div id="iphoneContent"><img id="iphoneScrollContainer"  src="./Pictures/IphoneLayer2/iphoneContentTransperent.png"></div>
+            <div id="iphoneContentContainer" class="clickMe">
+                <div id="menu">
+                    <img id="menuLeftButtonThird"  class="menuLeftButtons" src="./Pictures/manymanyicons/drawingsDark.png" onClick="menuButtonPressedDown('illustrationsButton')">
+                    <img id="menuLeftButtonSecond"  class="menuLeftButtons" src="./Pictures/manymanyicons/linesDark.png" onClick="menuButtonPressedDown('linesButton')">
+                    <img id="menuLeftButtonFirst" class="menuLeftButtons" src="./Pictures/manymanyicons/starsDark.png" onClick="menuButtonPressedDown('starsButton')">
+
+                    <img id="menuMiddleButton"  class="menuButtons" src="./Pictures/manymanyicons/compassDark.png">
+                    <img id="menuRightButton"  class="menuButtons" src="./Pictures/manymanyicons/searchDark.png" onClick="toggleInfoButton()">
+                </div>
+                <img id="menuInfoButton" class="menuButtons" src="./Pictures/manymanyicons/infoDark.png" onClick="toggleTaurusScroll()">
+            </div>
+        </div>
+<!--
+
             <div id="leftPhoneLayer" class="clickMe" ><img  src="./Pictures/iphoneLayer/leftPhoneLayer.png"/></div>
             <div id="midPhoneLayer">
                 <div id="midPhoneLayerUp" class="clickMe"><img  src="./Pictures/iphoneLayer/midPhoneLayerUp.png"/></div>
@@ -85,6 +102,7 @@
             <div id="rightPhoneLayer" class="clickMe" ><img  src="./Pictures/iphoneLayer/rightPhoneLayer.png"/></div>
 
         </div>
+-->
 
 
     </div>

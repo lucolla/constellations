@@ -19,7 +19,7 @@ function initialize(){
 
     // Define the img that holds the scroll as draggable
     //==================================================
-    scrollContainer = $("#scrollContainer");
+    scrollContainer = $("#iphoneScrollContainer");
     $(function() {
         scrollContainer.draggable({axis: "y"});
     } );//,scrollSensitivity:100, scrollSpeed:100
@@ -158,12 +158,13 @@ function toggleTaurusScroll(){
     if( !scrollModeOn ) {
         scrollModeOn = !scrollModeOn;
         scrollContainer.draggable("enable");
-        scrollContainer.attr("src","./Pictures/Scrolls/taurusScroll.jpg");
-        scrollContainer.attr("width","370px");//400px
+        scrollContainer.attr("src","./Pictures/Scrolls/taurusScrollNew.jpg");
+        scrollContainer.attr("width","387px");//400px
+        //scrollContainer.attr("height","1334px");
         scrollContainer.css("top","0px");
         scrollContainer.css("left","0px");
         //scrollContainer.attr("height","621px");
-        $("#midPhoneLayerMidScrollContainer").css("overflow","hidden");//"auto"
+        $("#iphoneContent").css("overflow","hidden");//"auto"
         $("#phoneLayer").css("pointer-events","auto");
 
         var scrollOffset = scrollContainer.offset();
@@ -171,7 +172,7 @@ function toggleTaurusScroll(){
         var scrollLeft = scrollOffset.left;
         var parentHeight = scrollContainer.parent().height();
 
-        //alert([scrollLeft,scrollTop - (scrollHeight - parentHeight)  ,scrollLeft + scrollWidth,scrollTop ,parentHeight,scrollHeight ]);
+        alert([scrollLeft,scrollTop - (scrollHeight*2 - parentHeight)  ,scrollLeft + scrollWidth,scrollTop ,parentHeight,scrollHeight ]);
         // Multiplied by 2, not sure why but it does the trick?
         scrollContainer.draggable("option",{containment : [scrollLeft,scrollTop - (scrollHeight*2 - parentHeight)  ,scrollLeft + scrollWidth,scrollTop  ]});
        // scrollContainer.draggable({axis:"y",containment : [left,top - (height - pheight)  ,left + width,top  ]});//axis:"y",,containment:defineRectangleForScrolling(scrollContainer)
@@ -180,7 +181,7 @@ function toggleTaurusScroll(){
     } else {
         scrollModeOn = !scrollModeOn;
         scrollContainer.draggable("disable");
-        scrollContainer.attr("src","./Pictures/iphoneLayer/transparentScrollContainer.png");
+        scrollContainer.attr("src","./Pictures/IphoneLayer2/iphoneContentTransperent.png");
         scrollContainer.css("top","0px");
         scrollContainer.css("left","0px");
         $("#phoneLayer").css("pointer-events","none")
