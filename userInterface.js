@@ -2,7 +2,7 @@
  * Created by chu on 6/14/2014.
  */
 
-var ContextMenu,starsOn,linesOn,illustrationsOn,leftButtonsOpen,infoButtonOn,scrollModeOn,scrollHeight,scrollWidth;
+var ContextMenu,starsOn,linesOn,illustrationsOn,leftButtonsOpen,infoButtonOn,scrollModeOn,scrollHeight,scrollWidth,zoomingIn;
 
 function initialize(){
 
@@ -34,7 +34,12 @@ function initialize(){
     $(function(){
             $("#mapCanvasImg").draggable({scroll: true});//,scrollSensitivity:100, scrollSpeed:100
         }
-    );//{scroll: true,scrollSensitivity:100, scrollSpeed:100}  {containment:[-1000,-1000,2500,2500]}})
+    );
+    $("#mapCanvasImg").dblclick(function(){
+        zoomingIn = !zoomingIn;
+        if(zoomingIn){$("#mapCanvasImg").css("transform","scale(1)");}else{$("#mapCanvasImg").css("transform","scale(0.2)");}
+    });
+    //{scroll: true,scrollSensitivity:100, scrollSpeed:100}  {containment:[-1000,-1000,2500,2500]}})
 
 
     // Initialize the bool that holds the state of the base maps and contextMenu
@@ -45,6 +50,7 @@ function initialize(){
     illustrationsOn = false;
     leftButtonsOpen = false;
     infoButtonOn = false;
+    zoomingIn = false;
 
     alert('Initializied!');
     /*

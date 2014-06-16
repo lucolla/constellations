@@ -36,6 +36,10 @@ body { height: 100%;
     visibility: hidden;
 }
 
+#mapCanvasImg{
+    transition: transform 30s linear;
+}
+
 
 #frameLayer{
     z-index:20;
