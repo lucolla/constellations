@@ -82,6 +82,7 @@ body { height: 100%;
     padding: 10px;
     pointer-events: auto;
     transition: top 1s ease-out;
+    z-index: 50;
     /*transition: [transition-property] [transition-duration] [transition-timing-function] [transition-delay]*/
     /*ease,    linear,    ease-in,,    ease-out,    ease-in-out,    step-start,    step-end*/
 }
@@ -92,6 +93,7 @@ body { height: 100%;
 #menuLeftButtonThird    {position: absolute; top: 0 ; }
 #menuMiddleButton       {position: absolute; left: 50% ; width: 57px; margin-left: -35px;}
 #menuRightButton        {float: right ;}
+#menuInfoButton         {   position: absolute; top: 50% ; margin-top: -20px; right:30px; visibility: hidden; pointer-events: none; }
 
 
 

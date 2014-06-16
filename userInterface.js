@@ -2,22 +2,51 @@
  * Created by chu on 6/14/2014.
  */
 
-
+var ContextMenu,starsOn,linesOn,illustrationsOn,leftButtonsOpen,infoButtonOn,scrollModeOn,scrollHeight,scrollWidth;
 
 function initialize(){
 
     var mapBaseVar = $("#mapBase");
-    mapBaseVar.attr("src","./Pictures/Background/printedSky.png");
-    $("#mapIllustrations").attr("src","./Pictures/Background/consttellationsIllustrations.png");
-    $("#mapLines").attr("src","./Pictures/Background/constellationsLines.png");
-    $("#mapStars").attr("src","./Pictures/Background/constellationStars.png");
+    mapBaseVar.attr("src","./Pictures/Background/BackgroundNew/printedSky.png");
+    $("#mapIllustrations").attr("src","./Pictures/Background/BackgroundNew/consttellationsIllustrations.png");
+    $("#mapLines").attr("src","./Pictures/Background/BackgroundNew/constellationsLines.png");
+    $("#mapStars").attr("src","./Pictures/Background/BackgroundNew/constellationStars.png");
 
     $(".mapImages").css("visibility","visible");
     mapBaseVar.css("opacity","1");
     mapBaseVar = null;
 
 
-    /*alert('Initializing!');*/
+    // Define the img that holds the scroll as draggable
+    //==================================================
+    scrollContainer = $("#scrollContainer");
+    $(function() {
+        scrollContainer.draggable({axis: "y"});
+    } );//,scrollSensitivity:100, scrollSpeed:100
+    scrollContainer.draggable("disable");
+    scrollModeOn = false;
+    scrollHeight = scrollContainer.height();
+    scrollWidth = scrollContainer.width();
+
+
+    // Define the div holding the base maps as draggable
+    //==================================================
+    $(function(){
+            $("#mapCanvasImg").draggable({scroll: true});//,scrollSensitivity:100, scrollSpeed:100
+        }
+    );//{scroll: true,scrollSensitivity:100, scrollSpeed:100}  {containment:[-1000,-1000,2500,2500]}})
+
+
+    // Initialize the bool that holds the state of the base maps and contextMenu
+    //==========================================================================
+    ContextMenu = 'stars' ; //['stars','scroll','stories']
+    starsOn = false;
+    linesOn = false;
+    illustrationsOn = false;
+    leftButtonsOpen = false;
+    infoButtonOn = false;
+
+    alert('Initializied!');
     /*
     <img  id="mapBase"          class="mapImages" src="./Pictures/Background/printedSky.png" >
         <img  id="mapLines"         class="mapImages" src="./Pictures/Background/constellationsLines.png">
@@ -64,22 +93,6 @@ function defineRectangleForScrolling(obj){
 
 }
 
-
-$(function(){
-    $("#mapCanvasImg").draggable({scroll: true});//,scrollSensitivity:100, scrollSpeed:100
-}
-);//{scroll: true,scrollSensitivity:100, scrollSpeed:100}  {containment:[-1000,-1000,2500,2500]}})
-
-var ContextMenu = 'stars' ; //['stars','scroll','stories']
-
-var starsOn = false;
-var linesOn = false;
-var illustrationsOn = false;
-
-var leftButtonsOpen = false;
-
-
-
 function menuButtonPressedDown(pressedButton){
     switch (ContextMenu){
         case 'stars':
@@ -121,11 +134,24 @@ function menuButtonPressedDown(pressedButton){
     }
 }
 
+function toggleInfoButton(){
+    var infoButtonObj = $("#menuInfoButton");
+    if (infoButtonOn){
+        infoButtonObj.css("visibility", "hidden");
+        infoButtonObj.css("pointer-events", "none");
+    }else {
+        infoButtonObj.css("visibility", "visible");
+        infoButtonObj.css("pointer-events", "auto");
+    }
+    infoButtonOn =! infoButtonOn;
+}
+
 
 function toggleTaurusScroll(){
-    var scrollContainer = $("#scrollContainer");
-    if( scrollContainer.attr("src").indexOf("transparent") != -1 ) {
 
+    if( !scrollModeOn ) {
+        scrollModeOn = !scrollModeOn;
+        scrollContainer.draggable("enable");
         scrollContainer.attr("src","./Pictures/Scrolls/taurusScroll.jpg");
         scrollContainer.attr("width","370px");//400px
         scrollContainer.css("top","0px");
@@ -134,19 +160,20 @@ function toggleTaurusScroll(){
         $("#midPhoneLayerMidScrollContainer").css("overflow","hidden");//"auto"
         $("#phoneLayer").css("pointer-events","auto");
 
-        var offset = scrollContainer.offset();
-        var top = offset.top;
-        var left = offset.left;
-        var pheight = scrollContainer.parent().height();
-        var pwidth = scrollContainer.parent().width();
-        var height = scrollContainer.height();
-        var width = scrollContainer.width();
-        alert([left,top - (height - pheight)  ,left + width,top  ]);
+        var scrollOffset = scrollContainer.offset();
+        var scrollTop = scrollOffset.top;
+        var scrollLeft = scrollOffset.left;
+        var parentHeight = scrollContainer.parent().height();
 
-        scrollContainer.draggable({axis:"y",containment : [left,top - (height - pheight)  ,left + width,top  ]});//axis:"y",,containment:defineRectangleForScrolling(scrollContainer)
+        //alert([scrollLeft,scrollTop - (scrollHeight - parentHeight)  ,scrollLeft + scrollWidth,scrollTop ,parentHeight,scrollHeight ]);
+        // Multiplied by 2, not sure why but it does the trick?
+        scrollContainer.draggable("option",{containment : [scrollLeft,scrollTop - (scrollHeight*2 - parentHeight)  ,scrollLeft + scrollWidth,scrollTop  ]});
+       // scrollContainer.draggable({axis:"y",containment : [left,top - (height - pheight)  ,left + width,top  ]});//axis:"y",,containment:defineRectangleForScrolling(scrollContainer)
 
 
     } else {
+        scrollModeOn = !scrollModeOn;
+        scrollContainer.draggable("disable");
         scrollContainer.attr("src","./Pictures/iphoneLayer/transparentScrollContainer.png");
         scrollContainer.css("top","0px");
         scrollContainer.css("left","0px");
