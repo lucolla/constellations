@@ -48,13 +48,35 @@
 
     <div id="container" >
 
-        <div id="map_canvas"><div id="mapCanvasImg">
-            <img  id="mapBase"          class="mapImages" src="./Pictures/Background/blueBackground.jpg"  >
-            <img  id="mapLines"         class="mapImages" src="./Pictures/Background/somePNG.png">
-            <img  id="mapStars"         class="mapImages" src="./Pictures/Background/somePNG.png">
-            <img  id="mapIllustrations" class="mapImages" src="./Pictures/Background/somePNG.png">
+        <div id="map_canvas">
 
-        </div></div>
+            <div id="mapCanvasImg">
+<!--
+
+                <div id="mapConstellationsContainer" class="clickMe" style="top:0;left:0;width:5800px;height:4591px;">
+                    <img id="orionConst"  class="transConstellations" src="./Pictures/tiletrialforsomeillustrations/orionConst.png" style="top:2822px; left:2979px; width:554px; height:994px">
+                    <img id="canisConst" class="transConstellations" src="./Pictures/tiletrialforsomeillustrations/canisConst.png" style="top:3146px; left:2286px; width:513px; height:571px">
+                </div>
+-->
+
+                <img  id="mapBase"          class="mapImages" src="./Pictures/Background/blueBackground.jpg">
+
+                <map name="areaMapping">
+                    <!-- #$-:Image map file created by GIMP Image Map plug-in -->
+                    <!-- #$-:GIMP Image Map plug-in by Maurits Rijk -->
+                    <!-- #$-:Please do not edit lines starting with "#$" -->
+                    <!-- #$VERSION:2.3 -->
+                    <!-- #$AUTHOR:chu -->
+                    <area shape="poly" coords="3030,2280,3063,2259,3402,2432,3606,2372,3715,2480,3809,2682,3784,2736,3676,2785,3607,2815,3622,2896,3471,2952,3440,2936,3409,2844,3325,2830,3263,2810,3265,2740,3287,2691,3254,2634,3239,2618,3150,2531,2960,2460,2858,2396,2865,2365,2956,2397,3111,2448,3272,2510,3335,2502,3062,2313" onclick="constellationPressed('Taurus')"  nohref="nohref" />
+                    <area shape="poly" coords="2851,2338,2839,2451,2804,2531,2802,2606,2803,2681,2848,2706,2852,2606,2932,2579,2957,2593,2996,2621,2977,2694,2966,2711,3021,2711,3082,2748,3070,2522,3113,2530,3177,2615,3210,2695,3203,2848,3143,2920,3107,2900,2999,2815,3006,2909,3133,3092,3129,3125,3150,3227,3221,3267,3204,3298,3148,3295,3109,3219,3043,3091,2981,3062,2955,3130,2913,3175,2889,3203,2829,3193,2834,3013,2841,2829,2731,2700,2725,2584,2740,2530" onclick="constellationPressed('orionConst')"  nohref="nohref" />
+                    <area shape="poly" coords="2289,3557,2331,3576,2375,3549,2374,3492,2456,3354,2425,3280,2399,3286,2375,3248,2408,3218,2422,3169,2473,3150,2533,3125,2536,3162,2516,3226,2559,3253,2668,3299,2756,3312,2781,3302,2790,3355,2772,3370,2648,3349,2742,3386,2777,3389,2759,3427,2701,3421,2615,3390,2568,3466,2494,3506,2558,3636,2621,3626,2657,3652,2566,3701,2491,3717,2458,3643,2397,3607,2309,3627,2269,3586,2268,3586" onclick="constellationPressed('canisConst')"  nohref="nohref" />
+                </map>
+
+                <img  id="mapLines"         class="mapImages clickMe" src="./Pictures/Background/somePNG.png">
+                <img  id="mapStars"         class="mapImages clickMe" src="./Pictures/Background/somePNG.png">
+                <img  id="mapIllustrations" class="mapImages clickMe" src="./Pictures/Background/somePNG.png">
+            </div>
+        </div>
 
         <div id="frameLayer" class="clickMe">
             <div id="UpperPartBlackFrameLayer"><img id="UpperPartBlackFrameLayerImg" src="./Pictures/IphoneLayer2/blackFrameLayer_upper.png"/></div>
@@ -107,6 +129,7 @@
 
     </div>
     <input type="button" onclick="toggleTaurusScroll()" style="position: absolute;  top:0; left:0; z-index: 50;">
+
 
     </body>
 </html>

@@ -18,6 +18,8 @@ body { height: 100%;
 
 }
 
+
+
 #map_canvas,
 #phoneLayer,
 #frameLayer
@@ -28,6 +30,9 @@ body { height: 100%;
     top:0;
     right:0;
     z-index:1;}
+
+
+#mapConstellationsContainer{z-index: 1}
 
 .mapImages {
     position: absolute ; top:0; left:0;
@@ -40,11 +45,13 @@ body { height: 100%;
     transition: transform 30s linear;
 }
 
+.transConstellations{opacity: 1;}
 
 #frameLayer{
     z-index:20;
 
 }
+.transConstellations{z-index:10;}
 
 #phoneLayer{
     z-index:30;
