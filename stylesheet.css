@@ -7,20 +7,29 @@ html { height: 100% }
 body { height: 100%;
     margin: 0; padding: 0 ;
     zoom: 100%;
-    /*background: black;*/
+    background: midnightblue;
     /*opacity: 0.3;*/
-    background-image: url('./Pictures/Background/blueBackground.jpg');
+    /*background-image: url('./Pictures/Background/blueBackground.jpg');*/
     overflow: hidden;}
 #container {
     width:1920px;
     height: 1080px;
     position: relative;
-
 }
 
 
 
-#map_canvas,
+#map_canvas{
+    position: absolute;
+    top:-2900px;
+    left:-2250px;
+    width:5800px;
+    height:4591px;
+    z-index:1;
+    transition: transform 30s linear;
+}
+
+
 #phoneLayer,
 #frameLayer
 {
@@ -32,26 +41,26 @@ body { height: 100%;
     z-index:1;}
 
 
-#mapConstellationsContainer{z-index: 1}
+#mapConstellationsContainer{
+    position: absolute;    top:0;    left:0;
+    z-index: 1}
 
 .mapImages {
-    position: absolute ; top:0; left:0;
+    position: absolute ;   top:0;    left:0;
     transition: opacity 1s ease;
     opacity: 0;
     visibility: hidden;
 }
 
-#mapCanvasImg{
-    transition: transform 30s linear;
-}
-
-.transConstellations{opacity: 1;}
+.transConstellations{
+    opacity: 0;
+    transition: opacity 1s ease;
+    color: orange;
+    z-index:10;}
 
 #frameLayer{
     z-index:20;
-
 }
-.transConstellations{z-index:10;}
 
 #phoneLayer{
     z-index:30;

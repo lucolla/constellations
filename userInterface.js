@@ -2,7 +2,7 @@
  * Created by chu on 6/14/2014.
  */
 
-var ContextMenu,starsOn,linesOn,illustrationsOn,leftButtonsOpen,infoButtonOn,scrollModeOn,scrollHeight,scrollWidth,zoomingIn;
+var ContextMenu,starsOn,linesOn,illustrationsOn,leftButtonsOpen,infoButtonOn,scrollModeOn,scrollHeight,scrollWidth,zoomingIn,constInFocus;
 
 function initialize(){
 
@@ -16,6 +16,10 @@ function initialize(){
     $(".mapImages").css("visibility","visible");
     mapBaseVar.css("opacity","1");
     mapBaseVar = null;
+
+    try { for (var jj = 0; jj < constellationsArr.length; jj++) {
+            addTransparentConstellation(constellationsArr[jj][0], constellationsArr[jj][1], constellationsArr[jj][2], trsnsparentcConstellationsPath);}
+    }catch(e){alert('Error in addTransparentConstellation:'+ e.description)}
 
 
     // Define the img that holds the scroll as draggable
@@ -33,7 +37,13 @@ function initialize(){
     // Define the div holding the base maps as draggable
     //==================================================
     $(function(){
-            $("#map_canvas").draggable({scroll: true});//,scrollSensitivity:100, scrollSpeed:100
+            $("#map_canvas").draggable({scroll: true,//,scrollSensitivity:100, scrollSpeed:100
+                                        start: function(event,ui){
+                                            if(illustrationsOn)  {$("#mapIllustrations").fadeTo(400,1);
+                                                                  $(".transConstellations").fadeTo(400,1);}
+                                        }
+                }
+            );
         }
     );
     $("#map_canvas").dblclick(function(){
@@ -52,6 +62,7 @@ function initialize(){
     leftButtonsOpen = false;
     infoButtonOn = false;
     zoomingIn = false;
+    constInFocus = 'none';
 
     //alert('Initializied!');
     /*
@@ -64,15 +75,31 @@ function initialize(){
 }    // End of function Initialize()
 
 //====================================================================================
+//=========================End of function Initialize==================================
+//====================================================================================
 
 
 function constellationPressed(constName){
 
-    //alert('Orion');
-    //$("#mapIllustrations").css("opacity","0");
-    //$(".transConstellations").not("#"+constName).css("opacity","0");
+    //alert(constName);
+    if(illustrationsOn && constName != constInFocus){
+        $("#mapIllustrations").fadeTo(400,0);
+        $(".transConstellations").not("#"+constName).fadeTo(400,0);
+        $("#"+constName).fadeTo(400,1);
+        constInFocus = constName;
+        toggleInfoButton();
+    //$("#mapIllustrations").fadeTo(400,0).delay(600).fadeTo(400,1);
+   // $(".transConstellations").not("#"+constName).fadeTo(400,0).delay(600).fadeTo(400,1);
+
+    }
+
+
     //$("#"+constName).css("opacity","1");
 
+}
+
+function addTransparentConstellation(constName,xLeft,yTop,filePath){ //width,height,
+$("#mapConstellationsContainer").append('<img id="'+constName+'" class="transConstellations" src="'+filePath+constName+'.png'+'" style="position:absolute; top:'+yTop+'px; left:'+xLeft+'px; "/>');// width:'+width+'px; height:'+height+'px
 }
 
 // If the window is resized then the form of the smartphone layer is changed
@@ -91,7 +118,7 @@ function handleDiffRatio(){
         $("#LowerPartBlackFrameLayerImg").hide();
         $("#phoneLayerImg").attr("src","./Pictures/IPhoneLayer/phoneLayerLandscape.png");
     }
-};
+}
 
 function defineRectangleForScrolling(obj){
 // alert("hi"+obj.css("width"));
@@ -133,8 +160,13 @@ function menuButtonPressedDown(pressedButton){
                     }
                     break;
                 case 'illustrationsButton':
-                    if(illustrationsOn){$("#mapIllustrations").css("opacity","0");
-                    }else{$("#mapIllustrations").css("opacity","1");}
+                    if(illustrationsOn){
+                        $("#mapIllustrations").css("opacity","0");
+                        $(".transConstellations").css("opacity","0.2");
+                    }else{
+                        $("#mapIllustrations").css("opacity","1");
+                        $(".transConstellations").css("opacity","0.8");
+                    }
                     illustrationsOn=!illustrationsOn;
                     break;
                 case 'linesButton':
