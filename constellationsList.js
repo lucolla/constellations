@@ -13,5 +13,5 @@ var constellationsArr = [
     ['lambConst',3696,2179],
     ['cetusConst',4006,2791],
     ['doveConst',2669,3761],
-    ['orionConst',2979,2822]        //554,994
+    ['orionConst',2822,2979]        //554,994
 ];

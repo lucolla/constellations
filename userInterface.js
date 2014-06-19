@@ -39,8 +39,10 @@ function initialize(){
     $(function(){
             $("#map_canvas").draggable({scroll: true,//,scrollSensitivity:100, scrollSpeed:100
                                         start: function(event,ui){
-                                            if(illustrationsOn)  {$("#mapIllustrations").fadeTo(400,1);
-                                                                  $(".transConstellations").fadeTo(400,1);}
+                                            if(illustrationsOn && constInFocus != 'none')  {$("#mapIllustrations").fadeTo(400,1);
+                                                                                            $(".transConstellations").fadeTo(400,1);
+                                                                                            constInFocus = 'none';
+                                            }
                                         }
                 }
             );
@@ -83,8 +85,8 @@ function constellationPressed(constName){
 
     //alert(constName);
     if(illustrationsOn && constName != constInFocus){
-        $("#mapIllustrations").fadeTo(400,0);
-        $(".transConstellations").not("#"+constName).fadeTo(400,0);
+        $("#mapIllustrations").fadeTo(100,0);
+        $(".transConstellations").not("#"+constName).fadeTo(100,0.6);
         $("#"+constName).fadeTo(400,1);
         constInFocus = constName;
         toggleInfoButton();
@@ -162,10 +164,10 @@ function menuButtonPressedDown(pressedButton){
                 case 'illustrationsButton':
                     if(illustrationsOn){
                         $("#mapIllustrations").css("opacity","0");
-                        $(".transConstellations").css("opacity","0.2");
+                        $(".transConstellations").css("opacity","0");
                     }else{
                         $("#mapIllustrations").css("opacity","1");
-                        $(".transConstellations").css("opacity","0.8");
+                        $(".transConstellations").css("opacity","0");
                     }
                     illustrationsOn=!illustrationsOn;
                     break;
