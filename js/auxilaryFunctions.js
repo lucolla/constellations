@@ -3,7 +3,22 @@
  */
 
 
+function bringToCenter(jqueryObject){
 
+    var tempBox = jqueryObject.get(0).getBoundingClientRect();
+    var parentBox = jqueryObject.parent()[0].getBoundingClientRect();
+    console.log('parent: '+ [parentBox.left,parentBox.top,parentBox.right,parentBox.bottom].join());
+    console.log('self: '+ [tempBox.left,tempBox.top,tempBox.right,tempBox.bottom].join());
+
+    var loc = {
+        left: (parentBox.right - parentBox.left)/2 - (tempBox.right - tempBox.left)/2  ,
+        top:   (parentBox.bottom - parentBox.top)/2 - (tempBox.bottom - tempBox.top)/2
+
+    };
+    jqueryObject.css( "transform", 'translate('+(loc.left).toString() +'px ,'+ (loc.top).toString()  +'px)');
+    jqueryObject.css(loc);
+    //jqueryObject.css('transform','translate('+ loc.left +','+ loc.top +')');
+}
 
 
 
@@ -27,17 +42,24 @@ function hookWheelEvent(mapCanvasElement){
 
 function mapZooming(event){
 
-    console.log('reeachedthispoint1');
+    console.log('reeachedthispoint1' + event.deltaY.toString());
 
     var direction;
     //if (event.SCROLL_PAGE_UP == -32765) {direction = 'in'}else{direction = 'out'}
     //if (event.deltaY < 0) {direction = 'in'}else{direction = 'out'}
     //var currentZoom = this.css('scale');
 
-    var futureZoom = currentZoom + 0.1 *(-1)* event.deltaY/Math.abs(event.deltaY); ///
+    var futureZoom = currentZoom + (-1)*0.1*event.deltaY/Math.abs(event.deltaY); ///
     if (futureZoom <= maxZoom && futureZoom >= minZoom) {
 
         //this.css("transform",'scale('+futureZoom.toString()+')');
+        var _this = $(this);
+        console.log('changing zoom');
+        _this.css("transform",'scale('+futureZoom.toString()+')'); //translateX() translateY()
+        console.log('brinign ot center');
+        bringToCenter(_this);
+
+
         this.style.transform='scale('+futureZoom.toString()+')';
 
         currentZoom = futureZoom;
@@ -45,8 +67,11 @@ function mapZooming(event){
 
     }
     //event.deltaY
-
-
-
-
 }
+
+/*
+function toggleButton(buttonObject,state){
+    buttonObject.attr("src",buttonImages[])
+}
+
+    */

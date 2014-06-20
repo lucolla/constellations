@@ -3,7 +3,10 @@
  */
 
 // [constName,xLeft,yTop,width,height,filePath]
-var trsnsparentcConstellationsPath='./Pictures/transparentConstellations/';
+var trsnsparentcConstellationsPath='./Pictures/tiletrialforsomeillustrations/';
+
+/*
+ var trsnsparentcConstellationsPath='./Pictures/transparentConstellations/';
 
 var constellationsArr = ['andromeda.png',
 'aries.png',
@@ -32,7 +35,7 @@ var constellationsArr = ['andromeda.png',
 'triangulum.png',
 'ursa-major.png'];
 
-/*
+*/
 var constellationsArr = [
 
     ['cancerConst',1690,2189],
@@ -42,7 +45,6 @@ var constellationsArr = [
     ['lambConst',3696,2179],
     ['cetusConst',4006,2791],
     ['doveConst',2669,3761],
-    ['orionConst',2822,2979]        //554,994
+    ['orionConst',2704,2327]        //554,994
 ];
 
-   */
