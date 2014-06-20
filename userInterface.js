@@ -2,10 +2,15 @@
  * Created by chu on 6/14/2014.
  */
 
-var ContextMenu,starsOn,linesOn,illustrationsOn,leftButtonsOpen,infoButtonOn,scrollModeOn,scrollHeight,scrollWidth,zoomingIn,constInFocus;
+
 
 function initialize(){
 
+
+
+
+    // Change src for base layers of map and constellations
+    //======================================================
     var mapBaseVar = $("#mapBase");
     try {   mapBaseVar.attr("src", "./Pictures/Background/BackgroundNew/printedSky.png");                               }catch(e){ alert('Error: '+ e.description); }
     try {   $("#mapIllustrations").attr("src", "./Pictures/Background/BackgroundNew/consttellationsIllustrations.png"); }catch(e){ alert('Error: '+ e.description); }
@@ -17,6 +22,9 @@ function initialize(){
     mapBaseVar.css("opacity","1");
     mapBaseVar = null;
 
+
+    // Add transparent constellations to the constellations container
+    //=================================================================
     try { for (var jj = 0; jj < constellationsArr.length; jj++) {
             addTransparentConstellation(constellationsArr[jj][0], constellationsArr[jj][1], constellationsArr[jj][2], trsnsparentcConstellationsPath);}
     }catch(e){alert('Error in addTransparentConstellation:'+ e.description)}
@@ -34,13 +42,17 @@ function initialize(){
     scrollWidth = scrollContainer.width();
 
 
+
     // Define the div holding the base maps as draggable
     //==================================================
+
+    var mapCanvasElement = $("#map_canvas");
     $(function(){
-            $("#map_canvas").draggable({scroll: true,//,scrollSensitivity:100, scrollSpeed:100
+            mapCanvasElement.draggable({scroll: true,//,scrollSensitivity:100, scrollSpeed:100
                                         start: function(event,ui){
                                             if(illustrationsOn && constInFocus != 'none')  {$("#mapIllustrations").fadeTo(400,1);
                                                                                             $(".transConstellations").fadeTo(400,1);
+                                                                                            toggleInfoButton();
                                                                                             constInFocus = 'none';
                                             }
                                         }
@@ -48,23 +60,15 @@ function initialize(){
             );
         }
     );
-    $("#map_canvas").dblclick(function(){
+    mapCanvasElement.dblclick(function(){
         zoomingIn = !zoomingIn;
-        if(zoomingIn){$("#map_canvas").css("transform","scale(1)");}else{$("#map_canvas").css("transform","scale(0.2)");}
+        if(zoomingIn){mapCanvasElement.css("transform","scale(1)");}else{mapCanvasElement.css("transform","scale(0.2)");}
     });
+
+    hookWheelEvent(mapCanvasElement);
+    //addWheelListener( document.getElementById("iphoneScrollContainer") , function( e ) { console.log( e.deltaY*2 + e.SCROLL_PAGE_UP  );e.preventDefault(); } ); //for (key in e){ console.log(key)}
+
     //{scroll: true,scrollSensitivity:100, scrollSpeed:100}  {containment:[-1000,-1000,2500,2500]}})
-
-
-    // Initialize the bool that holds the state of the base maps and contextMenu
-    //==========================================================================
-    ContextMenu = 'stars' ; //['stars','scroll','stories']
-    starsOn = false;
-    linesOn = false;
-    illustrationsOn = false;
-    leftButtonsOpen = false;
-    infoButtonOn = false;
-    zoomingIn = false;
-    constInFocus = 'none';
 
     //alert('Initializied!');
     /*

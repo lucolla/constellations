@@ -3,7 +3,36 @@
  */
 
 // [constName,xLeft,yTop,width,height,filePath]
-var trsnsparentcConstellationsPath='./Pictures/tiletrialforsomeillustrations/';
+var trsnsparentcConstellationsPath='./Pictures/transparentConstellations/';
+
+var constellationsArr = ['andromeda.png',
+'aries.png',
+'auriga.png',
+'cancer.png',
+'canis-major.png',
+'cassiopeia.png',
+'cetus.png',
+'columba.png',
+'fornax.png',
+'gemini.png',
+'girafe.png',
+'hydra-cup-raven.png',
+'leo-major.png',
+'leo-minor.png',
+'lepus.png',
+'lynx.png',
+'monoceros.png',
+'orion.png',
+'pegasus.png',
+'perseus.png',
+'pisces.png',
+'puppis.png',
+'pyxis.png',
+'taurus.png',
+'triangulum.png',
+'ursa-major.png'];
+
+/*
 var constellationsArr = [
 
     ['cancerConst',1690,2189],
@@ -15,3 +44,5 @@ var constellationsArr = [
     ['doveConst',2669,3761],
     ['orionConst',2822,2979]        //554,994
 ];
+
+   */
