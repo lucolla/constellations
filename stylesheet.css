@@ -116,9 +116,14 @@ body { height: 100%;  width:100%;
                         /* For making the draggable work in IE11: */
                         -ms-touch-action:none !important;}
 
-
-
-#menu                   {position: absolute; top: 0 ; left: 30px; width: 400px ; z-index:50; pointer-events: none;}
+#menu { position: absolute;
+        top: 0 ;
+        left: 0;
+        width: 387px ;
+        height:240px ;
+        z-index:45;
+        pointer-events: none;
+        overflow: hidden;} /*border: 2px solid #ffffff; */
 
 .menuButtons,.menuLeftButtons {
     padding: 10px;
@@ -134,12 +139,19 @@ body { height: 100%;  width:100%;
    /* border: 1px solid rgb(0,255,125); */
 }
 #menuLeftButtonFirst    {position: absolute; top: 0 ; }
-.menuLeftButtons:active    {border:3px solid rgb(30,255,125) }
 #menuLeftButtonSecond   {position: absolute; top: 0 ; }
 #menuLeftButtonThird    {position: absolute; top: 0 ; }
 #menuMiddleButton       {position: absolute; left: 50% ; width: 57px; margin-left: -35px;}
-#menuRightButton        {float: right ;}
+#menuRightButton        {position: absolute; right:0 ;  z-index: 50;}
 #menuInfoButton         {   position: absolute; top: 50% ; margin-top: -20px; right:30px; visibility: hidden; pointer-events: none; }
+
+.menuLeftButtons:active    {
+    /*background-color: #000000;*/
+    background-image: url('./Pictures/newiconsthreestates/greenGlow.png');
+    background-repeat: no-repeat;
+    transform: scale(0.9);
+
+} /* border:3px solid rgb(30,255,125) */
 
 
 
