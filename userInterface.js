@@ -128,7 +128,7 @@ function toggleTaurusScroll(){
     if( !scrollModeOn ) {
         scrollModeOn = !scrollModeOn;
         scrollContainer.draggable("enable");
-        scrollContainer.attr("src","./Pictures/Scrolls/taurusScrollNew.jpg");
+        scrollContainer.attr("src",scrollsinfo[constInFocus]);
         scrollContainer.attr("width","387px");//400px
         //scrollContainer.attr("height","1334px");
         scrollContainer.css("top","0px");
@@ -145,6 +145,7 @@ function toggleTaurusScroll(){
         //alert([scrollLeft,scrollTop - (scrollHeight*2 - parentHeight)  ,scrollLeft + scrollWidth,scrollTop ,parentHeight,scrollHeight ]);
         // Multiplied by 2, not sure why but it does the trick?
         scrollContainer.draggable("option",{containment : [scrollLeft,scrollTop - (scrollHeight*2 - parentHeight)  ,scrollLeft + scrollWidth,scrollTop  ]});
+        //containment = [   upper limit on the upper part the upper part ]
        // scrollContainer.draggable({axis:"y",containment : [left,top - (height - pheight)  ,left + width,top  ]});//axis:"y",,containment:defineRectangleForScrolling(scrollContainer)
 
 

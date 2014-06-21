@@ -20,6 +20,11 @@ currentZoom = 1
     ;
 
 var mapBox ;//left,top,right,bottom;
+var currentMapCanvasLocation = {top:0,left: 0};
+var lastMapCanvasLocation = {top:0,left: 0};
+var startDraggingTime = 0;
+var endDraggingTime = 0;
+var mapNegativeAcceleration = 900; // pixel/milisecond
 
 var buttonImages ={
     'menuLeftButtonThird':{
@@ -47,4 +52,14 @@ var buttonImages ={
         'onImage':'null',
         'offImage':'null',
         'onImagePressed':'null','offImagePressed':'null'}
+};
+
+var scrollsPath = './Pictures/Scrolls/'
+
+var scrollsinfo = {
+
+    Taurus:     scrollsPath+'taurus.jpg',
+    doveConst:  scrollsPath+'raven.jpg',
+    canisConst: scrollsPath+'ursa major.jpg',
+    none: scrollsPath+'taurus.jpg'
 };

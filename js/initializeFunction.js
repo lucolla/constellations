@@ -52,10 +52,12 @@ function initialize(){
 
     mapBox =  mapCanvasElement.get(0).getBoundingClientRect();
 
-    //hookWheelEvent(zoomableMapCanvas);
+    hookWheelEvent(zoomableMapCanvas);
 
     $(function(){
-            mapCanvasElement.draggable({scroll: true,//,scrollSensitivity:100, scrollSpeed:100
+            mapCanvasElement.draggable({
+                    //containment:[],
+                    scroll: true,//,scrollSensitivity:100, scrollSpeed:100
                     start: function(event,ui){  // function(event,ui){
 
                         //ui.helper.css("transform","translate(0,0)");
@@ -64,15 +66,41 @@ function initialize(){
 
                         var _this = $(this);
                         var box = _this.get(0).getBoundingClientRect();
-                        console.log('dragging ' + event.type + '   ' + event.which);
-
-
+                        console.log('dragging ' + event.type + '   ' + event.which + event.timeStamp);
+                        startDraggingTime = event.timeStamp;
 
                         if(illustrationsOn && constInFocus != 'none')  {$("#mapIllustrations").fadeTo(400,1);
                                                                         $(".transConstellations").fadeTo(400,1);
                                                                         toggleInfoButton();
                                                                         constInFocus = 'none';
                         }
+                    },
+                    //stop:function(event,ui){var eventKeys=[]; for (key in event.originalEvent) {eventKeys.push(key)} console.log(eventKeys.join())}
+                    stop:function(event,ui){
+                        var _this = $(this);
+                        lastMapCanvasLocation = currentMapCanvasLocation;
+                        currentMapCanvasLocation = ui.offset;
+                        endDraggingTime = event.timeStamp;
+                        var diffMapCanvasLocX = currentMapCanvasLocation.left - lastMapCanvasLocation.left;//pixel's
+                        var diffMapCanvasLocY = currentMapCanvasLocation.top - lastMapCanvasLocation.top; //pixel's
+                        var diffDistance = (Math.pow(diffMapCanvasLocX,2)+Math.pow(diffMapCanvasLocY,2)); //pixel's
+                        var diffTime = endDraggingTime - startDraggingTime; //milliseconds
+                        var speed = diffDistance/diffTime; // pixel/milliseconds
+                        var extraTimeOfMovement  =  speed/mapNegativeAcceleration; //millisecond, assuming the resistance is always parallel to the direction of change
+                        var extraDistanceX = speed*(diffMapCanvasLocX/diffDistance)*extraTimeOfMovement+mapNegativeAcceleration*(diffMapCanvasLocX/diffDistance)*Math.pow(extraTimeOfMovement,2)/2; //pixel's
+                        var extraDistanceY = speed*(diffMapCanvasLocY/diffDistance)*extraTimeOfMovement+mapNegativeAcceleration*(diffMapCanvasLocY/diffDistance)*Math.pow(extraTimeOfMovement,2)/2; //pixel's
+                        console.log(lastMapCanvasLocation,currentMapCanvasLocation,diffTime);
+                        var eventKeys=[];
+                        for (key in event.originalEvent) {eventKeys.push(key)}
+                        console.log(eventKeys.join());
+
+                        _this.css({
+                            transition: 'top '+extraTimeOfMovement.toString()+' cubic-bezier(0.665, 0.195, 0.305, 0.995),left '+extraTimeOfMovement.toString()+' cubic-bezier(0.665, 0.195, 0.305, 0.995)',
+                            top: (currentMapCanvasLocation.top + extraDistanceX).toString()+'px'  ,
+                            left: (currentMapCanvasLocation.left + extraDistanceY).toString() +'px'
+                                            });
+                        _this.css("transition",'top 0.2 linear,left 0.2 linear');
+
                     }
                 }
             );
@@ -106,6 +134,8 @@ function initialize(){
      <img  id="mapIllustrations" class="mapImages" src="./Pictures/Background/consttellationsIllustrations.png">
      */
 
+
+        console.log('End of function Initialize()');
 }    // End of function Initialize()
 
 //====================================================================================
