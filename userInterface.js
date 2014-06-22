@@ -23,8 +23,8 @@ function constellationPressed(constName){
 
 }
 
-function addTransparentConstellation(constName,xLeft,yTop,filePath){ //width,height,
-$("#mapConstellationsContainer").append('<img id="'+constName+'" class="transConstellations" src="'+filePath+constName+'.png'+'" style="position:absolute; top:'+yTop+'px; left:'+xLeft+'px; "/>');// width:'+width+'px; height:'+height+'px
+function addTransparentConstellation(constName,xLeft,yTop,filePath,filename){ //width,height,
+$("#mapConstellationsContainer").append('<img id="'+constName+'" class="transConstellations" src="'+filePath+filename+'" style="position:absolute; top:'+yTop+'px; left:'+xLeft+'px; "/>');// width:'+width+'px; height:'+height+'px
 }
 
 // If the window is resized then the form of the smartphone layer is changed
@@ -124,7 +124,7 @@ function toggleInfoButton(){
 
 
 function toggleTaurusScroll(){
-
+    console.log('toggle scroll: '+constInFocus);
     if( !scrollModeOn ) {
         scrollModeOn = !scrollModeOn;
         scrollContainer.draggable("enable");

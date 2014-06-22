@@ -26,6 +26,8 @@ var startDraggingTime = 0;
 var endDraggingTime = 0;
 var mapNegativeAcceleration = 900; // pixel/milisecond
 
+var constellationsArr = [];
+
 var buttonImages ={
     'menuLeftButtonThird':{
         'onImage':'stars_inverse',

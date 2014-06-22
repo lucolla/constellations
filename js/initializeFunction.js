@@ -8,7 +8,7 @@
 function initialize(){
 
 
-
+    initializeConstellationsNames();
 
     // Change src for base layers of map and constellations
     //======================================================
@@ -27,7 +27,7 @@ function initialize(){
     // Add transparent constellations to the constellations container
     //=================================================================
     try { for (var jj = 0; jj < constellationsArr.length; jj++) {
-        addTransparentConstellation(constellationsArr[jj][0], constellationsArr[jj][1], constellationsArr[jj][2], trsnsparentcConstellationsPath);}
+        addTransparentConstellation(constellationsArr[jj][0], constellationsArr[jj][1], constellationsArr[jj][2], trsnsparentcConstellationsPath,constellationsArr[jj][3]);}//constName,xLeft,yTop,filePath,filename
     }catch(e){alert('Error in addTransparentConstellation:'+ e.description)}
 
 
@@ -57,7 +57,7 @@ function initialize(){
     $(function(){
             mapCanvasElement.draggable({
                     //containment:[],
-                    scroll: true,//,scrollSensitivity:100, scrollSpeed:100
+                    //scroll: true,//,scrollSensitivity:100, scrollSpeed:100
                     start: function(event,ui){  // function(event,ui){
 
                         //ui.helper.css("transform","translate(0,0)");
@@ -89,10 +89,10 @@ function initialize(){
                         var extraTimeOfMovement  =  speed/mapNegativeAcceleration; //millisecond, assuming the resistance is always parallel to the direction of change
                         var extraDistanceX = speed*(diffMapCanvasLocX/diffDistance)*extraTimeOfMovement+mapNegativeAcceleration*(diffMapCanvasLocX/diffDistance)*Math.pow(extraTimeOfMovement,2)/2; //pixel's
                         var extraDistanceY = speed*(diffMapCanvasLocY/diffDistance)*extraTimeOfMovement+mapNegativeAcceleration*(diffMapCanvasLocY/diffDistance)*Math.pow(extraTimeOfMovement,2)/2; //pixel's
-                        console.log(lastMapCanvasLocation,currentMapCanvasLocation,diffTime);
-                        var eventKeys=[];
-                        for (key in event.originalEvent) {eventKeys.push(key)}
-                        console.log(eventKeys.join());
+                        //console.log(lastMapCanvasLocation,currentMapCanvasLocation,diffTime);
+                        //var eventKeys=[];
+                        //for (key in event.originalEvent) {eventKeys.push(key)}
+                        //console.log(eventKeys.join());
 
                         _this.css({
                             transition: 'top '+extraTimeOfMovement.toString()+' cubic-bezier(0.665, 0.195, 0.305, 0.995),left '+extraTimeOfMovement.toString()+' cubic-bezier(0.665, 0.195, 0.305, 0.995)',
@@ -106,21 +106,26 @@ function initialize(){
             );
         }
     );
+
+    //double-click function
+    //===========================
+
+ /*
     mapCanvasElement.dblclick(function(){
         zoomingIn = !zoomingIn;
-        if(zoomingIn){mapCanvasElement.css("transform","scale(1) translate(0,0)");}else{mapCanvasElement.css("transform","scale(0.5) translate()");}
+        if(zoomingIn){mapCanvasElement.css("transform","scale(1) translate(0,0)");}else{mapCanvasElement.css("transform","scale(0.5) translate(0,0)");}
     });
-
+*/
 
 
     // Add to buttons hoover mode
     //=============================
-
+/*
     for (key in buttonImages){
         $('#'+key).css
 
     }
-
+*/
 
     //addWheelListener( document.getElementById("iphoneScrollContainer") , function( e ) { console.log( e.deltaY*2 + e.SCROLL_PAGE_UP  );e.preventDefault(); } ); //for (key in e){ console.log(key)}
 
