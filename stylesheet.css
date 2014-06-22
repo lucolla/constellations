@@ -34,6 +34,10 @@ body { height: 100%;  width:100%;
 }
 
 
+#zoommable_map_canvas{
+    border:3px solid rgb(30,255,125);
+}
+
 #phoneLayer,
 #frameLayer
 {

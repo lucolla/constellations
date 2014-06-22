@@ -62,7 +62,9 @@ function hookWheelEvent(mapCanvasElement){
     }
 }
 
-
+function pixelize(locnum){
+    return ' '+locnum.toString()+'px ';
+}
 
 function mapZooming(event){
 
@@ -73,29 +75,62 @@ function mapZooming(event){
     //if (event.deltaY < 0) {direction = 'in'}else{direction = 'out'}
     //var currentZoom = this.css('scale');
 
-    var futureZoom = currentZoom + (-1)*0.1*event.deltaY/Math.abs(event.deltaY); ///
+    var futureZoom = currentZoom + (-1)*0.02*event.deltaY/Math.abs(event.deltaY); ///
     if (futureZoom <= maxZoom && futureZoom >= minZoom) {
+
         var eventKeys=[];
         var eventValues =[];
         for (key in event) {eventKeys.push(key);eventValues.push(event[key])}
         console.log(eventKeys.join());
-        console.log([event.screenX,event.screenY,event.clientX,event.clientY].join('-'));
+        console.log([event.screenX,event.screenY,event.clientX,event.clientY,event.pageX,event.pageY].join('-'));
+
         //this.css("transform",'scale('+futureZoom.toString()+')');
-        var _this = $(this);
-        //console.log('changing zoom');
-        _this.css("transform",'scale('+futureZoom.toString()+')'); //translateX() translateY()
+        var zoomableMapCanvas = $("#zoommable_map_canvas");
+        //console.log('changing zoom'+_this);
+        //_this.css("transform",'scale('+futureZoom.toString()+')'); //translateX() translateY()
+
         //console.log('brinign ot center');
+        //bringToCenter(_this);
 
-        bringToCenter(_this);
+        var pointerOffset = {pointerX:event.clientX,pointerY:event.clientY};
+        var tempBox = this.getBoundingClientRect();
+        var middlePoint = {
+            left:Math.round( (tempBox.right + tempBox.left)/2 ),
+            top: Math.round( tempBox.top     ) //(tempBox.bottom + tempBox.top)/2
+        };
 
-        //var pointerOffset = {pointerX:event.screenX,pointerY:event.screenY};
+        console.log([tempBox.left,tempBox.top].join());
         //zoomOnPointerTranslation(_this,pointerOffset,currentZoom);
+        var loc = {
+            left: pointerOffset.pointerX -  middlePoint.left ,
+            top:   pointerOffset.pointerY - middlePoint.top
+        };
+
+        if (futureZoom > currentZoom ){
+
+            zoomableMapCanvas.css("top", pixelize(tempBox.top - loc.top*2) );
+            zoomableMapCanvas.css("left", pixelize( tempBox.left - loc.left*2) );
 
 
-        this.style.transform='scale('+futureZoom.toString()+')';
+        }else{
+
+
+            zoomableMapCanvas.css("top", pixelize(tempBox.top + loc.top*2));
+            zoomableMapCanvas.css("left", pixelize(tempBox.left - loc.left*2));
+
+
+        }
+        //this.style['transform-origin'] = loc.left+' '+loc.top;
+        //$(this).css("transform-origin",loc.left+' '+loc.top);
+        console.log('zooming something:'+ this.id);
+        //this.style.transform='scale('+futureZoom.toString()+')';
+        $(this).css({transform:'scale('+futureZoom.toString()+')'});//'transform-origin': 'center center',
+
+        //this.style.left = loc.left;
+        //this.style.top = loc.top;
 
         currentZoom = futureZoom;
-        console.log('reeachedthispoint');
+        console.log('reeachedthispoint: '+currentZoom.toString());
 
     }
     //event.deltaY
