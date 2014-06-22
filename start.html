@@ -1,0 +1,231 @@
+<html>
+<head>
+  <title> 06 Add Lines Layer</title>
+  <script type="text/javascript" src="https://www.google.com/jsapi"> </script>
+  <script type="text/javascript">
+    var ge;
+	var currentKmlObjects = new Array();
+	var currentKmlStatus  = new Array();
+	var currentKmlView    = new Array();
+	var currentKmlObject  = null;
+	var compassStatus     = false;
+	var constellationLayerIsLoaded = false;
+	var infoLayerIsLoaded = false;
+	var linesLayerIsLoaded = false;
+	
+    google.load("earth", "1", {'language': 'he', "other_params":"sensor=true_or_false"});
+	
+    function init() {
+      google.earth.createInstance('map3d', initCB, failureCB);
+    }
+
+    function initCB(instance) {
+      ge = instance;
+	  loadPhoneLayer();
+
+      function eventHandler(event) {
+        var text = 'Click:';
+		var x =  event.getScreenX();
+        var y =  event.getScreenY();	
+		//Uncomment for debugging coordinates
+		//alert ("x="+x+ " y="+y);  
+		var bottomY = 195;
+		var topY    = 248;
+		var leftButton = 656;
+		var nextButton = 68;
+	    if ( y < bottomY || y > topY ) {return;}
+		
+		if ( x> leftButton && x < leftButton+50) {toggleConstellationsLayer();};
+		leftButton += nextButton;
+		if ( x> leftButton && x < leftButton+50) {toggleLinesLayer()};
+		leftButton += nextButton;
+		if ( x> leftButton && x < leftButton+50) {toggleInfoLayer()};
+		leftButton += nextButton;
+		if ( x> leftButton && x < leftButton+50) {alert("Search button")};
+		leftButton += nextButton;
+		if ( x> leftButton && x < leftButton+50) {toggleCompass();};
+		leftButton += nextButton;
+		if ( x> leftButton && x < leftButton+50) {alert("Books button")}		
+      }
+    
+      // listen to the click event on the window
+      google.earth.addEventListener(ge.getWindow(), 'click', eventHandler);
+
+	  //showSky
+	  showSky(); 
+	  ge.getWindow().setVisibility(true); 
+    }
+
+    function failureCB(errorCode) {
+    }
+
+	function showSky() {
+    //ge.getOptions().setOption(ge.OPTION_HISTORICAL_IMAGERY, ge.OPTION_STATE_DISABLED);
+    ge.getOptions().setMapType(ge.MAP_TYPE_SKY);
+	
+	
+    setTimeout(function() {
+    // Zoom in on a nebula.
+    var oldFlyToSpeed = ge.getOptions().getFlyToSpeed();
+    ge.getOptions().setFlyToSpeed(.2);  // Slow down the camera flyTo speed.
+    var lookAt = ge.getView().copyAsLookAt(ge.ALTITUDE_RELATIVE_TO_GROUND);
+    lookAt.set(41.28509187215, -169.2448684551622, 0, 
+               ge.ALTITUDE_RELATIVE_TO_GROUND, 262.87, 0, 162401);
+    // Also try: 
+    //   lookAt.set(-59.65189337195337, -18.799770300376053, 0, 
+    //              ge.ALTITUDE_RELATIVE_TO_GROUND, 0, 0, 36817);
+    ge.getView().setAbstractView(lookAt);
+    ge.getOptions().setFlyToSpeed(oldFlyToSpeed);
+	  }, 1000);  // Start the zoom-in after one second.
+	}
+
+	function showEarth() {
+	  ge.getOptions().setMapType(ge.MAP_TYPE_EARTH);
+	}
+	
+	function loadPlacemarksLayer() {
+	    var kmlURL = "http://localhost/constellations/KMLfiles/Placemarks.kml";
+		var kmlId  = "PlacemarksLayer";
+		createNetworkLink(kmlId, kmlURL);
+	}	
+	
+	function loadPhoneLayer() {
+        var kmlURL = "http://localhost/constellations/KMLfiles/Phone.kml";
+		var kmlId  = "PhoneLayer";
+		createNetworkLink(kmlId, kmlURL);
+	}	
+	
+	function loadLinesLayer() {
+        var kmlURL = "http://localhost/constellations/KMLfiles/LinesLayer.kml";
+		var kmlId  = "LinesLayer";
+		createNetworkLink(kmlId, kmlURL);
+	}	
+	
+	function loadConstellationsLayer() {
+        var kmlURL = "http://localhost/constellations/KMLfiles/Constellations.kml";
+		var kmlId  = "ConstellationsLayer";
+		createNetworkLink(kmlId, kmlURL);
+	}	
+	
+	function removeKmlObject (kmlId) {
+		if (currentKmlObjects[kmlId]) {		
+			currentKmlStatus[kmlId]=false;
+			ge.getFeatures().removeChild(currentKmlObjects[kmlId]);
+		}
+	}
+     
+	function createNetworkLink(kmlId, kmlURL) {
+		  var networkLink; 
+          if ( currentKmlStatus [kmlId] ) return; 		  		  
+		  
+		  networkLink = ge.createNetworkLink("");
+		  networkLink.setDescription("NetworkLink open to fetched content");
+		  networkLink.setName("Open NetworkLink");
+		  networkLink.setFlyToView(true);
+
+		  // create a Link object
+		  var link = ge.createLink("");
+		  link.setHref(kmlURL);
+
+		  // attach the Link to the NetworkLink
+		  networkLink.setLink(link);
+
+		  // add the NetworkLink feature to Earth
+		  ge.getFeatures().appendChild(networkLink);
+    	  currentKmlObjects[kmlId] = networkLink;
+		  currentKmlStatus [kmlId] = true;
+		  
+		  // Store current view
+		  var lookAt = ge.getView().copyAsLookAt(ge.ALTITUDE_RELATIVE_TO_GROUND);
+		  lookAt.setAltitudeMode(ge.ALTITUDE_CLAMP_TO_GROUND);
+		  //var la = ge.getView().copyAsLookAt(ge.ALTITUDE_ABSOLUTE);
+	      //la.setRange(100000);
+		  currentKmlView [kmlId] = lookAt;
+	}
+	
+	function buttonClick() {
+	  createNetworkLink();
+	}
+    
+	function toggleConstellationsLayer() {
+	    if (! constellationLayerIsLoaded) {
+			loadConstellationsLayer();
+			constellationLayerIsLoaded = true;
+			return;
+		}
+	    var kmlId = "ConstellationsLayer";
+		toggleLayer(kmlId);
+    }
+	
+	function toggleInfoLayer() {
+	    if (! infoLayerIsLoaded) {
+			loadPlacemarksLayer();
+			infoLayerIsLoaded = true;
+			return;
+		}
+		var kmlId  = "PlacemarksLayer";		
+		toggleLayer(kmlId);
+    }
+
+	function toggleLinesLayer() {
+	    if (! linesLayerIsLoaded) {
+			loadLinesLayer();
+			linesLayerIsLoaded = true;
+			return;
+		}
+		var kmlId  = "LinesLayer";		
+		toggleLayer(kmlId);
+    }
+
+	function toggleLayer(kmlId) {
+		if ( currentKmlStatus[kmlId] )  {
+			 currentKmlStatus[kmlId] = false;
+			 removeKmlObject(kmlId);
+		} else {
+			 currentKmlStatus[kmlId] = true;
+			 ge.getFeatures().appendChild(currentKmlObjects[kmlId]);
+		}
+    }
+	
+	function gotoUrsaMajorLayer() {
+	    var kmlId = "UrsaMajorLayer";
+		gotoKmlObject(kmlId);
+		}	
+
+	function gotoKmlObject(kmlId) {
+		if ( currentKmlObjects[kmlId] )  {
+			removeKmlObject (kmlId);
+			if ( currentKmlObjects[kmlId] ) {
+				ge.getFeatures().appendChild(currentKmlObjects[kmlId]);
+			}
+			currentKmlStatus[kmlId] = true;
+			//ge.getView().setAbstractView(currentKmlView[kmlId]);
+		} else {
+			 createNetworkLink(kmlId);
+		}
+    }	
+
+	function toggleCompass() {
+	  // toggle a navigation control
+	  	if ( compassStatus )  {
+			 compassStatus = false;
+			 ge.getNavigationControl().setVisibility(ge.VISIBILITY_HIDE);	
+		} else {
+			 compassStatus = true;
+			 ge.getNavigationControl().setVisibility(ge.VISIBILITY_SHOW);	
+		}
+	}
+
+	google.setOnLoadCallback(init);
+
+	// listen to the click event on the globe and window
+	//google.earth.addEventListener(ge.getEarth(), 'click', eventHandler);
+	google.earth.addEventListener(ge.getWindow(), 'click', eventHandler);
+
+</script>
+
+</head>
+<body>
+  <div id="map3d"></div>      
+</body>
+</html>
