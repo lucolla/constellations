@@ -80,6 +80,11 @@ function initialize(){
                         //console.log('dragging ' + event.type + '   ' + event.which + event.timeStamp);
                         startDraggingTime = event.timeStamp;
 
+                        if(beginning) {
+                            $("#beginningScreen").addClass('invisible');
+                            beginning =!beginning;
+                        }
+
                         if(leftButtonsOpen) toggleLeftButtons();
 
                         if(illustrationsOn && constInFocus != 'none')  {//$("#mapIllustrations").fadeTo(400,1);

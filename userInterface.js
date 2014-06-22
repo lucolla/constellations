@@ -190,10 +190,25 @@ function toggleIPhoneFrame(){
     if (iphoneOn){
     $("#frameLayer").addClass('invisible');
     $("#phoneLayer").addClass('invisible');
+    $("#beginningScreen").addClass('invisible');
+
     }else{
     $("#frameLayer").removeClass('invisible');
     $("#phoneLayer").removeClass('invisible');
+    $("#beginningScreen").removeClass('invisible');
+    beginning = true;
     }
     iphoneOn =!iphoneOn;
+    //toggleOpeningScreen();
+
 }
 
+function toggleOpeningScreen(){
+
+    if (!beginning){
+        $("#iphoneScrollContainer").attr("src","./Pictures/Screens/openingScreen.jpg");
+    }else{
+        $("#iphoneScrollContainer").attr("src","./Pictures/IphoneLayer2/iphoneContentTransperent.png");
+    }
+    beginning = !beginning;
+}

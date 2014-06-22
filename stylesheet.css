@@ -126,6 +126,14 @@ body { height: 100%;  width:100%;
                         /* For making the draggable work in IE11: */
                         -ms-touch-action:none !important;}
 
+#beginningScreen {
+    position: absolute;
+    top: 204px;
+    left: 770px;
+    width: 387px;
+    z-index : 95;
+}
+
 #menu { position: absolute;
         top: 0 ;
         left: 0;
