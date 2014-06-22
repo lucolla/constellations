@@ -65,7 +65,17 @@ function defineRectangleForScrolling(obj){
     //return [left,top - (height - pheight) ,left + width,top + pheight ];
     //return [left,top - (height - pheight)  ,left + width,top + pheight ];
     return [left,top - (height - pheight)  ,left + width,top  ];
+}
 
+function toggleLeftButtons(){
+    if (leftButtonsOpen) {
+        $("#menuLeftButtonSecond").css("top", "24px");
+        $("#menuLeftButtonThird").css("top", "24px");
+    }else{
+        $("#menuLeftButtonSecond").css("top", "105px");
+        $("#menuLeftButtonThird").css("top", "186px");
+    }
+    leftButtonsOpen = !leftButtonsOpen;
 }
 
 function menuButtonPressedDown(pressedButton){
@@ -73,7 +83,10 @@ function menuButtonPressedDown(pressedButton){
         case 'stars':
             switch (pressedButton){
                 case 'starsButton':
+                    toggleLeftButtons();
+                    /*
                     if (leftButtonsOpen){
+
                         leftButtonsOpen = !leftButtonsOpen;
 
                         if(starsOn){$("#mapStars").css("opacity","0");
@@ -86,7 +99,9 @@ function menuButtonPressedDown(pressedButton){
                         leftButtonsOpen = !leftButtonsOpen;
                         $("#menuLeftButtonSecond").css("top", "105px");
                         $("#menuLeftButtonThird").css("top", "186px");
+
                     }
+                     */
                     break;
                 case 'illustrationsButton':
                     if(illustrationsOn){

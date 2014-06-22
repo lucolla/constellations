@@ -80,6 +80,8 @@ function initialize(){
                         //console.log('dragging ' + event.type + '   ' + event.which + event.timeStamp);
                         startDraggingTime = event.timeStamp;
 
+                        if(leftButtonsOpen) toggleLeftButtons();
+
                         if(illustrationsOn && constInFocus != 'none')  {//$("#mapIllustrations").fadeTo(400,1);
                                                                         $(".transConstellations").fadeTo(200,constellationDefaultOpacity);
                                                                         $('.constTitles').fadeTo(200,constellationDefaultOpacity);

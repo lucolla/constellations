@@ -67,14 +67,22 @@ function initializeConstellationsNames(){
             'const6__0002s_0005_columba_2576-px_3437-px.png',
             'const6__0002s_0006_cetus_3727-px_2502-px.png',
             'const6__0002s_0007_aries_3722-px_2198-px.png',
+/*
             'const6__0002s_0008_pisces2_4135-px_2567-px.png',
             'const6__0002s_0009_pisces_4186-px_2042-px.png',
+*/
+            'const6__0000_0009_pisces_4135-px_2042-px.png',
+
             'const6__0002s_0010_pegasus_4184-px_1871-px.png',
             'const6__0002s_0011_cancer_1619-px_2155-px.png',
             'const6__0002s_0012_girafe_2603-px_341-px.png',
             'const6__0002s_0013_cassiopeia_3997-px_793-px.png',
+/*
             'const6__0002s_0014_Layer-46_4714-px_1708-px.png',
             'const6__0002s_0015_andromeda_3974-px_1388-px.png',
+*/
+            'const6__0001_0015_andromeda_3974-px_1388-px.png',
+
             'const6__0002s_0016_perseus_3318-px_1334-px.png',
             'const6__0002s_0017_monoceros_1953-px_2599-px.png',
             'const6__0002s_0018_canis-major_2262-px_3109-px.png',
