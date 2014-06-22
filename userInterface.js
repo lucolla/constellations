@@ -8,9 +8,9 @@ function constellationPressed(constName){
 
     //alert(constName);
     if(illustrationsOn && constName != constInFocus){
-        $("#mapIllustrations").fadeTo(100,0);
-        $(".transConstellations").not("#"+constName).fadeTo(100,0.6);
-        $("#"+constName).fadeTo(400,1);
+        //$("#mapIllustrations").fadeTo(100,0);
+        $(".transConstellations").not("#"+constName).fadeTo(100,constellationDimOpacity);
+        $("#"+constName).fadeTo(400,constellationPressedOpacity);
         constInFocus = constName;
         toggleInfoButton();
     //$("#mapIllustrations").fadeTo(400,0).delay(600).fadeTo(400,1);
@@ -86,11 +86,11 @@ function menuButtonPressedDown(pressedButton){
                     break;
                 case 'illustrationsButton':
                     if(illustrationsOn){
-                        $("#mapIllustrations").css("opacity","0");
+                        //$("#mapIllustrations").css("opacity","0");
                         $(".transConstellations").css("opacity","0");
                     }else{
-                        $("#mapIllustrations").css("opacity","1");
-                        $(".transConstellations").css("opacity","1");
+                        //$("#mapIllustrations").css("opacity","1");
+                        $(".transConstellations").css( "opacity",constellationDefaultOpacity.toString() );
                     }
                     illustrationsOn=!illustrationsOn;
                     break;
@@ -128,7 +128,7 @@ function toggleTaurusScroll(){
     if( !scrollModeOn ) {
         scrollModeOn = !scrollModeOn;
         scrollContainer.draggable("enable");
-        scrollContainer.attr("src",scrollsinfo[constInFocus]);
+        scrollContainer.attr("src",scrollsinfo[constInFocus] || scrollsinfo['none'] );
         scrollContainer.attr("width","387px");//400px
         //scrollContainer.attr("height","1334px");
         scrollContainer.css("top","0px");

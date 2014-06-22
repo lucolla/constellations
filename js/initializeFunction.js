@@ -61,16 +61,17 @@ function initialize(){
                     start: function(event,ui){  // function(event,ui){
 
                         //ui.helper.css("transform","translate(0,0)");
+                        //ui.helper.css("transition","top 0.1 linear, left 0.1 linear");
                         //console.log(ui.position);
                         //console.log(ui.offset);
 
-                        var _this = $(this);
-                        var box = _this.get(0).getBoundingClientRect();
-                        console.log('dragging ' + event.type + '   ' + event.which + event.timeStamp);
+                        //var _this = $(this);
+                        //var box = _this.get(0).getBoundingClientRect();
+                        //console.log('dragging ' + event.type + '   ' + event.which + event.timeStamp);
                         startDraggingTime = event.timeStamp;
 
-                        if(illustrationsOn && constInFocus != 'none')  {$("#mapIllustrations").fadeTo(400,1);
-                                                                        $(".transConstellations").fadeTo(400,1);
+                        if(illustrationsOn && constInFocus != 'none')  {//$("#mapIllustrations").fadeTo(400,1);
+                                                                        $(".transConstellations").fadeTo(200,constellationDefaultOpacity);
                                                                         toggleInfoButton();
                                                                         constInFocus = 'none';
                         }
@@ -94,12 +95,12 @@ function initialize(){
                         //for (key in event.originalEvent) {eventKeys.push(key)}
                         //console.log(eventKeys.join());
 
-                        _this.css({
-                            transition: 'top '+extraTimeOfMovement.toString()+' cubic-bezier(0.665, 0.195, 0.305, 0.995),left '+extraTimeOfMovement.toString()+' cubic-bezier(0.665, 0.195, 0.305, 0.995)',
+                        ui.helper.css({
+                            transition: 'top '+extraTimeOfMovement.toString()+' cubic-bezier(0, 0.5, 0.5, 1),left '+extraTimeOfMovement.toString()+' cubic-bezier(0, 0.5, 0.5, 1)',
                             top: (currentMapCanvasLocation.top + extraDistanceX).toString()+'px'  ,
                             left: (currentMapCanvasLocation.left + extraDistanceY).toString() +'px'
                                             });
-                        _this.css("transition",'top 0.2 linear,left 0.2 linear');
+                        //_this.css("transition",'top 0.2 linear,left 0.2 linear');
 
                     }
                 }

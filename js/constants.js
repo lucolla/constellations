@@ -60,8 +60,16 @@ var scrollsPath = './Pictures/Scrolls/'
 
 var scrollsinfo = {
 
-    Taurus:     scrollsPath+'taurus.jpg',
+    taurus:     scrollsPath+'taurus.jpg',
     doveConst:  scrollsPath+'raven.jpg',
     canisConst: scrollsPath+'ursa major.jpg',
     none: scrollsPath+'taurus.jpg'
 };
+
+
+// Style
+
+var constellationDefaultOpacity = 0.6,
+    constellationDimOpacity = 0.4,
+    constellationPressedOpacity = 0.9
+    ;
