@@ -152,6 +152,12 @@ function toggleInfoButton(){
 function toggleTaurusScroll(){
     console.log('toggle scroll: '+constInFocus);
     if( !scrollModeOn ) {
+        toggleInfoButton();
+        ContextMenu = 'scroll';
+
+
+
+
         scrollModeOn = !scrollModeOn;
         scrollContainer.draggable("enable");
         scrollContainer.attr("src",scrollsinfo[constInFocus] || scrollsinfo['none'] );
@@ -199,16 +205,6 @@ function toggleIPhoneFrame(){
     beginning = true;
     }
     iphoneOn =!iphoneOn;
-    //toggleOpeningScreen();
 
-}
 
-function toggleOpeningScreen(){
-
-    if (!beginning){
-        $("#iphoneScrollContainer").attr("src","./Pictures/Screens/openingScreen.jpg");
-    }else{
-        $("#iphoneScrollContainer").attr("src","./Pictures/IphoneLayer2/iphoneContentTransperent.png");
-    }
-    beginning = !beginning;
 }
