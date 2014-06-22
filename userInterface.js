@@ -11,6 +11,10 @@ function constellationPressed(constName){
         //$("#mapIllustrations").fadeTo(100,0);
         $(".transConstellations").not("#"+constName).fadeTo(100,constellationDimOpacity);
         $("#"+constName).fadeTo(400,constellationPressedOpacity);
+
+        $(".constTitles").not("#"+constName+'-title').fadeTo(100,constellationDimOpacity);
+        $("#"+constName+'-title').fadeTo(400,constellationPressedOpacity);
+
         constInFocus = constName;
         toggleInfoButton();
     //$("#mapIllustrations").fadeTo(400,0).delay(600).fadeTo(400,1);
@@ -22,11 +26,11 @@ function constellationPressed(constName){
     //$("#"+constName).css("opacity","1");
 
 }
-
+/*
 function addTransparentConstellation(constName,xLeft,yTop,filePath,filename){ //width,height,
 $("#mapConstellationsContainer").append('<img id="'+constName+'" class="transConstellations" src="'+filePath+filename+'" style="position:absolute; top:'+yTop+'px; left:'+xLeft+'px; "/>');// width:'+width+'px; height:'+height+'px
 }
-
+*/
 // If the window is resized then the form of the smartphone layer is changed
 $(window).bind('resize',handleDiffRatio);
 
@@ -88,15 +92,22 @@ function menuButtonPressedDown(pressedButton){
                     if(illustrationsOn){
                         //$("#mapIllustrations").css("opacity","0");
                         $(".transConstellations").css("opacity","0");
+                        if (!linesOn) $(".constTitles").css("opacity","0");
                     }else{
                         //$("#mapIllustrations").css("opacity","1");
                         $(".transConstellations").css( "opacity",constellationDefaultOpacity.toString() );
+                        $(".constTitles").css( "opacity",constellationDefaultOpacity.toString() );
                     }
                     illustrationsOn=!illustrationsOn;
                     break;
                 case 'linesButton':
-                    if(linesOn){$("#mapLines").css("opacity","0");
-                    }else{$("#mapLines").css("opacity","1");}
+                    if(linesOn){
+                        $("#mapLines").css("opacity","0");
+                        if (!illustrationsOn) $(".constTitles").css("opacity","0");
+                    }else{
+                        $("#mapLines").css("opacity","1");
+                        $(".constTitles").css("opacity",constellationDefaultOpacity.toString());
+                    }
                     linesOn=!linesOn;
                     break;
             }

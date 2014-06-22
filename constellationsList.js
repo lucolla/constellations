@@ -123,7 +123,7 @@ function initializeTitleNames(){
             'const6__0021_perseus-title_3527-px_1301-px.png',
             'const6__0022_fornax-title_3632-px_3543-px.png',
             'const6__0023_ursa-major-title_853-px_1142-px.png',
-            'const6__0024_leo-title_1052-px_2265-px.png',
+            'const6__0024_leo-major-title_1052-px_2265-px.png',
             'const6__0025_leo-minor-title_1330-px_1834-px.png',
             'const6__0026_pyxis-title_1584-px_3426-px.png',
             'const6__0027_triangulum-title_3938-px_2050-px.png',
@@ -132,7 +132,7 @@ function initializeTitleNames(){
     var item,splitted;
     for (var jj=0;jj< titlesNameArr.length ; jj++) {
         splitted = titlesNameArr[jj].split('_');
-        item = [splitted[4], splitted[5].replace('-px', ''), splitted[6].replace('-px.png', ''), titlesNameArr[jj]];
+        item = [splitted[3], splitted[4].replace('-px', ''), splitted[5].replace('-px.png', ''), titlesNameArr[jj]];
         titlesArr.push(item);
         console.log('loaded: ' + item.join() );
     }

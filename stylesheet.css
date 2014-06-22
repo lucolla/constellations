@@ -59,8 +59,14 @@ body { height: 100%;  width:100%;
 .transConstellations{
     opacity: 0;
     transition: opacity 1s ease;
-    color: orange;
     z-index:10;}
+
+.constTitles {
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 10;
+}
+
 
 #frameLayer{
     z-index:20;
