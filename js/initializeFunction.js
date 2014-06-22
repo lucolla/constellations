@@ -94,7 +94,7 @@ function initialize(){
                         //var eventKeys=[];
                         //for (key in event.originalEvent) {eventKeys.push(key)}
                         //console.log(eventKeys.join());
-
+                        extraTimeOfMovement = extraTimeOfMovement*2;
                         ui.helper.css({
                             transition: 'top '+extraTimeOfMovement.toString()+' cubic-bezier(0, 0.5, 0.5, 1),left '+extraTimeOfMovement.toString()+' cubic-bezier(0, 0.5, 0.5, 1)',
                             top: (currentMapCanvasLocation.top + extraDistanceX).toString()+'px'  ,

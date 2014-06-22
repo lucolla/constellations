@@ -27,6 +27,7 @@ var endDraggingTime = 0;
 var mapNegativeAcceleration = 900; // pixel/milisecond
 
 var constellationsArr = [];
+var titlesArr=[];
 
 var buttonImages ={
     'menuLeftButtonThird':{

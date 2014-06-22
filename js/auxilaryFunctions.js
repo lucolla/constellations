@@ -92,7 +92,7 @@ function mapZooming(event){
         //zoomOnPointerTranslation(_this,pointerOffset,currentZoom);
 
 
-        //this.style.transform='scale('+futureZoom.toString()+')';
+        this.style.transform='scale('+futureZoom.toString()+')';
 
         currentZoom = futureZoom;
         console.log('reeachedthispoint');

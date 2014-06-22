@@ -76,12 +76,12 @@ function menuButtonPressedDown(pressedButton){
                         }else{$("#mapStars").css("opacity","1");}
                         starsOn=!starsOn;
 
-                        $("#menuLeftButtonSecond").css("top","0px");
-                        $("#menuLeftButtonThird").css("top","0px");
+                        $("#menuLeftButtonSecond").css("top","24px");
+                        $("#menuLeftButtonThird").css("top","24px");
                     }else {
                         leftButtonsOpen = !leftButtonsOpen;
-                        $("#menuLeftButtonSecond").css("top", "60px");
-                        $("#menuLeftButtonThird").css("top", "120px");
+                        $("#menuLeftButtonSecond").css("top", "105px");
+                        $("#menuLeftButtonThird").css("top", "186px");
                     }
                     break;
                 case 'illustrationsButton':
