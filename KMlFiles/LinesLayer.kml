@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" hint="target=sky">
+<Document>
+	<name>LinesLayer1.kml</name>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin00</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<width>1.5</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<width>1.5</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin00">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<width>1.5</width>
+		</LineStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl1">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<width>1.5</width>
+		</LineStyle>
+	</Style>
+	<Folder>
+		<name>Lines Layer</name>
+		<open>1</open>
+		<Folder>
+			<name>Pisces lines</name>
+			<Placemark>
+				<name>start</name>
+				<styleUrl>#m_ylw-pushpin1</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+						-31.74497937367112,10.1465366627814,0 -32.06648797963337,10.81616840875205,0 -32.26752471816289,10.88541659857511,0 -32.56058852332237,11.11356979519129,0 -32.3011422869121,11.85055847525268,0 -32.06340173368933,10.83713910555524,0 
+					</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>fish 2</name>
+				<styleUrl>#m_ylw-pushpin1</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+						-31.7480186970353,10.14355612945482,0 -33.06239416578325,10.07748315797034,0 -33.48614584023142,10.06615492337034,0 -33.54065327742404,9.749187837489183,0 -32.99227864594732,9.98512395093905,0 -33.04419417848999,10.08044680454391,0 
+					</coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Leo Lines</name>
+			<Placemark>
+				<name>Legs 1</name>
+				<styleUrl>#m_ylw-pushpin0</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+						-28.27008793510564,9.435393135313275,0 -28.27023854790321,9.405859912121418,0 -28.49417680736785,9.766008963308124,0 -28.71300873408766,9.430085851814095,0 
+					</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>Legs 2</name>
+				<styleUrl>#m_ylw-pushpin0</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+						-28.98629715841044,9.439913662553408,0 -29.25551097178572,9.91200220984225,0 -29.77595413786484,9.857126519248192,0 
+					</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>body</name>
+				<styleUrl>#m_ylw-pushpin0</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+						-28.49406174759382,9.76192143651563,0 -28.73477163554545,10.28942168699633,0 -29.28595409484757,10.45730798536147,0 -29.55460732508911,10.21678418728458,0 -29.55960202667099,10.19698357078741,0 -29.2955961863594,9.92271375666812,0 
+					</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>line</name>
+				<styleUrl>#m_ylw-pushpin0</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+						-28.49907463612203,9.761923000928963,0 -29.2955961863594,9.92271375666812,0 
+					</coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Taurus Lines</name>
+			<Placemark>
+				<name>Corns</name>
+				<styleUrl>#m_ylw-pushpin0</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+						-30.31889463903913,9.995855269729775,0 -31.64130837953553,9.478296222945456,0 -32.06301556238485,9.541467001389359,0 -30.77450865742711,10.51315917997479,0 
+					</coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Cassiopeia Lines</name>
+			<Placemark>
+				<name>chair</name>
+				<styleUrl>#m_ylw-pushpin</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+						-27.80187133522232,6.717179750896124,0 -27.98390072780072,6.484629442912167,0 -27.8382296097875,6.180260373251297,0 -27.52955568503287,6.325865896191968,0 
+					</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>arm</name>
+				<styleUrl>#m_ylw-pushpin</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+						-27.98634967680355,6.482199635461929,0 -28.27791524438088,6.417679084066699,0 
+					</coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Andromeda lines</name>
+			<open>1</open>
+			<Placemark>
+				<name>legs</name>
+				<styleUrl>#m_ylw-pushpin1</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+						-29.86110969493519,8.416066475457692,0 -30.15475024228301,8.748253198782335,0 -30.38625753028339,8.848748837608381,0 -30.13561487300865,8.436652570735861,0 -29.77117315933074,8.216343600704118,0 
+					</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>body</name>
+				<styleUrl>#m_ylw-pushpin1</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+						-30.1003677767103,9.310878383531396,0 -30.37927397506949,9.182985625672117,0 -30.62105619567115,9.166976766126204,0 -30.64207477279851,9.077016029023943,0 -30.57379180836733,8.940406550056609,0 -30.81463194218427,8.746250673366934,0 -30.63280951934527,8.60447514636291,0 -30.83007109969429,8.654605780049581,0 
+					</coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+	</Folder>
+</Document>
+</kml>

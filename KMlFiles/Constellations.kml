@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" hint="target=sky">
+<Folder>
+	<name>constellations4</name>
+	<open>1</open>
+	<GroundOverlay>
+		<name>Taurus Overlay</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Overlays/taurus.png</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<LatLonBox>
+			<north>10.73049593277007</north>
+			<south>8.121281769504673</south>
+			<east>-29.84435280995687</east>
+			<west>-33.51786010020954</west>
+		</LatLonBox>
+		<LookAt>
+			<longitude>-31.68218485336188</longitude>
+			<latitude>9.436226376198858</latitude>
+			<altitude>0</altitude>
+			<heading>-0.004451566510079805</heading>
+			<tilt>0</tilt>
+			<range>482648.5435696162</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+	</GroundOverlay>
+	<GroundOverlay>
+		<name>Leo Overlay</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Overlays/aries.png</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<LatLonBox>
+			<north>11.69468384754575</north>
+			<south>8.956472769922934</south>
+			<east>-27.73583287572332</east>
+			<west>-30.01780606912444</west>
+			<rotation>-5.854866757952079</rotation>
+		</LatLonBox>
+		<LookAt>
+			<longitude>-28.87681947174482</longitude>
+			<latitude>10.32557830898825</latitude>
+			<altitude>0</altitude>
+			<heading>-2.772457710284932e-010</heading>
+			<tilt>0</tilt>
+			<range>161322.7717142169</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>		
+	</GroundOverlay>
+	<GroundOverlay>
+		<name>Ursa Major</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Overlays/ursa_major.png</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<LatLonBox>
+			<north>12.21257909352336</north>
+			<south>9.603732815446321</south>
+			<east>-23.7839903951002</east>
+			<west>-27.12873143399052</west>
+			<rotation>19.74724485285493</rotation>
+		</LatLonBox>
+	</GroundOverlay>
+	<GroundOverlay>
+		<name>Giraffe Overlay</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Overlays/girafe.png</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<LatLonBox>
+			<north>13.80163287722711</north>
+			<south>11.19412591098896</south>
+			<east>-28.40808779902045</east>
+			<west>-31.07888185522904</west>
+			<rotation>-14.96742895280853</rotation>
+		</LatLonBox>
+	</GroundOverlay>
+	<GroundOverlay>
+		<name>Pisces Overlay</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Overlays/pisces.png</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<LatLonBox>
+			<north>12.15760650976796</north>
+			<south>9.54469702920454</south>
+			<east>-31.30532518490417</east>
+			<west>-33.96561912594852</west>
+		</LatLonBox>
+	</GroundOverlay>
+	<GroundOverlay>
+		<name>Cancer Overlay</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Overlays/cancer.png</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<LatLonBox>
+			<north>8.960699938485117</north>
+			<south>6.093490156674458</south>
+			<east>-29.04779547713952</east>
+			<west>-32.17648576899436</west>
+			<rotation>22.72769351983838</rotation>
+		</LatLonBox>
+	</GroundOverlay>
+	<GroundOverlay>
+		<name>Cassiopeia Overlay</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Overlays/cassiopeia.png</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<LatLonBox>
+			<north>7.267436969874411</north>
+			<south>5.357318107111637</south>
+			<east>-26.98969226053567</east>
+			<west>-28.93521114144631</west>
+		</LatLonBox>
+	</GroundOverlay>
+	<GroundOverlay>
+		<name>Canis Major Overlay</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Overlays/canis_major.png</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<LatLonBox>
+			<north>9.236139850434048</north>
+			<south>6.618290974915162</south>
+			<east>-25.47312487412109</east>
+			<west>-28.29402949869837</west>
+			<rotation>-29.03653776559864</rotation>
+		</LatLonBox>
+	</GroundOverlay>
+	<GroundOverlay>
+		<name>Andromeda Overlay</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Overlays/andromeda.png</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<LatLonBox>
+			<north>9.589981024655613</north>
+			<south>8.08505811559095</south>
+			<east>-29.28836928436139</east>
+			<west>-31.15615926557338</west>
+			<rotation>-81.70415036122905</rotation>
+		</LatLonBox>
+	</GroundOverlay>
+</Folder>
+</kml>

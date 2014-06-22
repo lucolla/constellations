@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" hint="target=sky">
+<Folder>
+	<name>Phone Folder</name>
+	<open>1</open>
+	<ScreenOverlay>
+		<name>PhoneLayer</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Overlays/PhoneLayer.png</href>
+			<viewBoundScale>0.95</viewBoundScale>
+		</Icon>
+		<overlayXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<screenXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<rotationXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<size x="-1" y="-1" xunits="pixels" yunits="pixels"/>
+	</ScreenOverlay>
+	<ScreenOverlay>
+		<name>ToggleDrawingsIcon</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Icons/drawingsDark.png</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<overlayXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<screenXY x="0.405" y="0.82" xunits="fraction" yunits="fraction"/>
+		<rotationXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<size x="-1" y="-1" xunits="pixels" yunits="pixels"/>
+	</ScreenOverlay>
+	<ScreenOverlay>
+		<name>Toggle Lines Icon</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Icons/linesDark.png</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<overlayXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<screenXY x="0.445" y="0.82" xunits="fraction" yunits="fraction"/>
+		<rotationXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<size x="-1" y="-1" xunits="pixels" yunits="pixels"/>
+	</ScreenOverlay>
+	<ScreenOverlay>
+		<name>Toggle Info Icon</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Icons/infoDark.png</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<overlayXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<screenXY x="0.485" y="0.82" xunits="fraction" yunits="fraction"/>
+		<rotationXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<size x="-1" y="-1" xunits="pixels" yunits="pixels"/>
+	</ScreenOverlay>
+	<ScreenOverlay>
+		<name>Search Icon</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Icons/searchDark.png</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<overlayXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<screenXY x="0.525" y="0.82" xunits="fraction" yunits="fraction"/>
+		<rotationXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<size x="-1" y="-1" xunits="pixels" yunits="pixels"/>
+	</ScreenOverlay>
+	<ScreenOverlay>
+		<name>Compass Icon</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Icons/compassDark.png</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<overlayXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<screenXY x="0.565" y="0.82" xunits="fraction" yunits="fraction"/>
+		<rotationXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<size x="-1" y="-1" xunits="pixels" yunits="pixels"/>
+	</ScreenOverlay>
+	<ScreenOverlay>
+		<name>Books Icon</name>
+		<Icon>
+			<href>http://localhost/constellations/Pictures/Icons/bookDark.png</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<overlayXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<screenXY x="0.605" y="0.82" xunits="fraction" yunits="fraction"/>
+		<rotationXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<size x="-1" y="-1" xunits="pixels" yunits="pixels"/>
+	</ScreenOverlay>
+</Folder>
+</kml>

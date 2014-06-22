@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" hint="target=sky">
+<Document>
+	<name>Placemarks.kml</name>
+	<open>1</open>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="m_ylw-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin0">
+		<IconStyle>
+			<color>ff0000aa</color>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff0055ff</color>
+		</LabelStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin">
+		<IconStyle>
+			<color>ff0000aa</color>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff0055ff</color>
+		</LabelStyle>
+	</Style>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin0">
+		<IconStyle>
+			<color>eb0000aa</color>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff00aaff</color>
+		</LabelStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ylw-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ylw-pushpin">
+		<IconStyle>
+			<color>eb0000aa</color>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff00aaff</color>
+		</LabelStyle>
+	</Style>
+	<Placemark>
+		<name>הסיפור של הדגים</name>
+		<LookAt>
+			<longitude>-32.3282407028084</longitude>
+			<latitude>11.24006518496723</latitude>
+			<altitude>0</altitude>
+			<heading>0.08389359356361961</heading>
+			<tilt>0</tilt>
+			<range>106004.1540093618</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-32.3282407028084,11.24006518496723,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Cancer Placemark</name>
+		<LookAt>
+			<longitude>-30.61214063432295</longitude>
+			<latitude>7.527095072742188</latitude>
+			<altitude>0</altitude>
+			<heading>3.978122288165341e-006</heading>
+			<tilt>0</tilt>
+			<range>299596.7694634096</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-30.71996613177127,7.485964031006796,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Ursa Major Placemark</name>
+		<LookAt>
+			<longitude>-26.4043836350495</longitude>
+			<latitude>11.48081943861829</latitude>
+			<altitude>0</altitude>
+			<heading>4.906005596157475e-013</heading>
+			<tilt>0</tilt>
+			<range>481993.6552973303</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-26.4043836350495,11.48081943861829,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Cassiopeia Placemark</name>
+		<LookAt>
+			<longitude>-27.96245244043912</longitude>
+			<latitude>6.312377881651609</latitude>
+			<altitude>0</altitude>
+			<heading>124.1627436122062</heading>
+			<tilt>0</tilt>
+			<range>200183.8342699252</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-28.17737063078659,5.97217827333305,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Leo  Placemark</name>
+		<LookAt>
+			<longitude>-28.87681947174482</longitude>
+			<latitude>10.32557830898825</latitude>
+			<altitude>0</altitude>
+			<heading>-2.772457710284932e-010</heading>
+			<tilt>0</tilt>
+			<range>161322.7717142169</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#m_ylw-pushpin0</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-28.87681947174482,10.32557830898825,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Canis Major Placemark</name>
+		<LookAt>
+			<longitude>-26.88357720387451</longitude>
+			<latitude>7.9272153864229</latitude>
+			<altitude>0</altitude>
+			<heading>0.009131776070402758</heading>
+			<tilt>0</tilt>
+			<range>230088.4240639189</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-27.05329463813472,8.249088568306878,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Cassiopeia Placemark</name>
+		<LookAt>
+			<longitude>-30.22226427496738</longitude>
+			<latitude>8.837519570123284</latitude>
+			<altitude>0</altitude>
+			<heading>9.955411270960752e-009</heading>
+			<tilt>0</tilt>
+			<range>157863.7828376538</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-30.37753343389012,9.068779788613103,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Taurus הסיפור של</name>
+		<description><![CDATA[<img src="http://localhost/Pictures/Scrolls/taurusScroll.jpg" width="500" height="1723">]]></description>
+		<LookAt>
+			<longitude>-31.68218485336188</longitude>
+			<latitude>9.436226376198858</latitude>
+			<altitude>0</altitude>
+			<heading>-0.004451566510079805</heading>
+			<tilt>0</tilt>
+			<range>482648.5435696162</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#msn_ylw-pushpin0</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-31.68218485336188,9.436226376198858,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Giraffe  Placemark</name>
+		<LookAt>
+			<longitude>-29.64598696980508</longitude>
+			<latitude>12.99798276091773</latitude>
+			<altitude>0</altitude>
+			<heading>0.3759875652264735</heading>
+			<tilt>0</tilt>
+			<range>110465.397908065</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-29.36608588474492,13.29334081665314,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>
