@@ -26,6 +26,9 @@ var startDraggingTime = 0;
 var endDraggingTime = 0;
 var mapNegativeAcceleration = 900; // pixel/milisecond
 
+
+var iphoneOn = true;
+
 var constellationsArr = [];
 var titlesArr=[];
 
@@ -62,8 +65,8 @@ var scrollsPath = './Pictures/Scrolls/'
 var scrollsinfo = {
 
     taurus:     scrollsPath+'taurus.jpg',
-    doveConst:  scrollsPath+'raven.jpg',
-    canisConst: scrollsPath+'ursa major.jpg',
+    'hydra-cup-raven':  scrollsPath+'raven.jpg',
+    'ursa-major': scrollsPath+'ursa_major.jpg',
     none: scrollsPath+'taurus.jpg'
 };
 

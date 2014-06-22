@@ -185,3 +185,15 @@ function toggleTaurusScroll(){
     }
 }
 
+function toggleIPhoneFrame(){
+
+    if (iphoneOn){
+    $("#frameLayer").addClass('invisible');
+    $("#phoneLayer").addClass('invisible');
+    }else{
+    $("#frameLayer").removeClass('invisible');
+    $("#phoneLayer").removeClass('invisible');
+    }
+    iphoneOn =!iphoneOn;
+}
+

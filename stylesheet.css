@@ -33,9 +33,11 @@ body { height: 100%;  width:100%;
 
 }
 
+.invisible {visibility:hidden}
 
 #zoommable_map_canvas{
     border:3px solid rgb(30,255,125);
+    transition: scale 0.5 ease;
 }
 
 #phoneLayer,
