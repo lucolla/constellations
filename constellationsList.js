@@ -91,10 +91,14 @@ function initializeConstellationsNames(){
             'const6__0002s_0021_lepus_2766-px_3162-px.png',
             'const6__0002s_0022_lynx_1645-px_1243-px.png',
             'const6__0002s_0023_orion_2644-px_2237-px.png',
-            'const6__0002s_0024_triangulum_4038-px_2017-px.png',
+
+            'const6__0003_0023_triangulum_3938-px_2017-px.png',
+
             'const6__0002s_0025_pyxis_1631-px_3460-px.png',
             'const6__0002s_0026_puppis_1841-px_3271-px.png',
-            'const6__0002s_0027_gemini_2030-px_1949-px.png'
+            'const6__0002s_0027_gemini_2030-px_1949-px.png',
+
+            'const6__0002_0027_eridanus_2942-px_2820-px.png'
     ];
     var item,splitted;
     for (var jj=0;jj< constellationsNameArr.length ; jj++){

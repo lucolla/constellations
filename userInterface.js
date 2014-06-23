@@ -137,10 +137,12 @@ function menuButtonPressedDown(pressedButton){
                 case 'starsButton':
                     ContextMenu = 'stars';
                     //alert('scroll stae');
-                    scrollModeOn = !scrollModeOn;
+                    scrollModeOn = false;
                     scrollContainer.draggable("disable");
+
                     $("#scroll1").css("opacity","0");
                     $("#scroll2").css("opacity","0");
+                    scrollContainer.css({top:0,left:0});
                     //scrollContainer.attr("src","./Pictures/IphoneLayer2/iphoneContentTransperent.png");
                     //scrollContainer.css("top","0px");
                     //scrollContainer.css("left","0px");
@@ -149,17 +151,22 @@ function menuButtonPressedDown(pressedButton){
                     console.log('been in starsbutton case under scroll context');
                     break;
                 case 'scrollMenu':
-                    $("#scroll2").attr("src",'./Pictures/Screens/tableOfContentStories.jpg').css("opacity","1");
+                    scrollContainer.css({top:0,left:0});
+                    $("#scroll2").attr("src",scrollsinfo['scrollsMenu'][0]).css("opacity","1");
                     $("#scroll1").css("opacity","0");
 
 
 
                     //scrollContainer.css("top","0px");
                     //scrollContainer.css("left","0px");
+                    var scrollHeight = scrollsinfo['scrollsMenu'][1];
                     var scrollOffset = scrollContainer.offset();
                     var scrollTop = scrollOffset.top;
                     var scrollLeft = scrollOffset.left;
+                    var scrollWidth = 387;
                     var parentHeight = scrollContainer.parent().height();
+                    var rect = [scrollLeft,scrollTop -(scrollHeight-parentHeight)  ,scrollLeft + scrollWidth,scrollTop ]; //[scrollLeft,(scrollTop + parentHeight - scrollHeight ) ,scrollLeft + scrollWidth,scrollTop+Math.round(parentHeight/2)  ];
+                    scrollContainer.draggable("option","containment",rect );
                     //scrollContainer.draggable("option",{containment : [scrollLeft,scrollTop - (scrollHeight*2 - parentHeight)  ,scrollLeft + scrollWidth,scrollTop  ]});
                     break;
 
@@ -201,8 +208,9 @@ function toggleTaurusScroll(){
         $(".scrolls").css("pointer-events","auto");
         scrollContainer.draggable("enable");
         console.log('scrollcontainer draggable enabled');
-        $("#scroll1").attr("src",scrollsinfo[constInFocus] || scrollsinfo['none']).css("opacity","1");
-        constInFocus = 'none';
+        if (typeof(scrollsinfo[constInFocus]) == "undefined") constInFocus = 'none';
+        $("#scroll1").attr("src",scrollsinfo[constInFocus][0]).css("opacity","1").delay(300);
+
         //scrollContainer.attr("width","387px");//400px
         //scrollContainer.attr("height","1334px");
         //scrollContainer.css("top","0px");
@@ -211,7 +219,9 @@ function toggleTaurusScroll(){
         //$("#iphoneContent").css("overflow","hidden");//"auto"
 
         //var scrollHeight = $("#scroll1").css("height");
-        var scrollHeight = $("#scroll1").height();
+        //var scrollHeight = $("#scroll1").height();
+        var scrollHeight = scrollsinfo[constInFocus][1];
+        var scrollWidth = 387;
         console.log('Opening scroll, scroll height: '+scrollHeight.toString());
         var scrollOffset = scrollContainer.offset();
         var scrollTop = scrollOffset.top;
@@ -224,13 +234,14 @@ function toggleTaurusScroll(){
 
         var rect = [scrollLeft,scrollTop -(scrollHeight-parentHeight)  ,scrollLeft + scrollWidth,scrollTop ]; //[scrollLeft,(scrollTop + parentHeight - scrollHeight ) ,scrollLeft + scrollWidth,scrollTop+Math.round(parentHeight/2)  ];
 
-        console.log([scrollLeft,scrollTop-parentHeight,scrollLeft + scrollWidth,scrollTop,scrollHeight  ].join());
+        console.log([scrollHeight,scrollWidth,scrollOffset,parentHeight,constInFocus].join());
         console.log(parentHeight);
         console.log(rect.join());
         //scrollContainer.draggable("option",{containment : [scrollLeft,scrollTop -(scrollHeight - 681),scrollLeft + scrollWidth,scrollTop  ]});
-        scrollContainer.draggable("option",{containment :rect });
+        scrollContainer.draggable("option","containment",rect );
         //containment = [   upper limit on the upper part the upper part ]
-       // scrollContainer.draggable({axis:"y",containment : [left,top - (height - pheight)  ,left + width,top  ]});//axis:"y",,containment:defineRectangleForScrolling(scrollContainer)
+        //scrollContainer.draggable({axis:"y",containment : [left,top - (height - pheight)  ,left + width,top  ]});//axis:"y",,containment:defineRectangleForScrolling(scrollContainer)
+        constInFocus = 'none';
 
 
     }

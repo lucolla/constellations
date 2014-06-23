@@ -16,7 +16,7 @@ function initialize(){
     var mapBaseVar = $("#mapBase");
     try {   mapBaseVar.attr("src", "./Pictures/Background/BackgroundNew/printedSky.png");                               }catch(e){ alert('Error: '+ e.description); }
     //try {   $("#mapIllustrations").attr("src", "./Pictures/Background/BackgroundNew/consttellationsIllustrations.png"); }catch(e){ alert('Error: '+ e.description); }
-    try {   $("#mapLines").attr("src", "./Pictures/Background/BackgroundNew/constellationsLinesNew.png");                  }catch(e){ alert('Error: '+ e.description); }
+    try {   $("#mapLines").attr("src", "./Pictures/Background/BackgroundNew/only_lines3.png");                  }catch(e){ alert('Error: '+ e.description); }
     try {   $("#mapStars").attr("src", "./Pictures/Background/BackgroundNew/constellationStarsNew.png");                   }catch(e){ alert('Error: '+ e.description); }
 
     mapBaseVar.attr("usemap","#areaMapping");
@@ -49,8 +49,8 @@ function initialize(){
     scrollContainer.draggable("option","disabled",true);
     $(".scrolls").css("pointer-events","none");
     scrollModeOn = false;
-    scrollHeight = scrollContainer.height();
-    scrollWidth = scrollContainer.width();
+
+
 
 
 

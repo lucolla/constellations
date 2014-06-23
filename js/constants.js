@@ -4,7 +4,7 @@
 
     // Initialize the bool that holds the state of the base maps and contextMenu
     //==========================================================================
-var scrollModeOn,scrollHeight,scrollWidth;
+var scrollModeOn,scrollWidth;
 var
 ContextMenu = 'stars' , //['stars','scroll','stories']
 starsOn = false,
@@ -64,14 +64,17 @@ var buttonImages ={
         'onImagePressed':'null','offImagePressed':'null'}
 };
 
-var scrollsPath = './Pictures/Scrolls/';
+var scrollsPath = './Pictures/Scrolls/thescrolls/';
 
 var scrollsinfo = {
 
-    taurus:     scrollsPath+'taurus.jpg',
-    'hydra-cup-raven':  scrollsPath+'raven.jpg',
-    'ursa-major': scrollsPath+'ursa_major.jpg',
-    none: scrollsPath+'taurus.jpg'
+    taurus:     [scrollsPath+'taurusScroll.jpg',1848],
+    'hydra-cup-raven':  [scrollsPath+'ravenScroll.jpg',1709],
+    'ursa-major': [scrollsPath+'ursa_majorScroll.jpg',2403],
+    'orion':[scrollsPath+'orionSroll.jpg',1910],
+    none: [scrollsPath+'taurusScroll.jpg',1848],
+    cassiopeia:[scrollsPath+'cassiopeiaScroll.jpg',2274],
+    'scrollsMenu':['./Pictures/Screens/tableOfContentStories.jpg',1400]
 };
 
 
