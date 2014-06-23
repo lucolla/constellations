@@ -120,11 +120,21 @@ body { height: 100%;  width:100%;
 #iphoneContent{position: absolute; top: 204px ;left:770px ;width: 387px ; height: 681px ; overflow: hidden; z-index:40;}
 #iphoneContentContainer{position: absolute; top: 204px ;left:770px ;width: 387px ; height: 681px ;}
 #iphoneScrollContainer{ position: absolute;
-                        top: 204px ;
-                        left:770px ;
+                        top: 0 ;
+                        left:0 ;
                         width: 387px ;
                         /* For making the draggable work in IE11: */
-                        -ms-touch-action:none !important;}
+                        -ms-touch-action:none !important;
+    border:3px solid rgb(30,255,125);}
+
+.scrolls{
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: auto;
+    opacity: 0;
+    transition: "opacity" 0.2s ease;
+}
 
 #beginningScreen {
     position: absolute;

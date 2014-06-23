@@ -121,7 +121,12 @@
             <div id="iphoneContentTransparent" class="clickMe">
                 <img src="./Pictures/IphoneLayer2/iphoneContentTransperent.png" style="position:absolute; top:0; left:0;">
             </div>
-            <div id="iphoneContent"><img id="iphoneScrollContainer"  src="./Pictures/IphoneLayer2/iphoneContentTransperent.png"></div>
+            <div id="iphoneContent">
+                <div id="iphoneScrollContainer">
+                    <img id="scroll1" class="scrolls" src="./Pictures/IphoneLayer2/iphoneContentTransperent.png">
+                    <img id="scroll2" class="scrolls" src="./Pictures/IphoneLayer2/iphoneContentTransperent.png">
+                </div>
+            </div>
             <div id="iphoneContentContainer" class="clickMe">
                 <div id="menu">
                     <img src="./Pictures/IphoneLayer2/ipohneContentTransparentBlue.png" style=" position:absolute; top:0; left:0; z-index:45; ">
@@ -130,7 +135,7 @@
                     <img id="menuLeftButtonFirst" class="menuLeftButtons" src="./Pictures/newiconsthreestates/stars_icon.png" onClick="menuButtonPressedDown('starsButton')">
 
                     <img id="menuMiddleButton"  class="menuButtons" src="./Pictures/newiconsthreestates/compass_icon.png">
-                    <img id="menuRightButton"  class="menuButtons" src="./Pictures/newiconsthreestates/search_icon.png" > //onClick="toggleInfoButton()"
+                    <img id="menuRightButton"  class="menuButtons" src="./Pictures/newiconsthreestates/search_icon.png" onClick="menuButtonPressedDown('scrollMenu')"> //onClick="toggleInfoButton()"
                     <img id="menuInfoButton" class="menuButtons" src="./Pictures/newiconsthreestates/story_icon.png" onClick="toggleTaurusScroll()">
                 </div>
 
@@ -166,7 +171,7 @@
 
     </div>
     <input type="button" onclick="toggleIPhoneFrame()" style="position: absolute;  top:0; left:0; z-index: 50;">
-    <img id="beginningScreen"  src="./Pictures/Screens/openingScreen.jpg">
+    <img id="beginningScreen"  src="./Pictures/Screens/openingScreen.jpg" onClick="clearBeginningScreen()">
 
 
     </body>

@@ -44,10 +44,10 @@ function initialize(){
     // Define the img that holds the scroll as draggable
     //==================================================
     scrollContainer = $("#iphoneScrollContainer");
-    $(function() {
-        scrollContainer.draggable({axis: "y"});
-    } );//,scrollSensitivity:100, scrollSpeed:100
-    scrollContainer.draggable("disable");
+    scrollContainer.draggable({axis: "y"});
+    //,scrollSensitivity:100, scrollSpeed:100
+    scrollContainer.draggable("option","disabled",true);
+    $(".scrolls").css("pointer-events","none");
     scrollModeOn = false;
     scrollHeight = scrollContainer.height();
     scrollWidth = scrollContainer.width();
@@ -80,18 +80,15 @@ function initialize(){
                         //console.log('dragging ' + event.type + '   ' + event.which + event.timeStamp);
                         startDraggingTime = event.timeStamp;
 
-                        if(beginning) {
-                            $("#beginningScreen").addClass('invisible');
-                            beginning =!beginning;
-                        }
+                        if(beginning) clearBeginningScreen();
 
                         if(leftButtonsOpen) toggleLeftButtons();
 
-                        if(illustrationsOn && constInFocus != 'none')  {//$("#mapIllustrations").fadeTo(400,1);
+                        if(illustrationsOn )  {//$("#mapIllustrations").fadeTo(400,1); //&& constInFocus != 'none'
                                                                         $(".transConstellations").fadeTo(200,constellationDefaultOpacity);
                                                                         $('.constTitles').fadeTo(200,constellationDefaultOpacity);
 
-                                                                        toggleInfoButton();
+                                                                        toggleInfoButton('off');
                                                                         constInFocus = 'none';
                         }
                     },

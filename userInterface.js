@@ -67,8 +67,8 @@ function defineRectangleForScrolling(obj){
     return [left,top - (height - pheight)  ,left + width,top  ];
 }
 
-function toggleLeftButtons(){
-    if (leftButtonsOpen) {
+function toggleLeftButtons(state){
+    if (leftButtonsOpen || state == 'close') {
         $("#menuLeftButtonSecond").css("top", "24px");
         $("#menuLeftButtonThird").css("top", "24px");
     }else{
@@ -128,7 +128,38 @@ function menuButtonPressedDown(pressedButton){
             }
             break;
         case 'scroll':
-            alert('scroll stae');
+            switch (pressedButton){
+                case 'starsButton':
+                    ContextMenu = 'stars';
+                    //alert('scroll stae');
+                    scrollModeOn = !scrollModeOn;
+                    scrollContainer.draggable("disable");
+                    $("#scroll1").css("opacity","0");
+                    $("#scroll2").css("opacity","0");
+                    //scrollContainer.attr("src","./Pictures/IphoneLayer2/iphoneContentTransperent.png");
+                    //scrollContainer.css("top","0px");
+                    //scrollContainer.css("left","0px");
+                    $("#phoneLayer").css("pointer-events","none");
+                    $(".scrolls").css("pointer-events","none");
+                    console.log('been in starsbutton case under scroll context');
+                    break;
+                case 'scrollMenu':
+                    $("#scroll2").attr("src",'./Pictures/Screens/tableOfContentStories.jpg').css("opacity","1");
+                    $("#scroll1").css("opacity","0");
+
+
+
+                    //scrollContainer.css("top","0px");
+                    //scrollContainer.css("left","0px");
+                    var scrollOffset = scrollContainer.offset();
+                    var scrollTop = scrollOffset.top;
+                    var scrollLeft = scrollOffset.left;
+                    var parentHeight = scrollContainer.parent().height();
+                    //scrollContainer.draggable("option",{containment : [scrollLeft,scrollTop - (scrollHeight*2 - parentHeight)  ,scrollLeft + scrollWidth,scrollTop  ]});
+                    break;
+
+            }
+
             break;
         case 'stories':
             alert('stories stae');
@@ -136,38 +167,42 @@ function menuButtonPressedDown(pressedButton){
     }
 }
 
-function toggleInfoButton(){
+function toggleInfoButton(action){
     var infoButtonObj = $("#menuInfoButton");
-    if (infoButtonOn){
+    if (infoButtonOn || action == 'off'|| !iphoneOn ){
         infoButtonObj.css("visibility", "hidden");
         infoButtonObj.css("pointer-events", "none");
+        infoButtonOn = false;
     }else {
         infoButtonObj.css("visibility", "visible");
         infoButtonObj.css("pointer-events", "auto");
+        infoButtonOn = true;
     }
-    infoButtonOn =! infoButtonOn;
+
 }
 
 
 function toggleTaurusScroll(){
     console.log('toggle scroll: '+constInFocus);
     if( !scrollModeOn ) {
+        // Makes Info Button disapear
         toggleInfoButton();
+        toggleLeftButtons('close');
         ContextMenu = 'scroll';
-
-
-
-
-        scrollModeOn = !scrollModeOn;
-        scrollContainer.draggable("enable");
-        scrollContainer.attr("src",scrollsinfo[constInFocus] || scrollsinfo['none'] );
-        scrollContainer.attr("width","387px");//400px
-        //scrollContainer.attr("height","1334px");
-        scrollContainer.css("top","0px");
-        scrollContainer.css("left","0px");
-        //scrollContainer.attr("height","621px");
-        $("#iphoneContent").css("overflow","hidden");//"auto"
+        scrollModeOn = true;
         $("#phoneLayer").css("pointer-events","auto");
+        $(".scrolls").css("pointer-events","auto");
+        scrollContainer.draggable("enable");
+        console.log('scrollcontainer draggable enabled');
+        $("#scroll1").attr("src",scrollsinfo[constInFocus] || scrollsinfo['none']).css("opacity","1");
+        constInFocus = 'none';
+        //scrollContainer.attr("width","387px");//400px
+        //scrollContainer.attr("height","1334px");
+        //scrollContainer.css("top","0px");
+        //scrollContainer.css("left","0px");
+        //scrollContainer.attr("height","621px");
+        //$("#iphoneContent").css("overflow","hidden");//"auto"
+
 
         var scrollOffset = scrollContainer.offset();
         var scrollTop = scrollOffset.top;
@@ -176,18 +211,11 @@ function toggleTaurusScroll(){
 
         //alert([scrollLeft,scrollTop - (scrollHeight*2 - parentHeight)  ,scrollLeft + scrollWidth,scrollTop ,parentHeight,scrollHeight ]);
         // Multiplied by 2, not sure why but it does the trick?
-        scrollContainer.draggable("option",{containment : [scrollLeft,scrollTop - (scrollHeight*2 - parentHeight)  ,scrollLeft + scrollWidth,scrollTop  ]});
+        //scrollContainer.draggable("option",{containment : [scrollLeft,scrollTop - (scrollHeight*2 - parentHeight)  ,scrollLeft + scrollWidth,scrollTop  ]});
         //containment = [   upper limit on the upper part the upper part ]
        // scrollContainer.draggable({axis:"y",containment : [left,top - (height - pheight)  ,left + width,top  ]});//axis:"y",,containment:defineRectangleForScrolling(scrollContainer)
 
 
-    } else {
-        scrollModeOn = !scrollModeOn;
-        scrollContainer.draggable("disable");
-        scrollContainer.attr("src","./Pictures/IphoneLayer2/iphoneContentTransperent.png");
-        scrollContainer.css("top","0px");
-        scrollContainer.css("left","0px");
-        $("#phoneLayer").css("pointer-events","none")
     }
 }
 
@@ -205,6 +233,9 @@ function toggleIPhoneFrame(){
     beginning = true;
     }
     iphoneOn =!iphoneOn;
+}
 
-
+function clearBeginningScreen(){
+    $("#beginningScreen").addClass('invisible');
+    beginning =false;
 }

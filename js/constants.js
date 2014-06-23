@@ -26,6 +26,8 @@ var startDraggingTime = 0;
 var endDraggingTime = 0;
 var mapNegativeAcceleration = 900; // pixel/milisecond
 
+var scrollContainer;
+
 
 var iphoneOn = true; // Uses to toggle between the iphone with frames to the bare map
 var beginning = true; // used to display only at the beginning the welcome screen
