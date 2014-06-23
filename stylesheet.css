@@ -133,7 +133,30 @@ body { height: 100%;  width:100%;
     left: 0;
     pointer-events: auto;
     opacity: 0;
-    transition: "opacity" 0.2s ease;
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+.animatedConst{
+    animation-duration: 3s;
+    animation-name: moveConstToScroll;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes moveConstToScroll{
+    from{
+        top:2844px;
+        left:2184px;
+    }
+    to{
+        top:31px;
+        left:98px;
+        width: 367px;
+        height: 569px;
+
+    }
+
 }
 
 #beginningScreen {

@@ -107,20 +107,25 @@ function menuButtonPressedDown(pressedButton){
                     if(illustrationsOn){
                         //$("#mapIllustrations").css("opacity","0");
                         $(".transConstellations").css("opacity","0");
+                        $("#menuLeftButtonThird").attr("src","./Pictures/newiconsthreestates/drawings_icon.png");
                         if (!linesOn) $(".constTitles").css("opacity","0");
                     }else{
                         //$("#mapIllustrations").css("opacity","1");
                         $(".transConstellations").css( "opacity",constellationDefaultOpacity.toString() );
                         $(".constTitles").css( "opacity",constellationDefaultOpacity.toString() );
+                        $("#menuLeftButtonThird").attr("src","./Pictures/newiconsthreestates/drawings_inverse.png");
+
                     }
                     illustrationsOn=!illustrationsOn;
                     break;
                 case 'linesButton':
                     if(linesOn){
                         $("#mapLines").css("opacity","0");
+                        $("#menuLeftButtonSecond").attr("src","./Pictures/newiconsthreestates/const_icon.png");
                         if (!illustrationsOn) $(".constTitles").css("opacity","0");
                     }else{
                         $("#mapLines").css("opacity","1");
+                        $("#menuLeftButtonSecond").attr("src","./Pictures/newiconsthreestates/const_inverse.png");
                         $(".constTitles").css("opacity",constellationDefaultOpacity.toString());
                     }
                     linesOn=!linesOn;
@@ -188,6 +193,7 @@ function toggleTaurusScroll(){
         // Makes Info Button disapear
         toggleInfoButton();
         toggleLeftButtons('close');
+        $("#taurus").addClass("animatedConst");
         ContextMenu = 'scroll';
         scrollModeOn = true;
         $("#phoneLayer").css("pointer-events","auto");
@@ -238,4 +244,10 @@ function toggleIPhoneFrame(){
 function clearBeginningScreen(){
     $("#beginningScreen").addClass('invisible');
     beginning =false;
+}
+
+
+function createConstAnimation(obj){
+    obj
+
 }
