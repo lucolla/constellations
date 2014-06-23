@@ -143,6 +143,10 @@ function menuButtonPressedDown(pressedButton){
                     $("#scroll1").css("opacity","0");
                     $("#scroll2").css("opacity","0");
                     scrollContainer.css({top:0,left:0});
+
+                    $(".transConstellations").fadeTo(200,constellationDefaultOpacity);
+                    $('.constTitles').fadeTo(200,constellationDefaultOpacity);
+
                     //scrollContainer.attr("src","./Pictures/IphoneLayer2/iphoneContentTransperent.png");
                     //scrollContainer.css("top","0px");
                     //scrollContainer.css("left","0px");
@@ -201,7 +205,16 @@ function toggleTaurusScroll(){
         toggleInfoButton();
         toggleLeftButtons('close');
         //$("#taurus").addClass("animatedConst");
-        //createConstAnimation('#taurus');
+
+        if (constInFocus=='taurus') {
+            createConstAnimation('#taurus');
+            $("#" + constInFocus).css("z-index", "44");
+            $(".transConstellations").not("#" + constInFocus).fadeTo(100, 0);
+            $("#" + constInFocus).fadeTo(400, 1);
+            $(".constTitles").not("#" + constInFocus + '-title').fadeTo(100, 0);
+            //$("#"+constName+'-title').fadeTo(400,constellationPressedOpacity);
+        }
+
         ContextMenu = 'scroll';
         scrollModeOn = true;
         $("#phoneLayer").css("pointer-events","auto");
@@ -209,7 +222,9 @@ function toggleTaurusScroll(){
         scrollContainer.draggable("enable");
         console.log('scrollcontainer draggable enabled');
         if (typeof(scrollsinfo[constInFocus]) == "undefined") constInFocus = 'none';
-        $("#scroll1").attr("src",scrollsinfo[constInFocus][0]).css("opacity","1").delay(300);
+        $("#scroll1").attr("src",scrollsinfo[constInFocus][0]).css("opacity","1").delay(300); //
+
+        //if (constInFocus=='taurus') $("#taurus").resetKeyframe(function(){});
 
         //scrollContainer.attr("width","387px");//400px
         //scrollContainer.attr("height","1334px");
