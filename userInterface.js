@@ -108,7 +108,7 @@ function menuButtonPressedDown(pressedButton){
                         //$("#mapIllustrations").css("opacity","0");
                         $(".transConstellations").css("opacity","0");
                         $("#menuLeftButtonThird").attr("src","./Pictures/newiconsthreestates/drawings_icon.png");
-                        if (!linesOn) $(".constTitles").css("opacity","0");
+                        $(".constTitles").css("opacity","0");
                     }else{
                         //$("#mapIllustrations").css("opacity","1");
                         $(".transConstellations").css( "opacity",constellationDefaultOpacity.toString() );
@@ -122,11 +122,11 @@ function menuButtonPressedDown(pressedButton){
                     if(linesOn){
                         $("#mapLines").css("opacity","0");
                         $("#menuLeftButtonSecond").attr("src","./Pictures/newiconsthreestates/const_icon.png");
-                        if (!illustrationsOn) $(".constTitles").css("opacity","0");
+                        //if (!illustrationsOn) $(".constTitles").css("opacity","0");
                     }else{
                         $("#mapLines").css("opacity","1");
                         $("#menuLeftButtonSecond").attr("src","./Pictures/newiconsthreestates/const_inverse.png");
-                        $(".constTitles").css("opacity",constellationDefaultOpacity.toString());
+                        //$(".constTitles").css("opacity",constellationDefaultOpacity.toString());
                     }
                     linesOn=!linesOn;
                     break;
@@ -193,7 +193,8 @@ function toggleTaurusScroll(){
         // Makes Info Button disapear
         toggleInfoButton();
         toggleLeftButtons('close');
-        $("#taurus").addClass("animatedConst");
+        //$("#taurus").addClass("animatedConst");
+        //createConstAnimation('#taurus');
         ContextMenu = 'scroll';
         scrollModeOn = true;
         $("#phoneLayer").css("pointer-events","auto");
@@ -209,7 +210,9 @@ function toggleTaurusScroll(){
         //scrollContainer.attr("height","621px");
         //$("#iphoneContent").css("overflow","hidden");//"auto"
 
-
+        //var scrollHeight = $("#scroll1").css("height");
+        var scrollHeight = $("#scroll1").height();
+        console.log('Opening scroll, scroll height: '+scrollHeight.toString());
         var scrollOffset = scrollContainer.offset();
         var scrollTop = scrollOffset.top;
         var scrollLeft = scrollOffset.left;
@@ -217,7 +220,15 @@ function toggleTaurusScroll(){
 
         //alert([scrollLeft,scrollTop - (scrollHeight*2 - parentHeight)  ,scrollLeft + scrollWidth,scrollTop ,parentHeight,scrollHeight ]);
         // Multiplied by 2, not sure why but it does the trick?
-        //scrollContainer.draggable("option",{containment : [scrollLeft,scrollTop - (scrollHeight*2 - parentHeight)  ,scrollLeft + scrollWidth,scrollTop  ]});
+        //scrollContainer.draggable("option","containment","parent");
+
+        var rect = [scrollLeft,scrollTop -(scrollHeight-parentHeight)  ,scrollLeft + scrollWidth,scrollTop ]; //[scrollLeft,(scrollTop + parentHeight - scrollHeight ) ,scrollLeft + scrollWidth,scrollTop+Math.round(parentHeight/2)  ];
+
+        console.log([scrollLeft,scrollTop-parentHeight,scrollLeft + scrollWidth,scrollTop,scrollHeight  ].join());
+        console.log(parentHeight);
+        console.log(rect.join());
+        //scrollContainer.draggable("option",{containment : [scrollLeft,scrollTop -(scrollHeight - 681),scrollLeft + scrollWidth,scrollTop  ]});
+        scrollContainer.draggable("option",{containment :rect });
         //containment = [   upper limit on the upper part the upper part ]
        // scrollContainer.draggable({axis:"y",containment : [left,top - (height - pheight)  ,left + width,top  ]});//axis:"y",,containment:defineRectangleForScrolling(scrollContainer)
 
@@ -244,10 +255,4 @@ function toggleIPhoneFrame(){
 function clearBeginningScreen(){
     $("#beginningScreen").addClass('invisible');
     beginning =false;
-}
-
-
-function createConstAnimation(obj){
-    obj
-
 }

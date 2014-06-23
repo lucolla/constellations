@@ -125,7 +125,7 @@ body { height: 100%;  width:100%;
                         width: 387px ;
                         /* For making the draggable work in IE11: */
                         -ms-touch-action:none !important;
-    border:3px solid rgb(30,255,125);}
+    }/*border:3px solid rgb(30,255,125);*/
 
 .scrolls{
     position: absolute;
@@ -148,6 +148,9 @@ body { height: 100%;  width:100%;
     from{
         top:2844px;
         left:2184px;
+        width: 957px;
+        height: 756px;
+
     }
     to{
         top:31px;
