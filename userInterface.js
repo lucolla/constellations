@@ -72,11 +72,13 @@ function toggleLeftButtons(state){
     if (leftButtonsOpen || state == 'close') {
         $("#menuLeftButtonSecond").css("top", "24px");
         $("#menuLeftButtonThird").css("top", "24px");
+        leftButtonsOpen = false;
     }else{
         $("#menuLeftButtonSecond").css("top", "105px");
         $("#menuLeftButtonThird").css("top", "186px");
+        leftButtonsOpen = true;
     }
-    leftButtonsOpen = !leftButtonsOpen;
+
 }
 
 function menuButtonPressedDown(pressedButton){
@@ -110,26 +112,29 @@ function menuButtonPressedDown(pressedButton){
                         $(".transConstellations").css("opacity","0");
                         $("#menuLeftButtonThird").attr("src","./Pictures/newiconsthreestates/drawings_icon.png");
                         $(".constTitles").css("opacity","0");
+                        illustrationsOn=false;
                     }else{
                         //$("#mapIllustrations").css("opacity","1");
                         $(".transConstellations").css( "opacity",constellationDefaultOpacity.toString() );
                         $(".constTitles").css( "opacity",constellationDefaultOpacity.toString() );
                         $("#menuLeftButtonThird").attr("src","./Pictures/newiconsthreestates/drawings_inverse.png");
-
+                        illustrationsOn=true;
                     }
-                    illustrationsOn=!illustrationsOn;
+
                     break;
                 case 'linesButton':
                     if(linesOn){
                         $("#mapLines").css("opacity","0");
                         $("#menuLeftButtonSecond").attr("src","./Pictures/newiconsthreestates/const_icon.png");
                         //if (!illustrationsOn) $(".constTitles").css("opacity","0");
+                        linesOn=false;
                     }else{
                         $("#mapLines").css("opacity","1");
                         $("#menuLeftButtonSecond").attr("src","./Pictures/newiconsthreestates/const_inverse.png");
                         //$(".constTitles").css("opacity",constellationDefaultOpacity.toString());
+                        linesOn=true;
                     }
-                    linesOn=!linesOn;
+
                     break;
             }
             break;
@@ -141,12 +146,24 @@ function menuButtonPressedDown(pressedButton){
                     scrollModeOn = false;
                     scrollContainer.draggable("disable");
 
-                    $("#scroll1").css("opacity","0");
-                    $("#scroll2").css("opacity","0");
-                    scrollContainer.css({top:0,left:0});
 
-                    $(".transConstellations").fadeTo(200,constellationDefaultOpacity);
-                    $('.constTitles').fadeTo(200,constellationDefaultOpacity);
+                    /* // for animatioon case
+                    $("#scroll1").css("visibility","hidden");
+                    $("#scroll1").css("visibility","hidden");
+                    */
+                    if (scrollmode == 'scrollmenue'){
+                    $("#scroll1").fadeOut(1000);// css("opacity","0");
+                    $("#scroll2").fadeOut(400);//css("opacity","0");
+                    }else{
+                        $("#scroll1").fadeOut(400);// css("opacity","0");
+                        $("#scroll2").fadeOut(1000);//css("opacity","0");}
+                    }
+
+
+                    //scrollContainer.css({top:0,left:0});
+
+                    $(".transConstellations").fadeTo(400,constellationDefaultOpacity);
+                    $('.constTitles').fadeTo(400,constellationDefaultOpacity);
 
                     //scrollContainer.attr("src","./Pictures/IphoneLayer2/iphoneContentTransperent.png");
                     //scrollContainer.css("top","0px");
@@ -156,9 +173,19 @@ function menuButtonPressedDown(pressedButton){
                     console.log('been in starsbutton case under scroll context');
                     break;
                 case 'scrollMenu':
+                    //scrollContainer.addClass("topTransition");  //css("transition", "top 0.5s");
+                    $("#scroll1").fadeTo(300,0);
+                    $("#scroll2").attr("src",scrollsinfo['scrollsMenu'][0]).fadeTo(100,1);//  css("opacity","1");
                     scrollContainer.css({top:0,left:0});
-                    $("#scroll2").attr("src",scrollsinfo['scrollsMenu'][0]).css("opacity","1");
-                    $("#scroll1").css("opacity","0");
+
+                    window.setTimeout(function(){
+                        //scrollContainer.removeClass("topTransition");   //css("transition", "top 0s");
+
+                        //  css("opacity","0");
+                    },100);
+
+                    scrollmode ='scrollmenue';
+
 
 
 
@@ -206,12 +233,12 @@ function translateConstLoc(const1){
 
 function restoreAnimatedImg(){
     animaConstImg.css("opacity","0");
-
 }
 
 
 function toggleTaurusScroll(){
     console.log('toggle scroll: '+constInFocus);
+    scrollmode = 'onescroll'
     if( scrollModeOn == false ) {
         // Makes Info Button disapear
         toggleInfoButton();
@@ -219,37 +246,50 @@ function toggleTaurusScroll(){
         //$("#taurus").addClass("animatedConst");
         if (typeof(scrollsinfo[constInFocus]) == "undefined") constInFocus = 'taurus';
 
-        var ConstObj = $("#" + constInFocus);
 
-        //mapLocX = $("#map_canvas").css("left");
-        //mapLocY = $("#map_canvas").css("top");
+        if (false) {
+            var ConstObj = $("#" + constInFocus);
 
-        constLocY = ConstObj.offset().top;
-        constLocX = ConstObj.offset().left;
-        animaConstImg.attr("src",animationConstellationsJson[constInFocus].src);
-        animaConstImg.css("top",constLocY);
-        animaConstImg.css("left",constLocX);
-        animaConstImg.css("opacity","1");
-        ConstObj.css("opacity","0");
+            //mapLocX = $("#map_canvas").css("left");
+            //mapLocY = $("#map_canvas").css("top");
+
+            constLocY = ConstObj.offset().top;
+            constLocX = ConstObj.offset().left;
+            animaConstImg.attr("src", animationConstellationsJson[constInFocus].src);
+            animaConstImg.css("top", constLocY);
+            animaConstImg.css("left", constLocX);
+            animaConstImg.css("opacity", "1");
+            ConstObj.css("opacity", "0");
+            console.log('animaConst loc: left:'+constLocX+' top: '+constLocY);
 
 
-        $(".transConstellations").not("#" + constInFocus).fadeTo(100, 0);
+            createConstAnimation('.animateMe');
+            var temp =['.animateMe',constInFocus,//startWidth,startHeight,
+                animationConstellationsJson[constInFocus].endWidth,animationConstellationsJson[constInFocus].endHeight,
+                animationConstellationsJson[constInFocus].endLocationX,animationConstellationsJson[constInFocus].endLocationY].join();
+            console.log(temp);
+
+            createConstAnimation('.animateMe',constInFocus,//startWidth,startHeight,
+                animationConstellationsJson[constInFocus].endWidth,animationConstellationsJson[constInFocus].endHeight,
+                animationConstellationsJson[constInFocus].endLocationX,animationConstellationsJson[constInFocus].endLocationY);
+
+            var timeouID2 = window.setTimeout(restoreAnimatedImg,animationDuration+600);//
+            timeouID = window.setTimeout(function(){
+                $("#scroll1").attr("src",scrollsinfo[constInFocus][0]).css("opacity","1");
+                //
+            },300);//animationDuration-500
+            ConstObj.css("z-index", "44");
+        }
+        scrollContainer.css({top:0,left:0});
+        $(".transConstellations").fadeTo(100, 0);
+        //$(".transConstellations").not("#" + constInFocus).fadeTo(100, 0);
         //ConstObj.fadeTo(400, 1);
-        $(".constTitles").not("#" + constInFocus + '-title').fadeTo(100, 0);
+        $(".constTitles").fadeTo(100, 0);
+        //$(".constTitles").not("#" + constInFocus + '-title').fadeTo(100, 0);
+        $("#scroll1").attr("src",scrollsinfo[constInFocus][0]).fadeTo(1000, 1);//.css("opacity","1");
 
-        console.log('animaConst loc: left:'+constLocX+' top: '+constLocY);
 
-        createConstAnimation('.animateMe');
-        var temp =['.animateMe',constInFocus,//startWidth,startHeight,
-            animationConstellationsJson[constInFocus].endWidth,animationConstellationsJson[constInFocus].endHeight,
-            animationConstellationsJson[constInFocus].endLocationX,animationConstellationsJson[constInFocus].endLocationY].join();
-        console.log(temp);
-        createConstAnimation('.animateMe',constInFocus,//startWidth,startHeight,
-            animationConstellationsJson[constInFocus].endWidth,animationConstellationsJson[constInFocus].endHeight,
-            animationConstellationsJson[constInFocus].endLocationX,animationConstellationsJson[constInFocus].endLocationY);
 
-        timeouID = window.setTimeout(restoreAnimatedImg,animationDuration+200);//
-        ConstObj.css("z-index", "44");
 
         console.log('dimming enviroment');
         //$("#"+constName+'-title').fadeTo(400,constellationPressedOpacity);
@@ -262,7 +302,7 @@ function toggleTaurusScroll(){
         scrollContainer.draggable("enable");
         console.log('scrollcontainer draggable enabled');
 
-        $("#scroll1").attr("src",scrollsinfo[constInFocus][0]).css("opacity","1").delay(300); //
+        //$("#scroll1").attr("src",scrollsinfo[constInFocus][0]).fadeIn(400).delay(300); //delay(animationDuration+500).
 
         //if (constInFocus=='taurus') $("#taurus").resetKeyframe(function(){});
 

@@ -29,8 +29,8 @@ var mapNegativeAcceleration = 900; // pixel/milisecond
 var scrollContainer;
 var animaConstImg;
 var timeouID;
-var animationDuration = 3000;
-
+var animationDuration = 1000;
+var scrollmode= 'scrollmenue';
 
 var iphoneOn = true; // Uses to toggle between the iphone with frames to the bare map
 var beginning = true; // used to display only at the beginning the welcome screen
@@ -68,7 +68,7 @@ var buttonImages ={
         'onImagePressed':'null','offImagePressed':'null'}
 };
 
-var scrollsPath = './Pictures/Scrolls/theScrolls3/';
+var scrollsPath = './Pictures/Scrolls/theScrolls4/';
 
 var scrollsinfo = {
 

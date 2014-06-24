@@ -36,7 +36,7 @@ body { height: 100%;  width:100%;
 .invisible {visibility:hidden}
 
 #zoommable_map_canvas{
-    border:3px solid rgb(30,255,125);
+    /*border:3px solid rgb(30,255,125);*/
     transition: scale 0.5 ease;
 }
 
@@ -125,6 +125,7 @@ body { height: 100%;  width:100%;
                         width: 387px ;
                         /* For making the draggable work in IE11: */
                         -ms-touch-action:none !important;
+
     }/*border:3px solid rgb(30,255,125);*/
 
 .scrolls{
@@ -133,15 +134,20 @@ body { height: 100%;  width:100%;
     left: 0;
     pointer-events: auto;
     opacity: 0;
-    transition: opacity 1s ease-out;
+    /*visibility: hidden;*/
+    /*transition: opacity 1s ease; /*ease-in-out;*/
 }
 
+.topTransition {
+    transition: top 0.5s;
+}
 
 .animatedConst{
     animation-duration: 3s;
     animation-name: moveConstToScroll;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    transition: opacity 2s ease-in ;
 }
 
 @keyframes moveConstToScroll{
