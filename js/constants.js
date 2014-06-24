@@ -72,7 +72,7 @@ var scrollsinfo = {
     taurus:     [scrollsPath+'taurusScroll.jpg',1848],
     'hydra-cup-raven':  [scrollsPath+'ravenScroll.jpg',1560],
     'ursa-major': [scrollsPath+'ursa_majorScroll.jpg',2366],
-    'orion':[scrollsPath+'orionSroll.jpg',1910],
+    'orion':[scrollsPath+'orionScroll.jpg',1910],
     none: [scrollsPath+'taurusScroll.jpg',1848],
     cassiopeia:[scrollsPath+'cassiopeiaScroll.jpg',2274],
     'scrollsMenu':[scrollsPath+'tableOfContenents.jpg',1400]
