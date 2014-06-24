@@ -12,6 +12,9 @@ function initialize(){
     initializeTitleNames();
     initializeAnimationConst();
 
+    //For animation const
+    animaConstImg = $("#animatedConstImg");
+
     // Change src for base layers of map and constellations
     //======================================================
     var mapBaseVar = $("#mapBase");

@@ -129,6 +129,7 @@ function mapZooming(event){
         console.log('zooming something:'+ this.id);
         //this.style.transform='scale('+futureZoom.toString()+')';
         $(this).css({transform:'scale('+futureZoom.toString()+')'});//'transform-origin': 'center center',
+        $("#animatedConst").css({transform:'scale('+futureZoom.toString()+')'});
 
 
         //this.style.left = loc.left;

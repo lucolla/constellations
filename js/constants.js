@@ -27,6 +27,9 @@ var endDraggingTime = 0;
 var mapNegativeAcceleration = 900; // pixel/milisecond
 
 var scrollContainer;
+var animaConstImg;
+var timeouID;
+var animationDuration = 3000;
 
 
 var iphoneOn = true; // Uses to toggle between the iphone with frames to the bare map
@@ -35,7 +38,7 @@ var beginning = true; // used to display only at the beginning the welcome scree
 
 var constellationsArr = [];
 var titlesArr=[];
-var animationConstellationsArr=[];
+var animationConstellationsJson={};
 
 var buttonImages ={
     'menuLeftButtonThird':{
@@ -65,7 +68,7 @@ var buttonImages ={
         'onImagePressed':'null','offImagePressed':'null'}
 };
 
-var scrollsPath = './Pictures/Scrolls/thescrolls2/';
+var scrollsPath = './Pictures/Scrolls/theScrolls3/';
 
 var scrollsinfo = {
 

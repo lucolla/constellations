@@ -55,7 +55,7 @@ var constellationsArr = [
 
 var trsnsparentcConstellationsPath='./Pictures/const6/';
 var titlePath = './Pictures/alltitlesforthemap/';
-var animatioonConstPath='./Pictures/const6/animationsConst';
+var animatioonConstPath='./Pictures/const6/animationsConst/';
 
 function initializeConstellationsNames(){
 
@@ -65,7 +65,8 @@ function initializeConstellationsNames(){
             'const6__0002s_0002_leo-minor_1093-px_1871-px.png',
             'const6__0002s_0004_fornax_3631-px_3251-px.png',
             'const6__0002s_0005_columba_2576-px_3437-px.png',
-            'const6__0002s_0006_cetus_3727-px_2502-px.png',
+            //'const6__0002s_0006_cetus_3727-px_2502-px.png',
+            'const6__0001_0006_cetus_3742-px_2530-px.png',
 
 /*
             'const6__0002s_0008_pisces2_4135-px_2567-px.png',
@@ -144,11 +145,15 @@ function initializeAnimationConst() {
     for (var jj = 0; jj < animatioConstArr.length; jj++) {
         splitted = animatioConstArr[jj].split('_');
         item = [splitted[4], splitted[5].replace('-px', ''), splitted[6].replace('-px.png', ''), animatioConstArr[jj]]; //constName,xLeft,yTop,filePath,filename
-        animationConstellationsArr.push(item);
+        animationConstellationsJson[splitted[4]] = {src:animatioonConstPath+animatioConstArr[jj],left:splitted[5].replace('-px', ''),top:splitted[6].replace('-px.png', '')};
         console.log('loaded:' + item.join());
-
-
     }
+
+    animationConstellationsJson.taurus.endHeight = '268px';
+    animationConstellationsJson.taurus.endWidth = '339px';
+    animationConstellationsJson.taurus.endLocationX = (770+31).toString()+'px';
+    animationConstellationsJson.taurus.endLocationY = (204+98).toString()+'px';
+
 }
 
 

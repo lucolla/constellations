@@ -199,22 +199,61 @@ function toggleInfoButton(action){
 }
 
 
+function translateConstLoc(const1){
+    var const2 = 2;
+    return const1;
+}
+
+function restoreAnimatedImg(){
+    animaConstImg.css("opacity","0");
+
+}
+
+
 function toggleTaurusScroll(){
     console.log('toggle scroll: '+constInFocus);
-    if( !scrollModeOn ) {
+    if( scrollModeOn == false ) {
         // Makes Info Button disapear
         toggleInfoButton();
         toggleLeftButtons('close');
         //$("#taurus").addClass("animatedConst");
+        if (typeof(scrollsinfo[constInFocus]) == "undefined") constInFocus = 'taurus';
 
-        if (constInFocus=='taurus') {
-            createConstAnimation('#taurus');
-            $("#" + constInFocus).css("z-index", "44");
-            $(".transConstellations").not("#" + constInFocus).fadeTo(100, 0);
-            $("#" + constInFocus).fadeTo(400, 1);
-            $(".constTitles").not("#" + constInFocus + '-title').fadeTo(100, 0);
-            //$("#"+constName+'-title').fadeTo(400,constellationPressedOpacity);
-        }
+        var ConstObj = $("#" + constInFocus);
+
+        //mapLocX = $("#map_canvas").css("left");
+        //mapLocY = $("#map_canvas").css("top");
+
+        constLocY = ConstObj.offset().top;
+        constLocX = ConstObj.offset().left;
+        animaConstImg.attr("src",animationConstellationsJson[constInFocus].src);
+        animaConstImg.css("top",constLocY);
+        animaConstImg.css("left",constLocX);
+        animaConstImg.css("opacity","1");
+        ConstObj.css("opacity","0");
+
+
+        $(".transConstellations").not("#" + constInFocus).fadeTo(100, 0);
+        //ConstObj.fadeTo(400, 1);
+        $(".constTitles").not("#" + constInFocus + '-title').fadeTo(100, 0);
+
+        console.log('animaConst loc: left:'+constLocX+' top: '+constLocY);
+
+        createConstAnimation('.animateMe');
+        var temp =['.animateMe',constInFocus,//startWidth,startHeight,
+            animationConstellationsJson[constInFocus].endWidth,animationConstellationsJson[constInFocus].endHeight,
+            animationConstellationsJson[constInFocus].endLocationX,animationConstellationsJson[constInFocus].endLocationY].join();
+        console.log(temp);
+        createConstAnimation('.animateMe',constInFocus,//startWidth,startHeight,
+            animationConstellationsJson[constInFocus].endWidth,animationConstellationsJson[constInFocus].endHeight,
+            animationConstellationsJson[constInFocus].endLocationX,animationConstellationsJson[constInFocus].endLocationY);
+
+        timeouID = window.setTimeout(restoreAnimatedImg,animationDuration+200);//
+        ConstObj.css("z-index", "44");
+
+        console.log('dimming enviroment');
+        //$("#"+constName+'-title').fadeTo(400,constellationPressedOpacity);
+
 
         ContextMenu = 'scroll';
         scrollModeOn = true;
@@ -222,7 +261,7 @@ function toggleTaurusScroll(){
         $(".scrolls").css("pointer-events","auto");
         scrollContainer.draggable("enable");
         console.log('scrollcontainer draggable enabled');
-        if (typeof(scrollsinfo[constInFocus]) == "undefined") constInFocus = 'none';
+
         $("#scroll1").attr("src",scrollsinfo[constInFocus][0]).css("opacity","1").delay(300); //
 
         //if (constInFocus=='taurus') $("#taurus").resetKeyframe(function(){});
