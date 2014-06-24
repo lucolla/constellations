@@ -21,8 +21,8 @@ body { height: 100%;  width:100%;
 
 #map_canvas {
     position: absolute;
-    top: -2900px;   /*-2900px;*/
-    left: -2250px;     /**/
+    top: -2700px;   /*-2900px;*/
+    left: -2000px;     /*-2250px*/
     width:5800px;
     height:4591px;
     z-index:1;

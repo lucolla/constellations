@@ -35,6 +35,7 @@ var beginning = true; // used to display only at the beginning the welcome scree
 
 var constellationsArr = [];
 var titlesArr=[];
+var animationConstellationsArr=[];
 
 var buttonImages ={
     'menuLeftButtonThird':{
@@ -64,17 +65,17 @@ var buttonImages ={
         'onImagePressed':'null','offImagePressed':'null'}
 };
 
-var scrollsPath = './Pictures/Scrolls/thescrolls/';
+var scrollsPath = './Pictures/Scrolls/thescrolls2/';
 
 var scrollsinfo = {
 
     taurus:     [scrollsPath+'taurusScroll.jpg',1848],
-    'hydra-cup-raven':  [scrollsPath+'ravenScroll.jpg',1709],
-    'ursa-major': [scrollsPath+'ursa_majorScroll.jpg',2403],
+    'hydra-cup-raven':  [scrollsPath+'ravenScroll.jpg',1560],
+    'ursa-major': [scrollsPath+'ursa_majorScroll.jpg',2366],
     'orion':[scrollsPath+'orionSroll.jpg',1910],
     none: [scrollsPath+'taurusScroll.jpg',1848],
     cassiopeia:[scrollsPath+'cassiopeiaScroll.jpg',2274],
-    'scrollsMenu':['./Pictures/Screens/tableOfContentStories.jpg',1400]
+    'scrollsMenu':[scrollsPath+'tableOfContenents.jpg',1400]
 };
 
 

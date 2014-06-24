@@ -7,6 +7,7 @@
 function constellationPressed(constName){
 
     //alert(constName);
+    console.log('constellationPressed:'+constName);
     if(illustrationsOn && constName != constInFocus){
         //$("#mapIllustrations").fadeTo(100,0);
         $(".transConstellations").not("#"+constName).fadeTo(100,constellationDimOpacity);

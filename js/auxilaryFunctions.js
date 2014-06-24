@@ -107,16 +107,20 @@ function mapZooming(event){
         };
 
         if (futureZoom > currentZoom ){
-
+            console.log('Current location of zoomableMapCanvas before mooving: top: '+zoomableMapCanvas.css("top")+' left: '+zoomableMapCanvas.css("left"))
             zoomableMapCanvas.css("top", pixelize(tempBox.top - loc.top*2) );
             zoomableMapCanvas.css("left", pixelize( tempBox.left - loc.left*2) );
+            console.log('zoomning in and moving to: top:'+pixelize(tempBox.top - loc.top*2)+' left:'+pixelize( tempBox.left - loc.left*2));
+            console.log('Current location of zoomableMapCanvas : top: '+zoomableMapCanvas.css("top")+' left: '+zoomableMapCanvas.css("left"))
 
 
         }else{
 
-
+            console.log('Current location of zoomableMapCanvas before mooving: top: '+zoomableMapCanvas.css("top")+' left: '+zoomableMapCanvas.css("left"))
             zoomableMapCanvas.css("top", pixelize(tempBox.top + loc.top*2));
             zoomableMapCanvas.css("left", pixelize(tempBox.left - loc.left*2));
+            console.log('zoomning out and moving to: top:'+pixelize(tempBox.top + loc.top*2)+' left:'+pixelize( tempBox.left - loc.left*2));
+            console.log('Current location of zoomableMapCanvas : top: '+zoomableMapCanvas.css("top")+' left: '+zoomableMapCanvas.css("left"))
 
 
         }
@@ -125,6 +129,7 @@ function mapZooming(event){
         console.log('zooming something:'+ this.id);
         //this.style.transform='scale('+futureZoom.toString()+')';
         $(this).css({transform:'scale('+futureZoom.toString()+')'});//'transform-origin': 'center center',
+
 
         //this.style.left = loc.left;
         //this.style.top = loc.top;

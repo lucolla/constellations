@@ -10,13 +10,14 @@ function initialize(){
 
     initializeConstellationsNames();
     initializeTitleNames();
+    initializeAnimationConst();
 
     // Change src for base layers of map and constellations
     //======================================================
     var mapBaseVar = $("#mapBase");
     try {   mapBaseVar.attr("src", "./Pictures/Background/BackgroundNew/printedSky.png");                               }catch(e){ alert('Error: '+ e.description); }
     //try {   $("#mapIllustrations").attr("src", "./Pictures/Background/BackgroundNew/consttellationsIllustrations.png"); }catch(e){ alert('Error: '+ e.description); }
-    try {   $("#mapLines").attr("src", "./Pictures/Background/BackgroundNew/only_lines3.png");                  }catch(e){ alert('Error: '+ e.description); }
+    try {   $("#mapLines").attr("src", "./Pictures/Background/BackgroundNew/only_lines4.png");                  }catch(e){ alert('Error: '+ e.description); }
     try {   $("#mapStars").attr("src", "./Pictures/Background/BackgroundNew/constellationStarsNew.png");                   }catch(e){ alert('Error: '+ e.description); }
 
     mapBaseVar.attr("usemap","#areaMapping");
@@ -31,14 +32,16 @@ function initialize(){
     function addTransparentConstellation(className,constName,xLeft,yTop,filePath,filename){ //width,height,
         $("#mapConstellationsContainer").append('<img id="'+constName+'" class="'+className+'" src="'+filePath+filename+'" style="position:absolute; top:'+yTop+'px; left:'+xLeft+'px; "/>');// width:'+width+'px; height:'+height+'px
     }
-
-    try { for (var jj = 0; jj < constellationsArr.length; jj++) {
-        addTransparentConstellation('transConstellations',constellationsArr[jj][0], constellationsArr[jj][1], constellationsArr[jj][2], trsnsparentcConstellationsPath,constellationsArr[jj][3]);}//constName,xLeft,yTop,filePath,filename
-    }catch(e){alert('Error in addTransparentConstellation:'+ e.description)}
-
-    try { for (var jj = 0; jj < constellationsArr.length; jj++) {
-        addTransparentConstellation('constTitles',titlesArr[jj][0], titlesArr[jj][1], titlesArr[jj][2], titlePath,titlesArr[jj][3]);}//constName,xLeft,yTop,filePath,filename
-    }catch(e){alert('Error in addTransparentConstellation:'+ e.description)}
+    for (var jj = 0; jj < constellationsArr.length; jj++) {
+        try {
+            addTransparentConstellation('transConstellations', constellationsArr[jj][0], constellationsArr[jj][1], constellationsArr[jj][2], trsnsparentcConstellationsPath, constellationsArr[jj][3]); //constName,xLeft,yTop,filePath,filename
+        } catch (e) {alert('Error in addTransparentConstellation(consts6): ' + constellationsArr[jj][0] + ' ' + e.description)}
+    }
+    for (var jj = 0; jj < titlesArr.length; jj++) {
+        try {
+            addTransparentConstellation('constTitles',titlesArr[jj][0], titlesArr[jj][1], titlesArr[jj][2], titlePath,titlesArr[jj][3]);//constName,xLeft,yTop,filePath,filename
+        }catch(e){alert('Error in addTransparentConstellation(titles):'+titlesArr[jj][1]+' '+ e.description)}
+    }
 
 
     // Define the img that holds the scroll as draggable
