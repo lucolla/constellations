@@ -83,6 +83,11 @@ function toggleLeftButtons(state){
 
 function moveToStory(story){
     scrollContainer.draggable("disable");
+    if (story == 'cassiopeia' ) {
+        $("#scroll1").attr("usemap","#cassiopieaMapping");
+    }else{
+        if($("#scroll1").attr("usemap")  == '#cassiopieaMapping') $("#scroll1").removeAttr("usemap");
+    }
 
     $("#scroll2").addClass("clickMe");
     $("#scroll2").fadeTo(300,0);
@@ -231,10 +236,18 @@ function menuButtonPressedDown(pressedButton){
 
             break;
         case 'stories':
-            alert('stories stae');
+            alert('stories state');
             break;
     }
 }
+
+
+
+function moveToConst(constname){
+    console.log(constname);
+    //alert(constname);
+}
+
 
 function toggleInfoButton(action){
     var infoButtonObj = $("#menuInfoButton");
@@ -314,6 +327,7 @@ function toggleTaurusScroll(){
         $(".constTitles").fadeTo(100, 0);
         //$(".constTitles").not("#" + constInFocus + '-title').fadeTo(100, 0);
         $("#scroll1").attr("src",scrollsinfo[constInFocus][0]).fadeTo(1000, 1);//.css("opacity","1");
+        if (constInFocus == 'cassiopeia' ) $("#scroll1").attr("usemap","#cassiopieaMapping");
 
 
 
