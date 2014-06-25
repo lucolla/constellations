@@ -77,7 +77,7 @@ var scrollsinfo = {
     'ursa-major': [scrollsPath+'ursa_majorScroll.jpg',2366],
     'orion':[scrollsPath+'orionScroll.jpg',1910],
     none: [scrollsPath+'taurusScroll.jpg',1848],
-    cassiopeia:[scrollsPath+'cassiopeiaScroll.jpg',2274],
+    cassiopeia:[scrollsPath+'cassiopeiaScroll6.jpg',2274],
     'scrollsMenu':[scrollsPath+'tableOfContenents.jpg',1400]
 };
 

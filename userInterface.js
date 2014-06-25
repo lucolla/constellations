@@ -81,6 +81,28 @@ function toggleLeftButtons(state){
 
 }
 
+function moveToStory(story){
+    scrollContainer.draggable("disable");
+
+    $("#scroll2").addClass("clickMe");
+    $("#scroll2").fadeTo(300,0);
+    $("#scroll1").attr("src",scrollsinfo[story][0]).fadeTo(100,1);//  css("opacity","1");
+    scrollContainer.css({top:0,left:0});
+    scrollmode = 'onescroll';
+    var scrollHeight = scrollsinfo[story][1];
+    var scrollOffset = scrollContainer.offset();
+    var scrollTop = scrollOffset.top;
+    var scrollLeft = scrollOffset.left;
+    var scrollWidth = 387;
+    var parentHeight = scrollContainer.parent().height();
+    scrollContainer.draggable("enable");
+    var rect = [scrollLeft,scrollTop -(scrollHeight-parentHeight)  ,scrollLeft + scrollWidth,scrollTop ]; //[scrollLeft,(scrollTop + parentHeight - scrollHeight ) ,scrollLeft + scrollWidth,scrollTop+Math.round(parentHeight/2)  ];
+    scrollContainer.draggable("option","containment",rect );
+
+}
+
+
+
 function menuButtonPressedDown(pressedButton){
     switch (ContextMenu){
         case 'stars':
@@ -145,6 +167,8 @@ function menuButtonPressedDown(pressedButton){
                     //alert('scroll stae');
                     scrollModeOn = false;
                     scrollContainer.draggable("disable");
+                    $("#menuMiddleButton").css("visibility","visible");
+                    $("#menuRightButton").attr("src","./Pictures/newiconsthreestates/search_icon.png");
 
 
                     /* // for animatioon case
@@ -173,6 +197,7 @@ function menuButtonPressedDown(pressedButton){
                     console.log('been in starsbutton case under scroll context');
                     break;
                 case 'scrollMenu':
+                    $("#scroll2").removeClass("clickMe");
                     //scrollContainer.addClass("topTransition");  //css("transition", "top 0.5s");
                     $("#scroll1").fadeTo(300,0);
                     $("#scroll2").attr("src",scrollsinfo['scrollsMenu'][0]).fadeTo(100,1);//  css("opacity","1");
@@ -238,7 +263,9 @@ function restoreAnimatedImg(){
 
 function toggleTaurusScroll(){
     console.log('toggle scroll: '+constInFocus);
-    scrollmode = 'onescroll'
+    $("#menuMiddleButton").css("visibility","hidden");
+    $("#menuRightButton").attr("src","./Pictures/newiconsthreestates/story_icon.png");
+    scrollmode = 'onescroll';
     if( scrollModeOn == false ) {
         // Makes Info Button disapear
         toggleInfoButton();
